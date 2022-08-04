@@ -6,8 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>YardSale: Tienda online</title>
         <link rel="stylesheet" href="../CSS/main.css">
-        <link rel="stylesheet" href="../CSS/tablets.css" media="screen and (min-width: 810px">
-        <link rel="stylesheet" href="../CSS/desktop.css" media="screen and (min-width: 1200px">
+        <!-- <link rel="stylesheet" href="../CSS/tablets.css" media="screen and (min-width: 810px">
+        <link rel="stylesheet" href="../CSS/desktop.css" media="screen and (min-width: 1200px"> -->
         <link rel="preconnect" href="https://fonts.googleapis.com"> 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
@@ -16,7 +16,6 @@
     <body>
         <nav class="navbar">
             <img src="../Assets/icons/icon_menu.svg" alt="Menu" class="navbar__menu-icon">
-
             <div class="navbar__left-group">
                 <img src="../Assets/logos/logo_yard_sale.svg" alt="Logo" class="yardsale-logo">
                 <ul>
@@ -40,7 +39,6 @@
                     </li>
                 </ul>
             </div>
-
             <div class="navbar__right-group">
                 <ul>
                     <li>
@@ -51,6 +49,36 @@
                         <img src="../Assets/icons/icon_shopping_cart.svg" alt="Shopping cart">
                     </li>
                 </ul>
+            </div>
+
+            <div class="mobile-menu inactive">
+                <div class="mobile-menu__categories">
+                    <p>CATEGORIES</p>
+                    <ul>
+                        <li>
+                            <a href="/">All</a>
+                        </li>
+                        <li>
+                            <a href="/">Clothes</a>
+                        </li>
+                        <li>
+                            <a href="/">Electronics</a>
+                        </li>
+                        <li>
+                            <a href="/">Furnitures</a>
+                        </li>
+                        <li>
+                            <a href="/">Toys</a>
+                        </li>
+                        <li>
+                            <a href="/">Others</a>
+                        </li>
+                    </ul>
+                    <p></p>
+                </div>
+                <div class="mobile-menu__login">
+                    <a href="./login.html" class="login">log in</a>
+                </div>
             </div>
         </nav>
         <script src="../JS/main.js"></script>

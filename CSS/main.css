@@ -12,7 +12,7 @@
 
 /*-------------------------INDEX.HTML-------------------------*/
 /*.......................... General .........................*/
-:root{
+:root {
     --very-light-pink: #C7C7C7;
     --white: #FFFFFF;
     --black: #000000;
@@ -27,7 +27,7 @@
     padding: 0;
     box-sizing: border-box;
 }
-body{
+body {
     font-family: 'Quicksand', sans-serif;
 }
 .inactive{
@@ -49,7 +49,7 @@ body{
     display: flex;
     align-items: center;
 }
-.yardsale-logo{        
+.yardsale-logo {        
     position: absolute;
     left: calc(50% - 60px);
     top: calc(30px - 12.5px);
@@ -65,7 +65,7 @@ body{
     height: 60px;
     list-style: none;
 }
-.navbar__left-group ul{
+.navbar__left-group ul {
     display: none;
 }
 .navbar__left-group ul li a {
@@ -81,7 +81,8 @@ body{
     font-weight: bold;
     color: var(--hospital-green);
 }
-.navbar__right-group ul li a{
+.navbar__right-group ul li a {
+    display: none;
     margin-right: 12px;
     padding: 8px;
     font-size: var(--md);
@@ -90,12 +91,12 @@ body{
     text-decoration: none;
     cursor: pointer;
 }
-.navbar__right-group ul li a:hover{
+.navbar__right-group ul li a:hover {
     border-radius: 8px;
     color: var(--white);
     background-color: var(--hospital-green);
 }
-.navbar-user{
+.navbar-user {
     margin-right: 12px;
     font-size: var(--sm);
     color: var(--very-light-pink);
@@ -104,4 +105,47 @@ body{
 .navbar-shopping-cart{
     position: relative;
     cursor: pointer;
+}
+
+/*........................ Mobile Menu .......................*/
+.mobile-menu {
+    position: absolute;
+    top: 60px;
+    left: 0px;
+    margin: 0;
+    border: 1px solid var(--very-light-pink);
+    border-radius: 0 0 16px 16px;
+    padding: 20px;
+    height: auto;
+    width: 100%;
+    background-color: var(--white);
+}
+.mobile-menu ul {
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    margin: 0;
+    text-align: start;
+    list-style: none;
+}
+.mobile-menu a {
+    display: inline-block;
+    margin: 8px 0 8px 20px;
+    font-size: var(--md);
+    color: var(--black);
+    text-decoration: none;
+}
+.mobile-menu__categories p {
+    border-bottom: 1px solid var(--very-light-pink);
+}
+.mobile-menu__categories a:hover {
+    border-bottom: 1px solid var(--very-light-pink);
+    font-weight: bold;
+}
+.mobile-menu__login a {
+    color: var(--hospital-green);
+}
+.mobile-menu__login a:hover {
+    border-bottom: 1px solid var(--hospital-green);
+    font-weight: bold;
 }
