@@ -1,5 +1,5 @@
 let URLactual = window.location;
-alert(URLactual);
+// alert(URLactual);
 
 if(URLactual == 'http://127.0.0.1:5500/HTML/index.html') {
     const menuIcon = document.querySelector('.navbar__menu-icon');
