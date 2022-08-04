@@ -152,6 +152,58 @@ body {
     font-weight: bold;
 }
 
+/*....................... Product list .......................*/
+.cards-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 140px);
+    place-content: center;
+    padding: 24px 8px;
+    gap: 26px;
+}
+.product-card{
+    cursor: pointer;
+}
+.product-info{
+    display: grid;
+    grid-template:
+    "image image" 140px 
+    "price cart" 25px
+    "name cart" 25px
+    / 80px 60px;
+    place-content: center;
+}
+.product-info__img{
+    grid-area: image;
+    border-radius: 20px;
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+}
+.product-info__img:hover{
+    border: 5px solid var(--hospital-green);
+    border-radius: 20px;
+}
+.product-info__price {
+    grid-area: price;
+    align-self: center;
+    padding-left: 8px;
+    font-size: var(--md);
+    font-weight: bold;
+}
+.product-info__name {
+    grid-area: name;
+    align-self: center;
+    padding-left: 8px;
+    font-size: var(--sm);
+    color: var(--very-light-pink);
+}
+.add-to-cart{
+    grid-area: cart;
+    place-self: center;
+    width: 35px;
+    height: 35px;
+} 
+
 
 
 /*-------------------------LOGIN.HTML-------------------------*/
