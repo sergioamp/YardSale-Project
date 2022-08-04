@@ -1,7 +1,6 @@
-let URLactual = window.location;
-// alert(URLactual);
+let URLactual = window.location.href;
 
-if(URLactual == 'http://127.0.0.1:5500/HTML/index.html') {
+if(URLactual.endsWith('index.html')) {
     const menuIcon = document.querySelector('.navbar__menu-icon');
     const mobileMenu = document.querySelector('.mobile-menu');
     const cardsContainer = document.querySelector('.cards-container');
@@ -90,6 +89,6 @@ if(URLactual == 'http://127.0.0.1:5500/HTML/index.html') {
     renderProducts(productList);
 
 }
-if(URLactual == 'http://127.0.0.1:5500/HTML/login.html') {
+if(URLactual.endsWith('login.html')) {
 
 }
