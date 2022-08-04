@@ -1,0 +1,107 @@
+/*
+    1) Posicionamiento
+    2) Modelo de caja
+        -Margin
+        -Border
+        -Padding
+        -Content
+    3) Tipografía
+    4) Visaules
+    5) Otros
+*/
+
+/*-------------------------INDEX.HTML-------------------------*/
+/*.......................... General .........................*/
+:root{
+    --very-light-pink: #C7C7C7;
+    --white: #FFFFFF;
+    --black: #000000;
+    --hospital-green: #ACD9B2;
+    --text-input-field: #F7F7F7;
+    --sm: 14px;
+    --md: 16px;
+    --lg: 18px
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Quicksand', sans-serif;
+}
+.inactive{
+    display: none;
+}
+
+/*.......................... Navbar ..........................*/
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1.5px solid var(--very-light-pink);
+    padding: 0 24px;
+}
+.navbar__menu-icon {
+    cursor: pointer;
+}
+.navbar__left-group, 
+.navbar__right-group {
+    display: flex;
+    align-items: center;
+}
+.yardsale-logo{        
+    position: absolute;
+    left: calc(50% - 60px);
+    top: calc(30px - 12.5px);
+    width: 120px;
+    height: 25px;
+}
+.navbar__left-group ul, 
+.navbar__right-group ul {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    height: 60px;
+    list-style: none;
+}
+.navbar__left-group ul{
+    display: none;
+}
+.navbar__left-group ul li a {
+    border: 4px solid var(--white);
+    border-radius: 8px;   
+    padding: 8px;
+    color: var(--very-light-pink);
+    text-decoration: none;
+    cursor: pointer;
+}
+.navbar__left-group ul li a:hover {
+    border: 1px solid var(--hospital-green);
+    font-weight: bold;
+    color: var(--hospital-green);
+}
+.navbar__right-group ul li a{
+    margin-right: 12px;
+    padding: 8px;
+    font-size: var(--md);
+    font-weight: bold;
+    color: var(--hospital-green);
+    text-decoration: none;
+    cursor: pointer;
+}
+.navbar__right-group ul li a:hover{
+    border-radius: 8px;
+    color: var(--white);
+    background-color: var(--hospital-green);
+}
+.navbar-user{
+    margin-right: 12px;
+    font-size: var(--sm);
+    color: var(--very-light-pink);
+    cursor: pointer;
+}
+.navbar-shopping-cart{
+    position: relative;
+    cursor: pointer;
+}
