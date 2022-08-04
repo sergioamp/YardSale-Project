@@ -110,7 +110,8 @@ body {
 }
 
 /*........................ Mobile Menu .......................*/
-.mobile-menu {
+.mobile-menu,
+.mobile-menu_logged {
     position: absolute;
     top: 60px;
     left: 0px;
@@ -122,7 +123,8 @@ body {
     width: 100%;
     background-color: var(--white);
 }
-.mobile-menu ul {
+.mobile-menu ul, 
+.mobile-menu_logged ul{
     display: flex;
     flex-direction: column;
     justify-content:space-between;
@@ -130,7 +132,8 @@ body {
     text-align: start;
     list-style: none;
 }
-.mobile-menu a {
+.mobile-menu a, 
+.mobile-menu_logged a {
     display: inline-block;
     margin: 8px 0 8px 20px;
     font-size: var(--md);
@@ -140,16 +143,23 @@ body {
 .mobile-menu__categories p {
     border-bottom: 1px solid var(--very-light-pink);
 }
-.mobile-menu__categories a:hover {
+.mobile-menu__categories a:hover, 
+.mobile-menu__user a:hover {
     border-bottom: 1px solid var(--very-light-pink);
     font-weight: bold;
 }
-.mobile-menu__login a {
+.mobile-menu__login a, 
+.mobile-menu__sign-out a.sign-out{
     color: var(--hospital-green);
 }
-.mobile-menu__login a:hover {
+.mobile-menu__login a:hover, 
+.mobile-menu__sign-out a.sign-out:hover {
     border-bottom: 1px solid var(--hospital-green);
     font-weight: bold;
+}
+.mobile-menu__user a.email {
+    color: var(--very-light-pink);
+    font-size: var(--sm);
 }
 
 /*....................... Product list .......................*/
