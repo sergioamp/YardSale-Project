@@ -1,6 +1,8 @@
 let URLactual = window.location.href;
 
-if(URLactual.endsWith('index.html')) {
+
+function whenIndexPage(){
+    
     const menuIcon = document.querySelector('.navbar__menu-icon');
     const mobileMenu = document.querySelector('.mobile-menu');
     const cardsContainer = document.querySelector('.cards-container');
@@ -88,7 +90,12 @@ if(URLactual.endsWith('index.html')) {
     }
     renderProducts(productList);
 
-}
-if(URLactual.endsWith('login.html')) {
 
 }
+
+
+function whenLoginPage(){
+    console.log("esto carga sobre login");
+}
+
+
