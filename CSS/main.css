@@ -247,13 +247,9 @@ body {
     font-size: var(--md);
     background-color: var(--text-input-field);
 }
-.login-button {
+.login-button{
     justify-self: center;
     margin-top: 36px;
-    margin-bottom: 12px;
-    border: none;
-}
-.login-button a {
     border-radius: 8px;
     padding: 12px 52px;
     font-size: var(--md);
