@@ -13,7 +13,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
     </head>
 
-    <body>
+    <body onload="whenIndexPage()">
         <nav class="navbar">
             <img src="../Assets/icons/icon_menu.svg" alt="Menu" class="navbar__menu-icon">
             <div class="navbar__left-group">
@@ -42,8 +42,7 @@
             <div class="navbar__right-group">
                 <ul>
                     <li>
-                        <a href="./login.html" class="login">log in</a>
-                        <a class="navbar-user inactive">Sergio.m.papagayo@gmail.com</a>
+                        <a class="navbar-user" id="emailText">quien eres?</a>
                     </li>
                     <li class="navbar-shopping-cart">
                         <img src="../Assets/icons/icon_shopping_cart.svg" alt="Shopping cart">

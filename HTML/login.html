@@ -8,12 +8,12 @@
         <link rel="stylesheet" href="../CSS/main.css">
         <!-- <link rel="stylesheet" href="../CSS/tablets.css" media="screen and (min-width: 810px">
         <link rel="stylesheet" href="../CSS/desktop.css" media="screen and (min-width: 1200px"> -->
-        <link rel="preconnect" href="https://fonts.googleapis.com"> 
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
     </head>
 
-    <body>
+    <body onload="whenLoginPage()">
         <nav class="navbar">
             <a href="./index.html">
                 <img src="../Assets/logos/logo_yard_sale.svg" alt="Logo" class="yardsale-logo home-button" href="./index.html">
@@ -23,12 +23,14 @@
         <main class="login-container">
             <form action="/" class="login-form">
                 <label for="email" class="login-form__label">Email address</label>
-                <input type="text" placeholder="youremail@example.com" class="login-form__input input__email">
+                <input id="email" type="text" placeholder="youremail@example.com"  class="login-form__input input__email">
 
                 <label for="password" class="login-form__label">Password</label>
                 <input type="password" placeholder="********" class="login-form__input input__password">
 
-                <a href="./index.html" class="login-button">Log in</a>
+                <button type="button" class="login-button" onclick="redirectIndex()">
+                    <a>Log in</a>
+                </button>
                 <a href="/" class="forgot-password">Forgot my password</a>
             </form>
             <button class="secondary-button singup-button">Sing up</button>
