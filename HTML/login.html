@@ -23,14 +23,13 @@
         <main class="login-container">
             <form action="/" class="login-form">
                 <label for="email" class="login-form__label">Email address</label>
-                <input type="text" placeholder="youremail@example.com" class="login-form__input input__email">
+                <input id="email" type="text" placeholder="youremail@example.com"  class="login-form__input input__email">
 
                 <label for="password" class="login-form__label">Password</label>
                 <input type="password" placeholder="********" class="login-form__input input__password">
 
-                <button type="button" class="login-button">
-                    <!-- <a href="./index.html">Log in</a> -->
-                    Log in
+                <button type="button" class="login-button" onclick="redirectIndex()">
+                    <a>Log in</a> 
                 </button>
                 <a href="/" class="forgot-password">Forgot my password</a>
             </form>

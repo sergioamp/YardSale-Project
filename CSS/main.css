@@ -84,7 +84,7 @@ body {
     color: var(--hospital-green);
 }
 .navbar__right-group ul li a {
-    display: none;
+    
     margin-right: 12px;
     padding: 8px;
     font-size: var(--md);

@@ -1,8 +1,6 @@
-let URLactual = window.location.href;
-
-
 function whenIndexPage(){
-    
+    checkParameters();
+
     const menuIcon = document.querySelector('.navbar__menu-icon');
     const mobileMenu = document.querySelector('.mobile-menu');
     const cardsContainer = document.querySelector('.cards-container');
@@ -89,13 +87,25 @@ function whenIndexPage(){
         }
     }
     renderProducts(productList);
-
-
 }
-
 
 function whenLoginPage(){
     console.log("esto carga sobre login");
 }
 
+function redirectIndex(){
+    const email = document.querySelector('#email').value;
+    console.log(email);
+    window.location.href="./index.html?email="+email;
+}
 
+function checkParameters(){
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const userEmail = urlParams.get("email");
+    if(userEmail!== undefined){
+        const emailLbl = document.querySelector('#emailText');
+        emailLbl.text = userEmail
+    }
+    
+}
