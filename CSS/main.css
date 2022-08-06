@@ -15,13 +15,13 @@
 :root {
   --hospital-green: #ACD9B2;
   --text: #232323;
-  --light-green: #CCE8CF;
+  --light-green: #E8FFDC;
   --green: #8ACC93;
   --dark-green: #26612e;
   --very-light-pink: #C7C7C7;
   --white: #FFFFFF;
   --black: #000000;
-  --text-input-field: #F7F7F7;
+  --input-field: #F7F7F7;
   --sm: 14px;
   --md: 16px;
   --lg: 18px
@@ -216,18 +216,23 @@
   height: 35px;
 }
 
-/*...................... Product Detail ......................*/
-.product-detail {
+/*........................... Aside ..........................*/
+aside {
   position: absolute;
   top: 60px;
   right: 0;
+  width: 100vw;
+  height: 100%;
+  background-color: var(--white);
+}
+/*...................... Product Detail ......................*/
+#product-detail {
+  position: absolute;
   border: 1px solid var(--very-light-pink);
   border-radius: 0 0 16px 16px;
   padding-bottom: 24px;
   width: 100%;
-  background-color: var(--white);
 }
-
 .product-detail-info {
   display: grid;
   grid-template-rows: repeat(4, auto);
@@ -315,6 +320,66 @@
   width: 160px;
 }
 
+/*..................... My Account info ......................*/
+/
+.my-account {
+  position: absolute;
+  top: -100vh;
+  border: 1px solid var(--very-light-pink);
+  border-radius: 0 0 16px 16px;
+  padding-bottom: 24px;
+  width: 100%;
+  height: 100%;
+  background-color: var(--white);
+}
+.info-container {
+  display: grid;
+  place-content: center;
+  margin-top: 60px;
+  grid-template-rows: auto 1fr auto;
+  width: 100%;
+}
+.info-container__title {
+  margin: 4px 4px 32px 4px;
+  font-size: var(--lg);
+  text-align: start;
+}
+.info-form {
+  display: grid;
+  padding-left: 12px;
+}
+.info-form__label {
+  margin-bottom: 4px;
+  font-size: var(--md);
+  font-weight: bold;
+}
+.info-form__value {
+  margin-bottom: 4px;
+  height: 30px;
+  width: 300px;
+  font-size: var(--md);
+  color: var(--very-light-pink);
+}
+.info-container__button {
+  place-self: center;
+  width: 150px;
+  height: 40px;
+}
+.info-form__input{
+  margin-bottom: 12px;
+  border: none;
+  border-radius: 8px;
+  padding: 6px;
+  height: 30px;
+  width: 300px;
+  font-size: var(--md);
+  outline: none;
+  background-color: var(--input-field);
+}
+.info-form__input:focus {
+  background-color: var(--light-green);
+  box-shadow:0 1px 6px rgba(32,33,36,.28);
+}
 
 
 /*-------------------------LOGIN.HTML-------------------------*/
@@ -346,7 +411,7 @@
   height: 30px;
   width: 280px;
   font-size: var(--md);
-  background-color: var(--text-input-field);
+  background-color: var(--input-field);
 }
 .login-button{
   justify-self: center;
@@ -393,7 +458,10 @@
   cursor: pointer;
 }
 .secondary-button:hover {
-  border: none;
+  border-top: 1px solid var(--text);
+  border-left: 1px solid var(--text);
+  border-right: 1px solid var(--text);
+  border-bottom: 2px solid var(--text);
   color: var(--text);
   background-color: var(--light-green);
 }

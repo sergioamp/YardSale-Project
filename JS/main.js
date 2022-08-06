@@ -1,9 +1,13 @@
 const menuIcon = document.querySelector('.navbar__menu-icon');
+const cartIcon = document.querySelector('.navbar-shopping-cart');
 const mobileMenu = document.querySelector('.mobile-menu');
 const mobileMenuLogged = document.querySelector('.mobile-menu_logged');
 const signOutButton = document.querySelector('.sign-out');
-const productDetail = document.querySelector('.product-detail');
+const aside = document.querySelector('.aside');
+const productDetail = document.querySelector('#product-detail');
 const closeProductDatail = document.querySelector('.product-detail_close');
+const myAccount = document.querySelector('.my-account');
+const editMyAccount = document.querySelector('.edit-my-account');
 let isUserLoggedIn = 0;
 isUserLoggedIn = checkParameters();
 
@@ -35,6 +39,31 @@ function toggleMobileMenu() {
   }
 }
 
+function openMyAccount() {
+  closeAll();
+  menuIcon.classList.add('inactive');
+  cartIcon.classList.add('inactive');
+  aside.classList.remove('inactive');
+  myAccount.classList.remove('inactive');
+}
+
+function openEditWindow() {
+  myAccount.classList.add('inactive');
+  editMyAccount.classList.remove('inactive');
+}
+
+function closeEditWindow() {
+  myAccount.classList.remove('inactive');
+  editMyAccount.classList.add('inactive');
+}
+
+function goToHome() {
+  menuIcon.classList.remove('inactive');
+  cartIcon.classList.remove('inactive');
+  aside.classList.add('inactive');
+  myAccount.classList.add('inactive');
+}
+
 function signOut() {
   isUserLoggedIn = false;
   mobileMenuLogged.classList.add('inactive');
@@ -43,6 +72,7 @@ function signOut() {
 
 function openProductDetail() {
   closeAll();
+  aside.classList.remove('inactive');
   productDetail.classList.remove('inactive');
 }
 
@@ -50,6 +80,7 @@ function closeAll() {
   mobileMenuLogged.classList.add('inactive');
   mobileMenu.classList.add('inactive');
   productDetail.classList.add('inactive');
+  aside.classList.add('inactive');
 }
 
 function redirectIndex() {
