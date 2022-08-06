@@ -1,41 +1,55 @@
-var isUserLoggedIn = 0;
+const menuIcon = document.querySelector('.navbar__menu-icon');
+const mobileMenu = document.querySelector('.mobile-menu');
+const mobileMenuLogged = document.querySelector('.mobile-menu_logged');
+const signOutButton = document.querySelector('.sign-out');
+const productDetail = document.querySelector('.product-detail');
+const closeProductDatail = document.querySelector('.product-detail_close');
+let isUserLoggedIn = 0;
 isUserLoggedIn = checkParameters();
 
 function whenIndexPage() {
-
-  const menuIcon = document.querySelector('.navbar__menu-icon');
-  const mobileMenu = document.querySelector('.mobile-menu');
-  const mobileMenuLogged = document.querySelector('.mobile-menu_logged');
-  const signOutButton = document.querySelector('.sign-out');
-
   renderProducts(createProducts());
 
-
   menuIcon.addEventListener('click', toggleMobileMenu);
-
   signOutButton.addEventListener('click', signOut);
+  closeProductDatail.addEventListener('click', closeAll);
 }
 
 function toggleMobileMenu() {
-  const mobileMenu = document.querySelector('.mobile-menu');
-  const mobileMenuLogged = document.querySelector('.mobile-menu_logged');
+  const isMobileMenuClose = mobileMenu.classList.contains('inactive');
+  const isMobileMenuLoggedClose = mobileMenuLogged.classList.contains('inactive');
+
   switch (isUserLoggedIn) {
     case true:
+    if (isMobileMenuLoggedClose){
+        closeAll();
+    }
     mobileMenuLogged.classList.toggle('inactive');
     break;
     case false:
+    if (isMobileMenuClose){
+        closeAll();
+    }
     mobileMenu.classList.toggle('inactive');
     break;
   }
 }
+
 function signOut() {
   isUserLoggedIn = false;
-  const mobileMenuLogged = document.querySelector('.mobile-menu_logged');
   mobileMenuLogged.classList.add('inactive');
   window.location.href="./index.html";
 }
 
-function whenLoginPage() {
+function openProductDetail() {
+  closeAll();
+  productDetail.classList.remove('inactive');
+}
+
+function closeAll() {
+  mobileMenuLogged.classList.add('inactive');
+  mobileMenu.classList.add('inactive');
+  productDetail.classList.add('inactive');
 }
 
 function redirectIndex() {
@@ -113,7 +127,7 @@ function renderProducts(arr) {
     const productImg = document.createElement('img');
     productImg.classList.add('product-info__img');
     productImg.setAttribute('src', product.image);
-    // productImg.addEventListener('click', openProductDetail);
+    productImg.addEventListener('click', openProductDetail);
 
     const productPrice = document.createElement('p');
     productPrice.classList.add('product-info__price');

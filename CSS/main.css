@@ -13,10 +13,14 @@
 /*-------------------------INDEX.HTML-------------------------*/
 /*.......................... General .........................*/
 :root {
+  --hospital-green: #ACD9B2;
+  --text: #232323;
+  --light-green: #CCE8CF;
+  --green: #8ACC93;
+  --dark-green: #26612e;
   --very-light-pink: #C7C7C7;
   --white: #FFFFFF;
   --black: #000000;
-  --hospital-green: #ACD9B2;
   --text-input-field: #F7F7F7;
   --sm: 14px;
   --md: 16px;
@@ -26,8 +30,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-body {
   font-family: 'Quicksand', sans-serif;
 }
 .inactive{
@@ -74,7 +76,7 @@ body {
   border: 4px solid var(--white);
   border-radius: 8px;
   padding: 8px;
-  color: var(--very-light-pink);
+  color: var(--text);
   text-decoration: none;
   cursor: pointer;
 }
@@ -101,7 +103,7 @@ body {
 .navbar-user {
   margin-right: 12px;
   font-size: var(--sm);
-  color: var(--very-light-pink);
+  color: var(--text);
   cursor: pointer;
 }
 .navbar-shopping-cart{
@@ -150,15 +152,15 @@ body {
 }
 .mobile-menu__login a,
 .mobile-menu__sign-out a.sign-out{
-  color: var(--hospital-green);
+  color: var(--dark-green);
 }
 .mobile-menu__login a:hover,
 .mobile-menu__sign-out a.sign-out:hover {
-  border-bottom: 1px solid var(--hospital-green);
+  border-bottom: 1px solid var(--dark-green);
   font-weight: bold;
 }
 .mobile-menu__user a.email {
-  color: var(--very-light-pink);
+  color: var(--text);
   font-size: var(--sm);
 }
 
@@ -205,13 +207,112 @@ body {
   align-self: center;
   padding-left: 8px;
   font-size: var(--sm);
-  color: var(--very-light-pink);
+  color: var(--text);
 }
 .add-to-cart{
   grid-area: cart;
   place-self: center;
   width: 35px;
   height: 35px;
+}
+
+/*...................... Product Detail ......................*/
+.product-detail {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  border: 1px solid var(--very-light-pink);
+  border-radius: 0 0 16px 16px;
+  padding-bottom: 24px;
+  width: 100%;
+  background-color: var(--white);
+}
+
+.product-detail-info {
+  display: grid;
+  grid-template-rows: repeat(4, auto);
+}
+.product-detail__img {
+  position: relative;
+  place-self: center;
+  width: 340px;
+  height: 300px;
+  margin-top: 20px;
+  border-radius: 20px;
+  background-image: url('https://images.pexels.com/photos/4041391/pexels-photo-4041391.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
+.product-detail_close {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  display: grid;
+  place-content: center;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  fill: var(--text);
+  background-color: var(--hospital-green);
+  cursor: pointer;
+}
+.product-detail_close:hover {
+  background-color: var(--green);
+}
+.product-detail__img {
+  place-self: center;
+  width: 340px;
+  height: 300px;
+  margin-top: 20px;
+  border-radius: 20px;
+  object-fit: cover;
+  object-position: bottom;
+}
+.product-detail__price {
+  margin: 8px 0 4px 40px;
+  font-weight: bold;
+  font-size: var(--md);
+}
+.product-detail__name {
+  margin: 8px 0 4px 40px;
+  color: var(--text);
+  font-size: var(--md);
+}
+.product-detail__description {
+  margin: 8px 40px 20px 40px;
+  color: var(--text);
+  font-size: var(--sm);
+  text-align: justify;
+}
+.primary-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: none;
+  width: 100%;
+  height: 50px;
+  font-size: var(--md);
+  font-weight: bold;
+  color: var(--text);
+  background-color: var(--hospital-green);
+  cursor: pointer;
+}
+.primary-button svg{
+  fill: var(--text);
+}
+.primary-button:hover {
+  border-bottom: 1px solid var(--text);
+  background-color: var(--green);
+}
+.add-to-cart-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  place-self: center;
+  padding: 0 8px;
+  width: 160px;
 }
 
 
@@ -255,31 +356,44 @@ body {
   padding: 12px 52px;
   font-size: var(--md);
   font-weight: bold;
-  color: var(--white);
+  color: var(--text);
   background-color: var(--hospital-green);
   cursor: pointer;
   text-decoration: none;
 }
+.login-button:hover {
+  border-bottom: 1px solid var(--text);
+  background-color: var(--green);
+}
 .login-button:visited {
-  color: var(--white);
+  color: var(--text);
 }
 .forgot-password {
   justify-self: center;
   margin: 16px 0;
   font-size: var(--sm);
-  color: var(--hospital-green);
+  color: var(--dark-green);
   text-decoration: none;
+}
+.forgot-password:hover {
+  border-bottom: 1px solid var(--dark-green);
+  font-weight: bold;
 }
 .secondary-button {
   justify-self: center;
   margin: 20px 0;
   border-radius: 8px;
-  border: 1px solid var(--hospital-green);
+  border: 2px solid var(--dark-green);
   width: 150px;
   height: 40px;
   font-size: var(--md);
   font-weight: bold;
-  color: var(--hospital-green);
+  color: var(--dark-green);
   background-color: var(--white);
   cursor: pointer;
+}
+.secondary-button:hover {
+  border: none;
+  color: var(--text);
+  background-color: var(--light-green);
 }
