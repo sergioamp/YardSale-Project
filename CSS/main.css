@@ -13,272 +13,273 @@
 /*-------------------------INDEX.HTML-------------------------*/
 /*.......................... General .........................*/
 :root {
-    --very-light-pink: #C7C7C7;
-    --white: #FFFFFF;
-    --black: #000000;
-    --hospital-green: #ACD9B2;
-    --text-input-field: #F7F7F7;
-    --sm: 14px;
-    --md: 16px;
-    --lg: 18px
+  --very-light-pink: #C7C7C7;
+  --white: #FFFFFF;
+  --black: #000000;
+  --hospital-green: #ACD9B2;
+  --text-input-field: #F7F7F7;
+  --sm: 14px;
+  --md: 16px;
+  --lg: 18px
 }
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 body {
-    font-family: 'Quicksand', sans-serif;
+  font-family: 'Quicksand', sans-serif;
 }
 .inactive{
-    display: none;
+  display: none;
 }
 
 /*.......................... Navbar ..........................*/
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1.5px solid var(--very-light-pink);
-    padding: 0 24px;
-    height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1.5px solid var(--very-light-pink);
+  padding: 0 24px;
+  height: 60px;
 }
 .navbar__menu-icon {
-    height: 25px;
-    cursor: pointer;
+  height: 25px;
+  cursor: pointer;
 }
-.navbar__left-group, 
+.navbar__left-group,
 .navbar__right-group {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
-.yardsale-logo {        
-    position: absolute;
-    left: calc(50% - 60px);
-    top: calc(30px - 12.5px);
-    width: 120px;
-    height: 25px;
+.yardsale-logo {
+  position: absolute;
+  left: calc(50% - 60px);
+  top: calc(30px - 12.5px);
+  width: 120px;
+  height: 25px;
 }
-.navbar__left-group ul, 
+.navbar__left-group ul,
 .navbar__right-group ul {
-    display: flex;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-    list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 .navbar__left-group ul {
-    display: none;
+  display: none;
 }
 .navbar__left-group ul li a {
-    border: 4px solid var(--white);
-    border-radius: 8px;   
-    padding: 8px;
-    color: var(--very-light-pink);
-    text-decoration: none;
-    cursor: pointer;
+  border: 4px solid var(--white);
+  border-radius: 8px;
+  padding: 8px;
+  color: var(--very-light-pink);
+  text-decoration: none;
+  cursor: pointer;
 }
 .navbar__left-group ul li a:hover {
-    border: 1px solid var(--hospital-green);
-    font-weight: bold;
-    color: var(--hospital-green);
+  border: 1px solid var(--hospital-green);
+  font-weight: bold;
+  color: var(--hospital-green);
 }
 .navbar__right-group ul li a {
-    
-    margin-right: 12px;
-    padding: 8px;
-    font-size: var(--md);
-    font-weight: bold;
-    color: var(--hospital-green);
-    text-decoration: none;
-    cursor: pointer;
+  display: none;
+  margin-right: 12px;
+  padding: 8px;
+  font-size: var(--md);
+  font-weight: bold;
+  color: var(--hospital-green);
+  text-decoration: none;
+  cursor: pointer;
 }
 .navbar__right-group ul li a:hover {
-    border-radius: 8px;
-    color: var(--white);
-    background-color: var(--hospital-green);
+  border-radius: 8px;
+  color: var(--white);
+  background-color: var(--hospital-green);
 }
 .navbar-user {
-    margin-right: 12px;
-    font-size: var(--sm);
-    color: var(--very-light-pink);
-    cursor: pointer;
+  margin-right: 12px;
+  font-size: var(--sm);
+  color: var(--very-light-pink);
+  cursor: pointer;
 }
 .navbar-shopping-cart{
-    position: relative;
-    cursor: pointer;
+  position: relative;
+  cursor: pointer;
 }
 
 /*........................ Mobile Menu .......................*/
 .mobile-menu,
 .mobile-menu_logged {
-    position: absolute;
-    top: 60px;
-    left: 0px;
-    margin: 0;
-    border: 1px solid var(--very-light-pink);
-    border-radius: 0 0 16px 16px;
-    padding: 20px;
-    height: auto;
-    width: 100%;
-    background-color: var(--white);
+  position: absolute;
+  top: 60px;
+  left: 0px;
+  margin: 0;
+  border: 1px solid var(--very-light-pink);
+  border-radius: 0 0 16px 16px;
+  padding: 20px;
+  height: auto;
+  width: 100%;
+  background-color: var(--white);
 }
-.mobile-menu ul, 
+.mobile-menu ul,
 .mobile-menu_logged ul{
-    display: flex;
-    flex-direction: column;
-    justify-content:space-between;
-    margin: 0;
-    text-align: start;
-    list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+  margin: 0;
+  text-align: start;
+  list-style: none;
 }
-.mobile-menu a, 
+.mobile-menu a,
 .mobile-menu_logged a {
-    display: inline-block;
-    margin: 8px 0 8px 20px;
-    font-size: var(--md);
-    color: var(--black);
-    text-decoration: none;
+  display: inline-block;
+  margin: 8px 0 8px 20px;
+  font-size: var(--md);
+  color: var(--black);
+  text-decoration: none;
 }
 .mobile-menu__categories p {
-    border-bottom: 1px solid var(--very-light-pink);
+  border-bottom: 1px solid var(--very-light-pink);
 }
-.mobile-menu__categories a:hover, 
+.mobile-menu__categories a:hover,
 .mobile-menu__user a:hover {
-    border-bottom: 1px solid var(--very-light-pink);
-    font-weight: bold;
+  border-bottom: 1px solid var(--very-light-pink);
+  font-weight: bold;
 }
-.mobile-menu__login a, 
+.mobile-menu__login a,
 .mobile-menu__sign-out a.sign-out{
-    color: var(--hospital-green);
+  color: var(--hospital-green);
 }
-.mobile-menu__login a:hover, 
+.mobile-menu__login a:hover,
 .mobile-menu__sign-out a.sign-out:hover {
-    border-bottom: 1px solid var(--hospital-green);
-    font-weight: bold;
+  border-bottom: 1px solid var(--hospital-green);
+  font-weight: bold;
 }
 .mobile-menu__user a.email {
-    color: var(--very-light-pink);
-    font-size: var(--sm);
+  color: var(--very-light-pink);
+  font-size: var(--sm);
 }
 
 /*....................... Product list .......................*/
 .cards-container{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 140px);
-    place-content: center;
-    padding: 24px 8px;
-    gap: 26px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 140px);
+  place-content: center;
+  padding: 24px 8px;
+  gap: 26px;
 }
 .product-card{
-    cursor: pointer;
+  cursor: pointer;
 }
 .product-info{
-    display: grid;
-    grid-template:
-    "image image" 140px 
-    "price cart" 25px
-    "name cart" 25px
-    / 80px 60px;
-    place-content: center;
+  display: grid;
+  grid-template:
+  "image image" 140px
+  "price cart" 25px
+  "name cart" 25px
+  / 80px 60px;
+  place-content: center;
 }
 .product-info__img{
-    grid-area: image;
-    border-radius: 20px;
-    width: 140px;
-    height: 140px;
-    object-fit: cover;
+  grid-area: image;
+  border-radius: 20px;
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
 }
 .product-info__img:hover{
-    border: 5px solid var(--hospital-green);
-    border-radius: 20px;
+  border: 5px solid var(--hospital-green);
+  border-radius: 20px;
 }
 .product-info__price {
-    grid-area: price;
-    align-self: center;
-    padding-left: 8px;
-    font-size: var(--md);
-    font-weight: bold;
+  grid-area: price;
+  align-self: center;
+  padding-left: 8px;
+  font-size: var(--md);
+  font-weight: bold;
 }
 .product-info__name {
-    grid-area: name;
-    align-self: center;
-    padding-left: 8px;
-    font-size: var(--sm);
-    color: var(--very-light-pink);
+  grid-area: name;
+  align-self: center;
+  padding-left: 8px;
+  font-size: var(--sm);
+  color: var(--very-light-pink);
 }
 .add-to-cart{
-    grid-area: cart;
-    place-self: center;
-    width: 35px;
-    height: 35px;
-} 
+  grid-area: cart;
+  place-self: center;
+  width: 35px;
+  height: 35px;
+}
 
 
 
 /*-------------------------LOGIN.HTML-------------------------*/
 .home-button:hover {
-    border-bottom: 2px solid var(--hospital-green);
-    cursor: pointer;
+  border-bottom: 2px solid var(--hospital-green);
+  cursor: pointer;
 }
 .login-container {
-    display: grid;
-    place-items: center;
-    place-content: center;
-    width: 100%;
-    height: 60vh;
+  display: grid;
+  place-items: center;
+  place-content: center;
+  width: 100%;
+  height: 60vh;
 }
 .login-form {
-    display: grid;
-    justify-content: center;
+  display: grid;
+  justify-content: center;
 }
 .login-form__label {
-    margin-bottom: 4px;
-    font-size: var(--sm);
-    font-weight: bold;
+  margin-bottom: 4px;
+  font-size: var(--sm);
+  font-weight: bold;
 }
 .login-form__input {
-    margin-bottom: 16px;
-    border: none;
-    border-radius: 8px;
-    padding: 6px;
-    height: 30px;
-    width: 280px;
-    font-size: var(--md);
-    background-color: var(--text-input-field);
+  margin-bottom: 16px;
+  border: none;
+  border-radius: 8px;
+  padding: 6px;
+  height: 30px;
+  width: 280px;
+  font-size: var(--md);
+  background-color: var(--text-input-field);
 }
 .login-button{
-    justify-self: center;
-    margin-top: 36px;
-    border-radius: 8px;
-    padding: 12px 52px;
-    font-size: var(--md);
-    font-weight: bold;
-    color: var(--white);
-    background-color: var(--hospital-green);
-    cursor: pointer;
-    text-decoration: none;
+  justify-self: center;
+  margin-top: 36px;
+  border-radius: 8px;
+  border: none;
+  padding: 12px 52px;
+  font-size: var(--md);
+  font-weight: bold;
+  color: var(--white);
+  background-color: var(--hospital-green);
+  cursor: pointer;
+  text-decoration: none;
 }
 .login-button:visited {
-    color: var(--white);
+  color: var(--white);
 }
 .forgot-password {
-    justify-self: center;
-    margin: 16px 0;
-    font-size: var(--sm);
-    color: var(--hospital-green);
-    text-decoration: none;
+  justify-self: center;
+  margin: 16px 0;
+  font-size: var(--sm);
+  color: var(--hospital-green);
+  text-decoration: none;
 }
 .secondary-button {
-    justify-self: center;
-    margin: 20px 0;
-    border-radius: 8px;
-    border: 1px solid var(--hospital-green);
-    width: 150px;
-    height: 40px;
-    font-size: var(--md);
-    font-weight: bold;
-    color: var(--hospital-green);
-    background-color: var(--white);
-    cursor: pointer;
+  justify-self: center;
+  margin: 20px 0;
+  border-radius: 8px;
+  border: 1px solid var(--hospital-green);
+  width: 150px;
+  height: 40px;
+  font-size: var(--md);
+  font-weight: bold;
+  color: var(--hospital-green);
+  background-color: var(--white);
+  cursor: pointer;
 }
