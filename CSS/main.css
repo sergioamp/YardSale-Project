@@ -240,14 +240,15 @@ aside {
 .product-detail__img {
   position: relative;
   place-self: center;
-  width: 340px;
-  height: 300px;
   margin-top: 20px;
   border-radius: 20px;
-  background-image: url('https://images.pexels.com/photos/4041391/pexels-photo-4041391.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
-  background-size: cover;
-  background-position: bottom;
-  background-repeat: no-repeat;
+}
+#product-detail__image {
+  border-radius: 20px;
+  width: 340px;
+  height: 300px;
+  object-fit: cover;
+  object-position: center;
 }
 .product-detail_close {
   position: absolute;
