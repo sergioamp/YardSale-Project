@@ -22,21 +22,21 @@
     <main class="login-container">
       <form action="/" class="login-form">
         <div>
-          <input id="email" type="text" placeholder=" "  class="login-form__input input__email">
+          <input id="email" type="email" class="login-form__input input__email" placeholder=" ">
           <label for="email" class="login-form__label">Email address</label>
-          <span class="form_line"></span>
+          <span class="login-form__line"></span>
         </div>
         <div>
-          <input type="password" placeholder=" " class="login-form__input input__password">
+          <input type="password" class="login-form__input input__password" placeholder=" ">
           <label for="password" class="login-form__label">Password</label>
-          <span class="form_line"></span>
+          <span class="login-form__line"></span>
         </div>
-        <button type="button" class="login-button" onclick="redirectIndex()">
+        <button type="button" class="primary-button" id="login-button" onclick="redirectIndex()">
           <a>Log in</a>
         </button>
         <a href="/" class="forgot-password">Forgot my password</a>
       </form>
-      <button class="secondary-button singup-button">Sing up</button>
+      <button class="secondary-button">Sing up</button>
     </main>
 
     <script src="../JS/main.js"></script>
