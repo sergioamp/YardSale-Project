@@ -400,23 +400,43 @@ aside {
   justify-content: center;
 }
 .login-form__label {
-  margin-bottom: 4px;
-  font-size: var(--sm);
+  position: absolute;
+  font-size: var(--md);
   font-weight: bold;
+  cursor: text;
+  transform: translatex(-280px);
+  transition: transform 0.5s, color 0.3s;
 }
 .login-form__input {
-  margin-bottom: 16px;
+  margin-bottom: 44px;
   border: none;
-  border-radius: 8px;
+  border-bottom: 1.5px solid var(--very-light-pink);
   padding: 6px;
   height: 30px;
   width: 280px;
   font-size: var(--md);
-  background-color: var(--input-field);
+  outline: none;
+}
+.login-form__input:focus + .login-form__label,
+.login-form__input:not(:placeholder-shown) + .login-form__label {
+  transform: translateX(-280px) translateY(-16px) scale(.95);
+  transform-origin: left top;
+  color: var(--dark-green);
+}
+.form_line{
+  position: absolute;
+  width: 280px;
+  height: 1.5px;
+  background-color: var(--dark-green);
+  transform: translateX(-280px) translateY(28.5px) scale(0);
+  transition: transform .5s;
+}
+.login-form__input:focus ~ .form_line,
+.login-form__input:not(:placeholder-shown) ~ .form_line{
+  transform: translateX(-280px) translateY(28.5px) scale(1);
 }
 .login-button{
   justify-self: center;
-  margin-top: 36px;
   border-radius: 8px;
   border: none;
   padding: 12px 52px;
