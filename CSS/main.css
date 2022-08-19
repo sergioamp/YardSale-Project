@@ -1,17 +1,4 @@
-/*
-    1) Posicionamiento
-    2) Modelo de caja
-        -Margin
-        -Border
-        -Padding
-        -Content
-    3) Tipografía
-    4) Visaules
-    5) Otros
-*/
-
 /*-------------------------INDEX.HTML-------------------------*/
-/*.......................... General .........................*/
 :root {
   --hospital-green: #ACD9B2;
   --text: #232323;
@@ -35,7 +22,6 @@
 .inactive{
   display: none;
 }
-
 /*.......................... Navbar ..........................*/
 .navbar {
   display: flex;
@@ -69,51 +55,37 @@
   padding: 0;
   list-style: none;
 }
-.navbar__left-group ul {
+.navbar__left-group ul,
+.navbar__right-group ul {
   display: none;
 }
 .navbar__left-group ul li a {
-  border: 4px solid var(--white);
-  border-radius: 8px;
-  padding: 8px;
-  color: var(--text);
+  margin: 8px;
+  color: var(--black);
   text-decoration: none;
   cursor: pointer;
 }
 .navbar__left-group ul li a:hover {
-  border: 1px solid var(--hospital-green);
+  border-bottom: 1px solid var(--very-light-pink);
   font-weight: bold;
-  color: var(--hospital-green);
 }
 .navbar__right-group ul li a {
-  display: none;
   margin-right: 12px;
-  padding: 8px;
-  font-size: var(--md);
-  font-weight: bold;
-  color: var(--hospital-green);
+  color: var(--dark-green);
   text-decoration: none;
   cursor: pointer;
 }
 .navbar__right-group ul li a:hover {
-  border-radius: 8px;
-  color: var(--white);
-  background-color: var(--hospital-green);
+  border-bottom: 1px solid var(--dark-green);
+  font-weight: bold;
 }
-.navbar-user {
-  margin-right: 12px;
-  font-size: var(--sm);
-  color: var(--text);
-  cursor: pointer;
-}
-.navbar-shopping-cart{
+
+.shopping-cart-icon{
   position: relative;
   cursor: pointer;
 }
-
 /*........................ Mobile Menu .......................*/
-.mobile-menu,
-.mobile-menu_logged {
+.mobile-menu {
   position: absolute;
   top: 60px;
   left: 0px;
@@ -125,8 +97,7 @@
   width: 100%;
   background-color: var(--white);
 }
-.mobile-menu ul,
-.mobile-menu_logged ul{
+.mobile-menu ul {
   display: flex;
   flex-direction: column;
   justify-content:space-between;
@@ -134,65 +105,66 @@
   text-align: start;
   list-style: none;
 }
-.mobile-menu a,
-.mobile-menu_logged a {
+.mobile-menu a {
   display: inline-block;
-  margin: 8px 0 8px 20px;
+  margin: 8px 0;
   font-size: var(--md);
   color: var(--black);
   text-decoration: none;
 }
-.mobile-menu__categories p {
-  border-bottom: 1px solid var(--very-light-pink);
-}
-.mobile-menu__categories a:hover,
-.mobile-menu__user a:hover {
+.mobile-menu a:hover {
   border-bottom: 1px solid var(--very-light-pink);
   font-weight: bold;
 }
-.mobile-menu__login a,
-.mobile-menu__sign-out a.sign-out{
+.mobile-menu__categories {
+  border-top: 1.5px solid var(--very-light-pink);
+  border-bottom: 1.5px solid var(--very-light-pink);
+}
+.mobile-menu__categories a{
+  margin-left: 20px;
+}
+a.login,
+a.sign-out {
   color: var(--dark-green);
 }
-.mobile-menu__login a:hover,
-.mobile-menu__sign-out a.sign-out:hover {
+a.login:hover,
+a.sign-out:hover {
   border-bottom: 1px solid var(--dark-green);
   font-weight: bold;
 }
-.mobile-menu__user a.email {
+a.email {
   color: var(--text);
   font-size: var(--sm);
 }
-
 /*....................... Product list .......................*/
 .cards-container{
   display: grid;
-  grid-template-columns: repeat(auto-fill, 140px);
+  grid-template-columns: repeat(auto-fit, minmax(140px, 25vw));
   place-content: center;
   padding: 24px 8px;
   gap: 26px;
 }
-.product-card{
-  cursor: pointer;
-}
 .product-info{
   display: grid;
   grid-template:
-  "image image" 140px
+  "image image" auto
   "price cart" 25px
   "name cart" 25px
-  / 80px 60px;
+  / minmax(112px, 20vw) minmax(28px, 5vw);
   place-content: center;
 }
 .product-info__img{
   grid-area: image;
   border-radius: 20px;
-  width: 140px;
-  height: 140px;
+  min-width: 140px;
+  min-height: 140px;
+  width: 25vw;
+  height: 25vw;
   object-fit: cover;
+  cursor: pointer;
 }
 .product-info__img:hover{
-  border: 5px solid var(--hospital-green);
+  border: thick solid var(--hospital-green);
   border-radius: 20px;
 }
 .product-info__price {
@@ -212,17 +184,23 @@
 .add-to-cart{
   grid-area: cart;
   place-self: center;
-  width: 35px;
-  height: 35px;
+  border-radius: 20px;
+  width: 40px;
+  height: 40px;
+  background-image: url('../Assets/icons/bt_add_to_cart.svg');
+  background-repeat: no-repeat;
 }
-
+.add-to-cart:hover{
+  /* box-shadow: inset 0 0 0 2px var(--dark-green); */
+  background-image: url('../Assets/icons/bt_add_to_cart_hover.svg');
+}
 /*........................... Aside ..........................*/
 aside {
   position: absolute;
   top: 60px;
   right: 0;
   width: 100vw;
-  height: 100%;
+  min-height: 100vh;
   background-color: var(--white);
 }
 /*...................... Product Detail ......................*/
@@ -264,7 +242,9 @@ aside {
   cursor: pointer;
 }
 .product-detail_close:hover {
-  background-color: var(--green);
+  /* background-color: var(--green); */
+  fill: var(--white);
+  background-color: var(--dark-green);
 }
 .product-detail__img {
   place-self: center;
@@ -478,4 +458,21 @@ aside {
   border: 1px solid var(--dark-green);
   color: var(--text);
   background-color: var(--light-green);
+}
+
+
+@media (min-width: 641px) {
+    .navbar__menu-icon {
+      display: none;
+    }
+    .yardsale-logo {
+      position: inherit;
+    }
+    .navbar__left-group ul {
+      display: flex;
+      padding-left: 20px;
+    }
+    .navbar__right-group ul{
+      display: flex;
+    }
 }
