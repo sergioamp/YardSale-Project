@@ -4,12 +4,14 @@ let isUserLoggedIn = false;
 const mobileMenu = document.querySelector('.mobile-menu');
 const mobileMenuLogin = document.querySelector('.mobile-menu__login');
 const mobileMenuUser = document.querySelector('.mobile-menu__user');
+const desktopMenu = document.querySelector('.desktop-menu');
 const aside = document.querySelector('.aside');
 const productDetail = document.querySelector('#product-detail');
 const menuIcon = document.querySelector('.navbar__menu-icon');
-const cartIcon = document.querySelector('.shopping-cart-icon');
 const myAccount = document.querySelector('.my-account');
 const editMyAccount = document.querySelector('.edit-my-account');
+const desktopCategories = document.querySelector('.categories');
+const navbarRightGroup = document.querySelector('.navbar__right-group');
 
 function renderProducts(products) {
   for (product of products) {
@@ -179,9 +181,11 @@ function closeOpenwindows() {
   const isMobileMenuOpen = !mobileMenu.classList.contains('inactive');
   const isProductDetailOpen = !productDetail.classList.contains('inactive');
   const isMyAccountOpen = !myAccount.classList.contains('inactive');
+  const isDesktopMenuOpen = !desktopMenu.classList.contains('inactive');
 
-  if (isMobileMenuOpen){
+  if (isMobileMenuOpen || isDesktopMenuOpen){
     mobileMenu.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
   }
   if (isProductDetailOpen || isMyAccountOpen){
     productDetail.classList.add('inactive');
@@ -197,6 +201,16 @@ function toggleMobileMenu() {
   } else {
     closeOpenwindows()
     mobileMenu.classList.remove('inactive');
+  }
+}
+
+function toggleDesktopMenu() {
+  const isDesktopMenuOpen = !desktopMenu.classList.contains('inactive');
+  if (isDesktopMenuOpen){
+    desktopMenu.classList.add('inactive');
+  } else {
+    closeOpenwindows()
+    desktopMenu.classList.remove('inactive');
   }
 }
 
@@ -231,8 +245,9 @@ function toggleProductDetail() {
 
 function openMyAccount() {
   menuIcon.classList.add('inactive');
-  cartIcon.classList.add('inactive');
+  navbarRightGroup.classList.add('invisible');
   aside.classList.remove('inactive');
+  desktopCategories.classList.add('invisible');
   myAccount.classList.remove('inactive');
 }
 
@@ -248,7 +263,8 @@ function closeEditWindow() {
 
 function goToHome() {
   menuIcon.classList.remove('inactive');
-  cartIcon.classList.remove('inactive');
+  navbarRightGroup.classList.remove('invisible');
+  desktopCategories.classList.remove('invisible');
   closeOpenwindows();
 }
 

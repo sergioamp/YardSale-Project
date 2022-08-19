@@ -22,6 +22,9 @@
 .inactive{
   display: none;
 }
+.invisible{
+visibility: hidden;
+}
 /*.......................... Navbar ..........................*/
 .navbar {
   display: flex;
@@ -60,7 +63,6 @@
   display: none;
 }
 .navbar__left-group ul li a {
-  margin: 8px;
   color: var(--black);
   text-decoration: none;
   cursor: pointer;
@@ -84,20 +86,28 @@
   position: relative;
   cursor: pointer;
 }
-/*........................ Mobile Menu .......................*/
-.mobile-menu {
+/*............................ Menu ..........................*/
+.mobile-menu,
+.desktop-menu {
   position: absolute;
-  top: 60px;
-  left: 0px;
+  top: 59px;
   margin: 0;
   border: 1px solid var(--very-light-pink);
   border-radius: 0 0 16px 16px;
   padding: 20px;
   height: auto;
-  width: 100%;
   background-color: var(--white);
 }
-.mobile-menu ul {
+.mobile-menu {
+  left: 0px;
+  width: 100%;
+}
+.desktop-menu {
+  right: 60px;
+  width: auto;
+}
+.mobile-menu ul,
+.desktop-menu ul {
   display: flex;
   flex-direction: column;
   justify-content:space-between;
@@ -105,14 +115,19 @@
   text-align: start;
   list-style: none;
 }
-.mobile-menu a {
+.desktop-menu ul li:nth-child(2) {
+  border-bottom: 1.5px solid var(--very-light-pink);
+}
+.mobile-menu a,
+.desktop-menu a {
   display: inline-block;
   margin: 8px 0;
   font-size: var(--md);
   color: var(--black);
   text-decoration: none;
 }
-.mobile-menu a:hover {
+.mobile-menu a:hover,
+.desktop-menu a:hover {
   border-bottom: 1px solid var(--very-light-pink);
   font-weight: bold;
 }
@@ -136,6 +151,7 @@ a.email {
   color: var(--text);
   font-size: var(--sm);
 }
+
 /*....................... Product list .......................*/
 .cards-container{
   display: grid;
@@ -470,7 +486,6 @@ aside {
     }
     .navbar__left-group ul {
       display: flex;
-      padding-left: 20px;
     }
     .navbar__right-group ul{
       display: flex;
