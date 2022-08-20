@@ -1,0 +1,64 @@
+:root {
+  --blue: #004bed;
+  --dark-blue: #002B96;
+  --light-blue: #487DF0;
+  --dark-grey: #C7C7C7;
+  --light-grey: #F7F7F7;
+  --orange: #E69200;
+  --text: #001440;
+  --white: #FFFFFF;
+  --black: #000000;
+  --background-field:#FFF3ED;
+  --sm: 14px;
+  --md: 16px;
+  --lg: 18px
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
+}
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 1.5px solid var(--light-blue);
+  padding: 0 24px;
+  width: 100vw;
+  height: 60px;
+  background-color: var(--light-grey);
+}
+.navbar ul {
+  display: flex;
+  list-style: none;
+}
+.navbar ul li{
+  padding: 0 8px;
+}
+.navbar ul li a {
+  text-decoration: none;
+  cursor: pointer;
+}
+.navbar .categories li a {
+  color: var(--text);
+}
+.navbar ul li a:hover {
+  border-bottom: 1px solid var(--orange);
+  font-weight: bold;
+}
+.navbar__right-group {
+  display: flex;
+  align-items: center;
+}
+.navbar .navbar__right-group .user-emial {
+  color: var(--dark-blue);
+}
+.navbar .navbar__right-group .login {
+  color: var(--text);
+}
+.shopping-cart-icon{
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+}
