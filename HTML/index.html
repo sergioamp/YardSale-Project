@@ -13,8 +13,8 @@
   <body>
     <nav class="navbar">
       <div class="menu-icon">
-        <svg width="25" height="21" viewBox="0 0 25 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M1 0.730769C0.447715 0.730769 0 1.17848 0 1.73077C0 2.28305 0.447715 2.73077 1 2.73077V0.730769ZM24 2.73077C24.5523 2.73077 25 2.28305 25 1.73077C25 1.17848 24.5523 0.730769 24 0.730769V2.73077ZM1 9.5C0.447715 9.5 0 9.94772 0 10.5C0 11.0523 0.447715 11.5 1 11.5V9.5ZM12.5 11.5C13.0523 11.5 13.5 11.0523 13.5 10.5C13.5 9.94772 13.0523 9.5 12.5 9.5V11.5ZM1 18.2692C0.447715 18.2692 0 18.7169 0 19.2692C0 19.8215 0.447715 20.2692 1 20.2692V18.2692ZM24 20.2692C24.5523 20.2692 25 19.8215 25 19.2692C25 18.7169 24.5523 18.2692 24 18.2692V20.2692ZM1 2.73077H24V0.730769H1V2.73077ZM1 11.5H12.5V9.5H1V11.5ZM1 20.2692H24V18.2692H1V20.2692Z" fill="black"/>
+        <svg width="25" height="21" viewBox="0 0 25 21" xmlns="http://www.w3.org/2000/svg" fill="#002B96">
+        <path id="hamburger-icon" d="M1 0.730769C0.447715 0.730769 0 1.17848 0 1.73077C0 2.28305 0.447715 2.73077 1 2.73077V0.730769ZM24 2.73077C24.5523 2.73077 25 2.28305 25 1.73077C25 1.17848 24.5523 0.730769 24 0.730769V2.73077ZM1 9.5C0.447715 9.5 0 9.94772 0 10.5C0 11.0523 0.447715 11.5 1 11.5V9.5ZM12.5 11.5C13.0523 11.5 13.5 11.0523 13.5 10.5C13.5 9.94772 13.0523 9.5 12.5 9.5V11.5ZM1 18.2692C0.447715 18.2692 0 18.7169 0 19.2692C0 19.8215 0.447715 20.2692 1 20.2692V18.2692ZM24 20.2692C24.5523 20.2692 25 19.8215 25 19.2692C25 18.7169 24.5523 18.2692 24 18.2692V20.2692ZM1 2.73077H24V0.730769H1V2.73077ZM1 11.5H12.5V9.5H1V11.5ZM1 20.2692H24V18.2692H1V20.2692Z"/>
         </svg>
       </div>
       <div class="yardsale-logo">
@@ -49,14 +49,14 @@
       <div class="navbar__right-group">
         <ul>
           <li>
-            <a href="javascript:void(0)" class="user-email">sergio.m.papagayo@gmail.com</a>
+            <a href="./login.html" class="login">Log in</a>
           </li>
           <li>
-            <a href="./login.html" class="login">Log in</a>
+            <a href="javascript:void(0)" class="user-email">sergio.m.papagayo@gmail.com</a>
           </li>
         </ul>
         <div class="shopping-cart-icon">
-          <svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30px 30px">
+          <svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
             <path fill="#004bed" d="M29.93,5.32c-.83,3.23-1.66,6.45-2.49,9.67-.22,.83-.79,1.28-1.65,1.28-4.62,0-9.24,0-13.86,0h-.01c-.55,0-1.01-.4-1.12-.94-.01-.04-.02-.08-.02-.13-.5-2.89-1-5.77-1.49-8.66-.12-.67-.23-1.35-.34-2.03-.01-.04-.02-.08-.02-.13,0-.04,0-.08,0-.12,0-.65,.52-1.19,1.15-1.19H28.31c.84,0,1.4,.43,1.63,1.27,.09,.32,.08,.65,0,.98Z"/>
             <path fill="#002B96" d="M29.11,21.11c0,.76-.56,1.32-1.37,1.39-.11,0-.23,0-.34,0H9.4c-1.13,0-1.54-.37-1.75-1.5-1.09-5.96-2.18-11.92-3.27-17.89-.04-.23-.13-.31-.37-.3-.86,.02-1.72,.02-2.58,0-.58-.01-1.05-.24-1.31-.82C-.11,1.45,0,.98,.31,.53,.59,.14,1.01,.02,1.45,.01,2.76,0,4.08,0,5.39,.01c.8,0,1.28,.45,1.44,1.26,.04,.2,.09,.4,.14,.6,.23,1.31,.46,2.63,.7,3.94,.68,3.73,1.36,7.47,2.04,11.2,0,.04,.04,.07,.05,.1,.14,.78,.29,1.56,.41,2.34,.05,.3,.25,.23,.42,.23,5.41,0,10.81,0,16.22,0,.3,0,.61-.02,.91,0,.82,.05,1.38,.64,1.38,1.41Z"/>
             <path fill="#002B96" d="M12.73,27.18c0,1.52-1.23,2.81-2.71,2.82-1.47,.02-2.73-1.27-2.74-2.79-.01-1.52,1.23-2.81,2.71-2.82,1.47-.02,2.73,1.27,2.74,2.8Z"/>
@@ -65,5 +65,66 @@
         </div>
       </div>
     </nav>
+
+    <aside class="desktop-menu">
+      <ul>
+        <li>
+          <a href="javascript:void(0)">My orders</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" onclick="openMyAccount()">My account</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" class="sign-out" onclick="signOut()">Sign out</a>
+        </li>
+      </ul>
+    </aside>
+    
+    <aside class="mobile-menu">
+      <p>CATEGORIES</p>
+      <ul class="mobile-menu__categories">
+        <li>
+          <a href="javascript:void(0)">All</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)">Clothes</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)">Electronics</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)">Furnitures</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)">Toys</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)">Others</a>
+        </li>
+      </ul>
+      <div class="mobile-menu__user inactive">
+        <ul>
+          <li>
+            <a href="javascript:void(0)">My orders</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)" onclick="openMyAccount()">My account</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)" class="email" id="emailText2"></a>
+          </li>
+          <li>
+            <a href="javascript:void(0)" class="sign-out" onclick="signOut()">Sign out</a>
+          </li>
+        </ul>
+      </div>
+      <div class="mobile-menu__login">
+        <ul>
+          <li>
+            <a href="./login.html" class="login">Log in</a>
+          </li>
+        </ul>
+      </div>
+    </aside>
   </body>
 </html>
