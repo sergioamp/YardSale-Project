@@ -1,5 +1,6 @@
 const productList = [];
 const cardsContainer = document.querySelector('.cards-container');
+const productDetail = document.querySelector('#product-detail');
 
 function renderProducts(products) {
   for (product of products) {
@@ -14,7 +15,7 @@ function renderProducts(products) {
     productImg.classList.add('product-info__img');
     productImg.setAttribute('src', product.image);
     productImg.setAttribute('id', product.ref);
-    productImg.setAttribute('onclick', 'toggleProductDetail()');
+    productImg.setAttribute('onclick', 'openProductDetail()');
     console.log(product.image);
 
     const productPrice = document.createElement('p');
@@ -132,4 +133,29 @@ function createProducts() {
   });
   // userLoggedIn();
   renderProducts(productList);
+}
+
+function renderProductDetail(productRef) {
+  const productImg = document.querySelector('#product-detail__image');
+  productImg.setAttribute('src', productList[productRef - 1].image);
+
+  const productPrice = document.querySelector('.product-detail__price');
+  productPrice.innerText = '$ ' + productList[productRef - 1].price;
+
+  const productName = document.querySelector('.product-detail__name');
+  productName.innerText = productList[productRef - 1].name;
+
+  const productDescription = document.querySelector('.product-detail__description');
+  productDescription.innerText = productList[productRef - 1].description;
+
+}
+
+function openProductDetail() {
+  const element = event.target.getAttribute("id");
+  renderProductDetail(element);
+  productDetail.classList.remove('inactive');
+}
+
+function closeProductDetail() {
+  productDetail.classList.add('inactive');
 }
