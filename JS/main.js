@@ -204,6 +204,11 @@ function toggleMobileMenu() {
   }
 }
 
+function signOut() {
+  isUserLoggedIn = false;
+  window.location.href="./index.html";
+}
+
 function redirectIndex() {
   const email = document.querySelector('#email').value;
   window.location.href="./index.html?email="+email;
