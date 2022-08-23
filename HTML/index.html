@@ -45,8 +45,7 @@
         </div>
       </div>
     </nav>
-
-    <aside class="desktop-menu inactive">
+    <aside class="desktop-menu close">
       <ul class="desktop-menu-container">
         <li>
           <a href="javascript:void(0)">My orders</a>
@@ -59,7 +58,6 @@
         </li>
       </ul>
     </aside>
-
     <aside class="mobile-menu close">
       <p>Categories</p>
       <ul class="mobile-menu__categories">
@@ -139,7 +137,39 @@
           </button>
         </div>
       </aside>
+      <aside class="my-account close">
+        <div class="info-container">
+          <h1 class="info-container__title">My account</h1>
+          <div class="info-form">
+            <label for="info-name" class="info-form__label">Name</label>
+            <p id="info-name" class="info-form__value value__name">Sergio Medina Papagayo</p>
 
+            <label for="info-email" class="info-form__label">Email addres</label>
+            <p id="info-email" class="info-form__value value__email">sergio.m.papagayo@gmail.com</p>
+
+            <label for="info-password" class="info-form__label">Password</label>
+            <p id="info-password" class="info-form__value value__password">********</p>
+          </div>
+          <button class="primary-button" id="edit-button" onclick="openEditWindow()">Edit</button>
+          <button class="secondary-button" onclick="goToHome()">Ir a Home </button>
+        </div>
+      </aside>
+      <aside class="edit-my-account close">
+        <div class="info-container">
+          <h1 class="info-container__title">My account</h1>
+          <div class="info-form">
+              <label for="edit-name" class="info-form__label">Name</label>
+              <input type="text" id="edit-name" placeholder="Tu Nombre" class="info-form__input input__name">
+
+              <label for="edit-email" class="info-form__label">Email addres</label>
+              <input type="text" id="edit-email" placeholder="Tu Email" class="info-form__input input__email">
+
+              <label for="edit-password" class="info-form__label">Password</label>
+              <input type="text" id="edit-password" placeholder="Tu Contraseña" class="info-form__input input__password">
+          </div>
+          <input type="submit" value="Guardar" class="secondary-button" onclick="closeEditWindow()">
+        </div>
+      </asidee>
     </main>
 
     <script src="../JS/main.js"></script>

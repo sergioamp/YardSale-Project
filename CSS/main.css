@@ -10,9 +10,7 @@
   --light-grey: #AFAFAF;
   --grey: #6B6B6B;
   --dark-grey: #474747;
-
-  --background1: #E8EFEE;
-  --background2: #E4EFEE;
+  --background: #E8EFEE;
   --white: #FFFFFF;
   --black: #000000;
 
@@ -52,6 +50,9 @@ p {
 .close,
 .inactive {
   display: none;
+}
+.invisible {
+  visibility: hidden;
 }
 .navbar {
   position: relative;
@@ -153,9 +154,10 @@ p {
   widht: auto;
   height: auto;
   background-color: var(--white);
+  z-index: 4;
 }
 .mobile-menu {
-  top: 59px;
+  top: 58.5px;
   padding-left: 48px;
 }
 .mobile-menu p,
@@ -163,20 +165,24 @@ p {
   margin-left: 12px;
 }
 .desktop-menu-container {
-  top: 59px;
+  top: 58.5px;
   right: 64px;
   width: 200px;
   display: grid;
   place-items: center;
 }
-
+main {
+  position: relative;
+}
 /*....................... Product list .......................*/
 .cards-container {
+  position: absolute;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 25vw));
   place-content: center;
   padding: 24px 8px;
   gap: 26px;
+  width: 100vw;
 }
 .product-info {
   display: grid;
@@ -234,7 +240,7 @@ p {
 /*...................... Product Detail ......................*/
 #product-detail {
   position: absolute;
-  top: 59px;
+  top: -1.5px;
   right: 0;
   border: 1px solid var(--light-grey);
   border-radius: 0 0 16px 16px;
@@ -318,6 +324,66 @@ p {
   padding: 0 8px;
   width: 160px;
 }
+/*..................... My Account info ......................*/
+.my-account,
+.edit-my-account {
+  position: absolute;
+  padding-bottom: 24px;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--white);
+}
+.info-container {
+  display: grid;
+  place-content: center;
+  margin-top: 60px;
+  grid-template-rows: auto 1fr auto;
+  width: 100%;
+}
+.info-container__title {
+  margin: 4px 4px 32px 4px;
+  font-size: var(--lg);
+  color: var(--dark-grey);
+  text-align: start;
+}
+.info-form {
+  display: grid;
+  padding-left: 12px;
+}
+.info-form__label {
+  margin-bottom: 4px;
+  font-size: var(--md);
+  font-weight: bold;
+  color: var(--dark-grey);
+}
+.info-form__value {
+  margin-bottom: 4px;
+  height: 30px;
+  width: 300px;
+  font-size: var(--md);
+  color: var(--grey);
+}
+.info-form__input{
+  margin-bottom: 12px;
+  border: none;
+  border-radius: 8px;
+  padding: 6px;
+  height: 30px;
+  width: 300px;
+  font-size: var(--md);
+  color: var(--grey);
+  outline: none;
+  background-color: var(--background);
+}
+.info-form__input:focus {
+  background-color: var(--light-green);
+  box-shadow:0 1px 6px rgba(32,33,36,.28);
+}
+#edit-button {
+  justify-self: center;
+  width: 120px;
+}
+
 /*........................... Login ...........................*/
 
 .login-container {
