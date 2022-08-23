@@ -3,6 +3,7 @@ const cardsContainer = document.querySelector('.cards-container');
 const productDetail = document.querySelector('#product-detail');
 const menuIcon = document.querySelector('.menu-icon');
 const mobileMenu = document.querySelector('.mobile-menu');
+let isUserLoggedIn = false;
 
 function renderProducts(products) {
   for (product of products) {
@@ -38,6 +39,7 @@ function renderProducts(products) {
     productInfo.appendChild(productName);
     productInfo.appendChild(addToCartIcon);
   }
+  userLoggedIn();
 }
 
 function createProducts() {
@@ -137,6 +139,35 @@ function createProducts() {
   renderProducts(productList);
 }
 
+function userLoggedIn() {
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const userEmail = urlParams.get("email");
+  if(userEmail !== null) {
+    const emailLbl1 = document.querySelector('#emailText1');
+    emailLbl1.text = userEmail;
+    const emailLbl2 = document.querySelector('#emailText2');
+    emailLbl2.text = userEmail;
+    isUserLoggedIn = true;
+    } else isUserLoggedIn = false;
+    toggleLogin();
+    return isUserLoggedIn;
+}
+
+function toggleLogin() {
+  const login = document.querySelector('.login');
+  const userEmail = document.querySelector('.user-email');
+  const mobileMenuUser = document.querySelector('.mobile-menu__user');
+  const mobileMenuLogin = document.querySelector('.mobile-menu__login');
+  if (isUserLoggedIn) {
+    login.classList.add('inactive');
+    userEmail.classList.remove('inactive');
+    mobileMenuUser.classList.remove('inactive');
+    mobileMenuLogin.classList.add('inactive');
+  } else {
+  }
+}
+
 function renderProductDetail(productRef) {
   const productImg = document.querySelector('#product-detail__image');
   productImg.setAttribute('src', productList[productRef - 1].image);
@@ -171,4 +202,9 @@ function toggleMobileMenu() {
     menuIcon.classList.remove('open');
     mobileMenu.classList.add('close');
   }
+}
+
+function redirectIndex() {
+  const email = document.querySelector('#email').value;
+  window.location.href="./index.html?email="+email;
 }

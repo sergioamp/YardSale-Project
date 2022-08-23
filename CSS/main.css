@@ -114,12 +114,19 @@ p {
 }
 .navbar .navbar__right-group a,
 .mobile-menu__login a,
-.desktop-menu .sign-out{
+.desktop-menu .sign-out,
+.mobile-menu .sign-out,
+.mobile-menu .email {
   color: var(--green);
+}
+.mobile-menu .email {
+  font-size: var(--sm);
 }
 .navbar .navbar__right-group a:hover,
 .mobile-menu__login a:hover,
-.desktop-menu .sign-out:hover {
+.desktop-menu .sign-out:hover,
+.mobile-menu .sign-out:hover,
+.mobile-menu .email:hover {
   border-bottom: 1.5px solid var(--green);
   color: var(--dark-green);
 }
@@ -138,12 +145,12 @@ p {
   border: 1px solid var(--light-grey);
   border-radius: 0 0 16px 16px;
   padding: 20px 0;
+  widht: auto;
   height: auto;
   background-color: var(--white);
 }
 .mobile-menu {
   top: 59px;
-  width: 200px;
   padding-left: 48px;
 }
 .mobile-menu p,
@@ -186,7 +193,7 @@ p {
   cursor: pointer;
 }
 .product-info__img:hover {
-  border: thick solid var(--light-blue);
+  border: thick solid var(--light-green);
 }
 .product-info__price,
 .product-info__name {
@@ -196,12 +203,13 @@ p {
 .product-info__price {
   grid-area: price;
   font-size: var(--lg);
-  color: var(--title);
+  color: var(--dark-grey);
   font-weight: bold;
 }
 .product-info__name {
   grid-area: name;
   font-size: var(--md);
+  color: var(--grey);
 }
 .add-to-cart {
   grid-area: cart;
@@ -213,21 +221,21 @@ p {
   object-fit: contain;
   background-position: center;
   background-repeat: no-repeat;
-  background-color: var(--background-field);
 }
 .add-to-cart:hover {
-  background-color: var(--light-orange);
+  background-image: url('../Assets/icons/bt_add_to_cart_hover.svg');
+  background-color: var(--light-green);
 }
 /*...................... Product Detail ......................*/
 #product-detail {
   position: absolute;
   top: 60px;
   right: 0;
-  border-bottom: 1.5px solid var(--light-blue);
+  border: 1px solid var(--light-grey);
   border-radius: 0 0 16px 16px;
   padding-bottom: 24px;
   width: 30vw;
-  background-color: var(--background);
+  background-color: var(--white);
 }
 .product-detail-info {
   display: grid;
@@ -255,12 +263,13 @@ p {
   border-radius: 50%;
   width: 32px;
   height: 32px;
-  fill: var(--text);
-  background-color: var(--background-field);
+  fill: var(--dark-green);
+  background-color: var(--white);
   cursor: pointer;
 }
 .product-detail_close:hover {
-  background-color: var(--light-orange);
+  fill: var(--white);
+  background-color: var(--light-green);
 }
 .product-detail__price,
 .product-detail__name {
@@ -268,16 +277,16 @@ p {
 }
 .product-detail__price {
   font-weight: bold;
-  color: var(--title);
+  color: var(--dark-grey);
   font-size: var(--lg);
 }
 .product-detail__name {
-  color: var(--subtitle);
+  color: var(--grey);
   font-size: var(--md);
 }
 .product-detail__description {
   margin: 8px 40px 20px 40px;
-  color: var(--text);
+  color: var(--grey);
   font-size: var(--sm);
   text-align: justify;
 }
@@ -292,23 +301,112 @@ p {
   height: 40px;
   font-size: var(--md);
   font-weight: bold;
-  color: var(--text);
-  background-color: var(--light-blue);
+  color: var(--white);
+  background-color: var(--green);
   cursor: pointer;
 }
-.primary-button svg {
-  fill: var(--text);
-}
 .primary-button:hover {
-  background-color: var(--light-orange);
-  box-shadow: inset 0 0 0 2px var(--text);
-}
-
-.primary-button:visited {
-  color: var(--text);
+  background-color: var(--dark-green);
 }
 .add-to-cart-button {
   justify-content: space-evenly;
   padding: 0 8px;
   width: 160px;
+}
+/*........................... Login ...........................*/
+.login-container {
+  position: absolute;
+  top: 60px;
+  display: grid;
+  place-items: center;
+  place-content: center;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--white);
+  overflow: hidden;
+}
+.login-form {
+  display: grid;
+  justify-content: center;
+}
+.login-form div{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+.login-form__input {
+  border: none;
+  border-bottom: 1px solid var(--light-grey);
+  height: 30px;
+  width: 280px;
+  font-size: var(--md);
+  color: var(--dark-grey);
+  background-color: inherit;
+  z-index: 2;
+  outline: none;
+}
+.login-form__label {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  font-size: var(--md);
+  color: var(--grey);
+  font-weight: bold;
+  cursor: text;
+  transition: transform 0.5s, color 0.3s;
+  z-index: 1;
+}
+.login-form__line{
+  width: 280px;
+  height: 1.5px;
+  background-color: var(--green);
+  transform: scale(0);
+  transition: transform 0.5s;
+}
+
+.login-form__input:focus + .login-form__label,
+.login-form__input:not(:placeholder-shown) + .login-form__label
+{
+  transform: translateY(-24px) scale(.95);
+  transform-origin: left top;
+  color: var(--dark-green);
+}
+
+.login-form__input:focus ~ .login-form__line,
+.login-form__input:not(:placeholder-shown) ~ .login-form__line{
+  transform: scale(1);
+}
+#login-button {
+  justify-self: center;
+  width: 120px;
+}
+.forgot-password {
+  justify-self: center;
+  margin: 16px 0;
+  font-size: var(--sm);
+  color: var(--green);
+  text-decoration: none;
+}
+.forgot-password:hover {
+  border-bottom: 1px solid var(--green);
+  color: var(--green);
+  font-weight: bold;
+}
+.secondary-button {
+  justify-self: center;
+  margin: 20px 0;
+  border-radius: 8px;
+  border: 2px solid var(--dark-green);
+  width: 120px;
+  height: 40px;
+  font-size: var(--md);
+  font-weight: bold;
+  color: var(--dark-green);
+  background-color: var(--white);
+  cursor: pointer;
+}
+.secondary-button:hover {
+  color: var(--white);
+  background-color: var(--light-green);
 }
