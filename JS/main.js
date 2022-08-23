@@ -4,6 +4,7 @@ const productDetail = document.querySelector('#product-detail');
 const menuIcon = document.querySelector('.menu-icon');
 const mobileMenu = document.querySelector('.mobile-menu');
 let isUserLoggedIn = false;
+const desktopMenu = document.querySelector('.desktop-menu');
 
 function renderProducts(products) {
   for (product of products) {
@@ -201,6 +202,15 @@ function toggleMobileMenu() {
   } else {
     menuIcon.classList.remove('open');
     mobileMenu.classList.add('close');
+  }
+}
+
+function toggleDesktopMenu() {
+  const isDesktopMenuOpen = !desktopMenu.classList.contains('inactive');
+  if (isDesktopMenuOpen){
+    desktopMenu.classList.add('inactive');
+  } else {
+    desktopMenu.classList.remove('inactive');
   }
 }
 
