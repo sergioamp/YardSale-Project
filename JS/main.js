@@ -1,6 +1,8 @@
 const productList = [];
 const cardsContainer = document.querySelector('.cards-container');
 const productDetail = document.querySelector('#product-detail');
+const menuIcon = document.querySelector('.menu-icon');
+const mobileMenu = document.querySelector('.mobile-menu');
 
 function renderProducts(products) {
   for (product of products) {
@@ -153,9 +155,20 @@ function renderProductDetail(productRef) {
 function openProductDetail() {
   const element = event.target.getAttribute("id");
   renderProductDetail(element);
-  productDetail.classList.remove('inactive');
+  productDetail.classList.remove('close');
 }
 
 function closeProductDetail() {
-  productDetail.classList.add('inactive');
+  productDetail.classList.add('close');
+}
+
+function toggleMobileMenu() {
+  const isMobileMenuClose = mobileMenu.classList.contains('close');
+  if (isMobileMenuClose) {
+    menuIcon.classList.add('open');
+    mobileMenu.classList.remove('close');
+  } else {
+    menuIcon.classList.remove('open');
+    mobileMenu.classList.add('close');
+  }
 }
