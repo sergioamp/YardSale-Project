@@ -1,5 +1,6 @@
 
-let productList = [];
+// let productList = [];
+let productId = '';
 const cardsContainer = document.querySelector('.cards-container');
 const productDetail = document.querySelector('#product-detail');
 const menuIcon = document.querySelector('.menu-icon');
@@ -31,7 +32,6 @@ function renderProducts(products) {
     productImg.classList.add('product-info__img');
     productImg.setAttribute('src', product.images[0]);
     productImg.setAttribute('id', product.id);
-    productImg.setAttribute('onclick', 'openProductDetail()');
 
     const productPrice = document.createElement('p');
     productPrice.classList.add('product-info__price');
@@ -58,8 +58,7 @@ function renderProducts(products) {
 const getAllProducts = async() => {
   try {
     const response = await api.get();
-		productList = response.data;
-    renderProducts(productList);
+    renderProducts(response.data);
   } catch(error) {
     alert(error);
   }
@@ -111,26 +110,35 @@ function closeOpenwindows() {
   }
 }
 
-function renderProductDetail(productRef) {
+function renderProductDetail(product) {
   const productImg = document.querySelector('#product-detail__image');
-  productImg.setAttribute('src', productList[productRef - 1].image);
+  productImg.setAttribute('src', product.images[0]);
 
   const productPrice = document.querySelector('.product-detail__price');
-  productPrice.innerText = '$ ' + productList[productRef - 1].price;
+  productPrice.innerText = '$ ' + product.price;
 
   const productName = document.querySelector('.product-detail__name');
-  productName.innerText = productList[productRef - 1].name;
+  productName.innerText = product.title;
 
   const productDescription = document.querySelector('.product-detail__description');
-  productDescription.innerText = productList[productRef - 1].description;
+  productDescription.innerText = product.description;
 
 }
 
-function openProductDetail() {
-  const element = event.target.getAttribute("id");
+function openProductDetail(product) {
   closeOpenwindows();
-  renderProductDetail(element);
+  renderProductDetail(product);
   productDetail.classList.remove('close');
+}
+
+const getProduct = async(id) => {
+  try {
+    const response = await api.get(`/${id}`);
+    console.log(response.data);
+    openProductDetail(response.data);
+  } catch(error) {
+    alert(error);
+  }
 }
 
 function closeProductDetail() {
@@ -193,3 +201,15 @@ function redirectIndex() {
 }
 
 window.addEventListener('DOMContentLoaded', getAllProducts, false);
+
+document.addEventListener('click', (e) => {
+  console.log(e.target);
+  if(e.target.matches('.product-info__img')) {
+    productId = e.target.id;
+    console.log(productId);
+    getProduct(productId);
+  }
+  if(e.target.matches('.close-product')) {
+    closeProductDetail();
+  }
+});
