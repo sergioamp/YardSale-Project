@@ -356,22 +356,21 @@ main {
   font-weight: bold;
   color: var(--dark-grey);
 }
-.info-form__value {
-  margin-bottom: 4px;
+.info-form__value,
+.info-form__input {
   height: 30px;
   width: 300px;
   font-size: var(--md);
   color: var(--grey);
 }
-.info-form__input{
+.info-form__value {
+  margin-bottom: 4px;
+}
+.info-form__input {
   margin-bottom: 12px;
   border: none;
   border-radius: 8px;
   padding: 6px;
-  height: 30px;
-  width: 300px;
-  font-size: var(--md);
-  color: var(--grey);
   outline: none;
   background-color: var(--background);
 }
@@ -379,7 +378,8 @@ main {
   background-color: var(--light-green);
   box-shadow:0 1px 6px rgba(32,33,36,.28);
 }
-#edit-button {
+#edit-button,
+#login-button {
   justify-self: center;
   width: 120px;
 }
@@ -446,10 +446,6 @@ main {
 .login-form__input:focus ~ .login-form__line,
 .login-form__input:not(:placeholder-shown) ~ .login-form__line{
   transform: scale(1);
-}
-#login-button {
-  justify-self: center;
-  width: 120px;
 }
 .forgot-password {
   justify-self: center;
