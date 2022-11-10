@@ -1,6 +1,5 @@
-
-// let productList = [];
 let productId = '';
+let categories = [];
 const cardsContainer = document.querySelector('.cards-container');
 const productDetail = document.querySelector('#product-detail');
 const menuIcon = document.querySelector('.menu-icon');
@@ -12,7 +11,7 @@ const myAccount = document.querySelector('.my-account');
 const editMyAccount = document.querySelector('.edit-my-account');
 
 const api = axios.create({
-  baseURL: 'http://api.escuelajs.co/api/v1/products',
+  baseURL: 'http://api.escuelajs.co/api/v1',
   headers: {
     'Content-Type': 'application/json;charset=utf-8',
   }
@@ -57,11 +56,27 @@ function renderProducts(products) {
 
 const getAllProducts = async() => {
   try {
-    const response = await api.get();
+    const response = await api.get('/products');
     renderProducts(response.data);
   } catch(error) {
     alert(error);
   }
+}
+
+const getCategories = async() => {
+  try {
+    const response = await api.get('/categories');
+    response.data.forEach((category) => {
+      categories.push(category.name);
+    });
+  } catch(error) {
+    alert(error);
+  }
+}
+
+function loadContent() {
+  getAllProducts();
+  getCategories();
 }
 
 function userLoggedIn() {
@@ -93,23 +108,6 @@ function toggleLogin() {
   }
 }
 
-function closeOpenwindows() {
-  const isMobileMenuOpen = !mobileMenu.classList.contains('close');
-  const isProductDetailOpen = !productDetail.classList.contains('close');
-  const isMyAccountOpen = !myAccount.classList.contains('close');
-  const isDesktopMenuOpen = !desktopMenu.classList.contains('close');
-
-  if (isMobileMenuOpen || isDesktopMenuOpen){
-    mobileMenu.classList.add('close');
-    desktopMenu.classList.add('close');
-    menuIcon.classList.remove('open');
-  }
-  if (isProductDetailOpen || isMyAccountOpen){
-    productDetail.classList.add('close');
-    myAccount.classList.add('close');
-  }
-}
-
 function renderProductDetail(product) {
   const productImg = document.querySelector('#product-detail__image');
   productImg.setAttribute('src', product.images[0]);
@@ -126,7 +124,6 @@ function renderProductDetail(product) {
 }
 
 function openProductDetail(product) {
-  closeOpenwindows();
   renderProductDetail(product);
   productDetail.classList.remove('close');
 }
@@ -134,24 +131,21 @@ function openProductDetail(product) {
 const getProduct = async(id) => {
   try {
     const response = await api.get(`/${id}`);
-    console.log(response.data);
     openProductDetail(response.data);
   } catch(error) {
     alert(error);
   }
 }
 
-function closeProductDetail() {
-  productDetail.classList.add('close');
-}
-
 function toggleMobileMenu() {
   const isMobileMenuClose = mobileMenu.classList.contains('close');
   if (isMobileMenuClose) {
+    desktopMenu.classList.add('close');
+    productDetail.classList.add('close');
+
     menuIcon.classList.add('open');
     mobileMenu.classList.remove('close');
   } else {
-    closeOpenwindows();
     menuIcon.classList.remove('open');
     mobileMenu.classList.add('close');
   }
@@ -162,13 +156,20 @@ function toggleDesktopMenu() {
   if (isDesktopMenuOpen){
     desktopMenu.classList.add('close');
   } else {
-    closeOpenwindows();
+    mobileMenu.classList.add('close');
+    menuIcon.classList.remove('open');
+    productDetail.classList.add('close');
+
     desktopMenu.classList.remove('close');
   }
 }
 
 function openMyAccount() {
-  closeOpenwindows();
+  mobileMenu.classList.add('close');
+  menuIcon.classList.remove('open');
+  productDetail.classList.add('close');
+  desktopMenu.classList.add('close');
+
   menuIcon.classList.add('invisible');
   navbarRightGroup.classList.add('invisible');
   myAccount.classList.remove('close');
@@ -187,7 +188,7 @@ function closeEditWindow() {
 function goToHome() {
   menuIcon.classList.remove('invisible');
   navbarRightGroup.classList.remove('invisible');
-  closeOpenwindows();
+  myAccount.classList.add('close');
 }
 
 function signOut() {
@@ -200,16 +201,19 @@ function redirectIndex() {
   window.location.href="./index.html?email="+email;
 }
 
-window.addEventListener('DOMContentLoaded', getAllProducts, false);
+window.addEventListener('DOMContentLoaded', loadContent(), false);
 
 document.addEventListener('click', (e) => {
   console.log(e.target);
   if(e.target.matches('.product-info__img')) {
+    mobileMenu.classList.add('close');
+    menuIcon.classList.remove('open');
+    desktopMenu.classList.add('close');
+
     productId = e.target.id;
-    console.log(productId);
     getProduct(productId);
   }
   if(e.target.matches('.close-product')) {
-    closeProductDetail();
+    productDetail.classList.add('close');
   }
 });
