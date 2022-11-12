@@ -1,3 +1,8 @@
+/*------------------------------------*\
+  #RESET
+\*------------------------------------*/
+
+/* Custom Properties */
 :root {
   --sm: 14px;
   --md: 16px;
@@ -14,4 +19,87 @@
   --black: #000000;
 
   --primary-font: 'Quicksand', sans-serif;
+}
+
+/* Reset de margin y paddings de todas las etiquetas */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  vertical-align: baseline;
+}
+
+/* Evitar problemas con imágenes */
+img, picture, video, iframe, figure {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* Quitamos puntos de los <li> */
+li {
+  list-style-type: none;
+}
+
+/* Configuramos anclas suaves */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Desactivamos estilos por defecto dee las principales etiquetas de texto */
+h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em {
+  font-size: 1em;
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Evitando problemas por defecto de las principales etiquetas de texto */
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* Configurar el texto que seleccionamos */
+/** 
+::selection {
+  background-color: var(--color-primario);
+  color: var(--color-secundario);
+} 
+*/
+
+/* Nivelamos problemas de tipografías y formularios */
+form, input, textarea, select, button, label {
+  font-family: inherit;
+  font-size: inherit;
+  hyphens: auto;
+  background-color: transparent;
+  display: block;
+  color: inherit;
+}
+
+/* Reset de las tablas */
+table, tr, td {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Evitamos problemas con los SVG */
+svg {
+  width: 100%;
+  display: block;
+  fill: currentColor;
+}
+
+/* Configuramos la tipografía para toda la web */
+body {
+  min-height: 100vh;
+  font-size: 100%;
+  font-family: var(--primary-font);
+  /* color: var(--color-primario) */
+  /* background-color: var(--color-secundario); */
 }
