@@ -4,6 +4,7 @@ const cardsContainer = document.querySelector('.cards-container');
 const productDetail = document.querySelector('#product-detail');
 const menuIcon = document.querySelector('.menu-icon');
 const mobileMenu = document.querySelector('.mobile-menu');
+const mobileMenuCategories = document.querySelector('.mobile-menu__categories');
 let isUserLoggedIn = false;
 const desktopMenu = document.querySelector('.desktop-menu');
 const navbarRightGroup = document.querySelector('.navbar__right-group');
@@ -18,7 +19,6 @@ const api = axios.create({
 });
 
 function renderProducts(products) {
-  console.log(products);
   products.forEach((product) => {
     const productCard = document.createElement('div');
     productCard.classList.add('product-card');
@@ -63,12 +63,30 @@ const getAllProducts = async() => {
   }
 }
 
+function renderCategories(categories) {
+  categories.forEach((category) => {
+
+    const item = document.createElement('li');
+
+    const link = document.createElement('a');
+    link.setAttribute('href', 'javascript:void(0)');
+    link.innerText = category.name;
+
+
+    mobileMenuCategories.appendChild(item);
+    item.appendChild(link);
+  });
+
+  userLoggedIn();
+}
+
 const getCategories = async() => {
   try {
     const response = await api.get('/categories');
-    response.data.forEach((category) => {
-      categories.push(category.name);
-    });
+    // response.data.forEach((category) => {
+    //   categories.push(category.name);
+    // });
+    renderCategories(response.data);
   } catch(error) {
     alert(error);
   }

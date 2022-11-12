@@ -13,8 +13,6 @@
   --background: #E8EFEE;
   --white: #FFFFFF;
   --black: #000000;
-
-
 }
 * {
   margin: 0;
@@ -54,6 +52,7 @@ p {
 .invisible {
   visibility: hidden;
 }
+/*
 .navbar {
   position: relative;
   display: flex;
@@ -102,6 +101,11 @@ p {
   transform: rotate(-45deg);
   background-color: var(--dark-green);
 }
+.yardsale-logo {
+  position: absolute;
+  left: calc(50% - 72.75px);
+  top: calc(30px - 17px);
+}
 .navbar ul {
   display: flex;
   list-style: none;
@@ -109,12 +113,13 @@ p {
 .navbar ul li {
   padding: 0 8px;
 }
-.yardsale-logo {
-  position: absolute;
-  left: calc(50% - 72.75px);
-  top: calc(30px - 17px);
+.navbar__left-group {
+  grid-area: "C";
+  display: flex;
+  align-items: center;
 }
 .navbar__right-group {
+  grid-area: "D";
   display: flex;
   align-items: center;
 }
@@ -143,6 +148,54 @@ p {
   width: 40px;
   cursor: pointer;
 }
+*/
+
+
+.navbar-desktop {
+  display: grid;
+  grid-template-rows: 50px;
+  grid-template-columns: 180px auto 40px;
+  grid-template-areas: "A B C";
+  place-items: center;
+  border-bottom: 2px solid var(--light-grey);
+  padding: 0 24px;
+}
+.yardsale-logo {
+  grid-area: A;
+}
+.navbar-desktop ul {
+  grid-area: B;
+  justify-self: start;
+  display: flex;
+  list-style: none;
+}
+.shopping-cart-icon {
+  grid-area: C;
+  cursor: pointer;
+}
+
+.navbar-desktop .login,
+.navbar-desktop .user-email,
+.mobile-menu__login a,
+.desktop-menu .sign-out,
+.mobile-menu .sign-out,
+.mobile-menu .email {
+  color: var(--green);
+}
+.mobile-menu .email {
+  font-size: var(--sm);
+}
+.navbar .navbar__right-group a:hover,
+.mobile-menu__login a:hover,
+.desktop-menu .sign-out:hover,
+.mobile-menu .sign-out:hover,
+.mobile-menu .email:hover {
+  border-bottom: 1.5px solid var(--green);
+  color: var(--dark-green);
+}
+
+
+
 /*........................... Menus ..........................*/
 .desktop-menu-container,
 .mobile-menu {
