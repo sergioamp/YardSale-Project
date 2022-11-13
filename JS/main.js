@@ -1,9 +1,3 @@
-// const screen = {
-//   smallScreen: 0,
-//   mediumScreen: 400,
-//   largeScreen: 800
-// };
-
 const logo = document.querySelector('.yardsale-logo');
 const menu = document.querySelector('.menu');
 const icons = document.querySelector('.icons');
@@ -47,18 +41,40 @@ const getCategories = async() => {
   }
 }
 
+
+function menuInactive() {
+  menu.classList.add('inactive');
+  menu.classList.remove('active');
+}
+
+function mediumAndLargeScreens() {
+  logo.classList.remove('logo--large');
+
+  icons.classList.add('icons--desktop');
+  icons.classList.remove('icons--mobile');
+
+  hamburguerIcon.classList.remove('icon--large');
+  hamburguerIcon.classList.add('icon--medium');
+  cartIcon.classList.remove('icon--large');
+  cartIcon.classList.add('icon--medium');
+  cartIconSvg.classList.remove('icon__svg--large');
+}
+
+function hamburguerIconVisible() {
+  hamburguerIcon.classList.remove('invisible');
+}
+
 function resizeHandler() {
  
   if (window.matchMedia("(max-width: 460px)").matches) {
     logo.classList.add('logo--large');
 
-    menu.classList.add('inactive');
-    menu.classList.remove('active');
+    menuInactive();
 
     icons.classList.add('icons--mobile');
     icons.classList.remove('icons--desktop');
 
-    hamburguerIcon.classList.remove('invisible');
+    hamburguerIconVisible()
 
     hamburguerIcon.classList.remove('icon--medium');
     hamburguerIcon.classList.add('icon--large');
@@ -67,38 +83,17 @@ function resizeHandler() {
     cartIconSvg.classList.add('icon__svg--large');
   } 
   else if (window.matchMedia("(max-width: 760px)").matches) {
-    logo.classList.remove('logo--large');
-
-    menu.classList.add('inactive');
-    menu.classList.remove('active');
-
-    icons.classList.add('icons--desktop');
-    icons.classList.remove('icons--mobile');
-
-    hamburguerIcon.classList.remove('invisible');
-
-    hamburguerIcon.classList.remove('icon--large');
-    hamburguerIcon.classList.add('icon--medium');
-    cartIcon.classList.remove('icon--large');
-    cartIcon.classList.add('icon--medium');
-    cartIconSvg.classList.remove('icon__svg--large');
+    menuInactive();
+    mediumAndLargeScreens();
+    hamburguerIconVisible()
   }
   else {
-    logo.classList.remove('logo--large');
-    
+    mediumAndLargeScreens();
+
     menu.classList.remove('inactive');
     menu.classList.add('active');
-
-    icons.classList.add('icons--desktop');
-    icons.classList.remove('icons--mobile');
      
     hamburguerIcon.classList.add('invisible');
-
-    hamburguerIcon.classList.remove('icon--large');
-    hamburguerIcon.classList.add('icon--medium');
-    cartIcon.classList.remove('icon--large');
-    cartIcon.classList.add('icon--medium');
-    cartIconSvg.classList.remove('icon__svg--large');
   } 
 }
 
