@@ -4,19 +4,18 @@
 
 /* Custom Properties */
 :root {
-  --sm: 14px;
-  --md: 16px;
-  --lg: 18px;
+  --sm: 1.4rem;
+  --md: 1.6rem;
+  --lg: 1.8rem;
 
-  --green: #187D33;
-  --light-green: #94C56C;
-  --dark-green: #165643;
-  --light-grey: #AFAFAF;
-  --grey: #6B6B6B;
-  --dark-grey: #474747;
-  --background: #E8EFEE;
-  --white: #FFFFFF;
-  --black: #000000;
+  --primary-color: #187D33;
+  --secondary-color: #94C56C;
+  --tertiary-color: #165643;
+  --border: #AFAFAF;
+  --primary-text: #474747;
+  --secondary-text: #6B6B6B;
+  --primary-background: #E8EFEE;
+  --secondary-background: #FFFFFF;
 
   --primary-font: 'Quicksand', sans-serif;
 }
@@ -46,12 +45,13 @@ li {
 
 /* Configuramos anclas suaves */
 html {
+  font-size: 62.5%;
   scroll-behavior: smooth;
 }
 
 /* Desactivamos estilos por defecto dee las principales etiquetas de texto */
 h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em {
-  font-size: 1em;
+  font-size: var(--md);
   font-weight: inherit;
   font-style: inherit;
   text-decoration: none;
@@ -65,12 +65,10 @@ blockquote:before, blockquote:after, q:before, q:after {
 }
 
 /* Configurar el texto que seleccionamos */
-/** 
 ::selection {
-  background-color: var(--color-primario);
-  color: var(--color-secundario);
-} 
-*/
+  background-color: var(--primary-text);
+  color: var(--secondary-background);
+}
 
 /* Nivelamos problemas de tipografías y formularios */
 form, input, textarea, select, button, label {
@@ -90,16 +88,139 @@ table, tr, td {
 
 /* Evitamos problemas con los SVG */
 svg {
-  width: 100%;
+  /* width: 100%; */
   display: block;
   fill: currentColor;
 }
 
 /* Configuramos la tipografía para toda la web */
 body {
+  position: relative;
   min-height: 100vh;
   font-size: 100%;
   font-family: var(--primary-font);
-  /* color: var(--color-primario) */
+  color: var(--secondary-text)
   /* background-color: var(--color-secundario); */
+}
+
+
+
+
+
+/*------------------------------------*\
+  #GLOBAL
+\*------------------------------------*/
+
+
+
+
+
+
+/*------------------------------------*\
+  #NAVBAR
+\*------------------------------------*/
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  padding: 0 1.2rem;
+  width: 100vw;
+  height: auto;
+
+  border: 1px solid salmon;
+  background-color: aqua;
+}
+
+.navbar__logo {
+  display: flex;
+  justify-content: center;
+  height: 4rem;
+}
+
+.yardsale-logo {
+  margin: auto 0;
+
+  border: 1px solid salmon;
+  background-color: var(--primary-background);
+}
+
+.menu {
+  display: flex;
+  height: 3rem;
+}
+
+.menu--left {
+  display: flex;
+  justify-content: flex-start;
+  gap: 3%;
+  margin: auto 0;
+  width: 60vw;
+}
+.menu--right {
+  display: flex;
+  justify-content: flex-end;
+  gap: 3%;
+  margin: auto 0;
+  width: 40vw;
+}
+
+.icons {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1.2rem;
+  width: 100%;
+  height: 5rem;
+  border: 1px solid salmon;
+}
+
+.hambuguer-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto 0;
+  border-radius: 22.5rem;
+  width: 4.5rem;
+  height: 4.5rem;
+
+  border: 1px solid salmon;
+  background-color: var(--primary-background);
+}
+
+.hambuguer-icon__line {
+  position: absolute;
+  border-radius: 4px;
+  width: 24px;
+  height: 3px;
+  background-color: var(--primary-text);
+  transition: all .3s ease-in-out;
+}
+
+.hambuguer-icon__line:nth-child(1) {
+  transform: translateY(-0.8rem);
+}
+
+.hambuguer-icon__line:nth-child(3) {
+  transform: translateY(0.8rem);
+}
+
+.cart-icon {
+  display: grid;
+  place-content: center;
+  margin: auto 0;
+  border-radius: 22.5rem;
+  width: 4.5rem;
+  height: 4.5rem;
+
+  border: 1px solid salmon;
+  background-color: var(--primary-background);
+}
+
+.cart-icon__svg {
+  margin: auto 0;
+  width: 3rem;
+  height: 3rem;
 }
