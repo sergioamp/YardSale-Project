@@ -41,7 +41,6 @@ const getCategories = async() => {
   }
 }
 
-
 function menuInactive() {
   menu.classList.add('inactive');
   menu.classList.remove('active');

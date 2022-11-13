@@ -172,11 +172,31 @@ body {
   margin: auto 0;
   width: 65vw;
 }
+
+.category:hover {
+  border-bottom: 0.15rem solid var(--primary-text);
+  font-weight: 400;
+  color: var(--primary-text);
+  letter-spacing: 0.05rem;
+}
+
 .menu--right {
   display: flex;
   justify-content: flex-end;
   margin: auto 0;
   width: 35vw;
+}
+
+.user {
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+.user:hover {
+  border-bottom: 0.15rem solid var(--tertiary-color);
+  font-weight: 400;
+  color: var(--tertiary-color);
+  letter-spacing: 0.05rem;
 }
 
 .icons {
@@ -205,6 +225,7 @@ body {
   margin: auto 0;
   border-radius: 22.5rem;
   background-color: var(--primary-background);
+  cursor: pointer;
 }
 
 .hambuguer-icon__line {
@@ -230,6 +251,7 @@ body {
   margin: auto 0;
   border-radius: 22.5rem;
   background-color: var(--primary-background);
+  cursor: pointer;
 }
 
 .cart-icon__svg {
