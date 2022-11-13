@@ -1,7 +1,12 @@
 let isInHome = true;
+let isUserLoggedIn = false;
+
 const logo = document.querySelector('.yardsale-logo');
 const menu = document.querySelector('.menu');
 const categories = document.querySelector('.menu--left');
+const loginLink = document.querySelector('.login-link');
+const signupLink = document.querySelector('.signup-link');
+const userName = document.querySelector('.username');
 const icons = document.querySelector('.icons');
 const hamburguerIcon = document.querySelector('.hambuguer-icon');
 const cartIcon = document.querySelector('.cart-icon');
@@ -105,11 +110,6 @@ function resizeHandler() {
   } 
 }
 
-function loadContent() {
-  getCategories();
-  resizeHandler();
-}
-
 function openLoginSection() {
   isInHome = false;
   menuInactive();
@@ -142,11 +142,41 @@ function closeSignupSection() {
   signupSection.classList.add('inactive');
 }
 
+function userLoggingIn() {
+  window.location.href="./index.html?email="+email.value;
+  goToHome();
+}
+
+function userLoggedIn() {
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const userEmail = urlParams.get("email");
+  if(userEmail !== null) {
+    userName.classList.remove('inactive');
+    loginLink.classList.add('inactive');
+    signupLink.classList.add('inactive');
+    userName.text = userEmail;
+    isUserLoggedIn = true;
+    } else {
+      userName.classList.add('inactive');
+      loginLink.classList.remove('inactive');
+      signupLink.classList.remove('inactive');
+      isUserLoggedIn = false;
+    }
+}
+
 function goToHome() {
   isInHome = true;
   resizeHandler();
   closeLoginSection();
-  closeSignupSection()
+  closeSignupSection();
+  userLoggedIn();
+}
+
+function loadContent() {
+  getCategories();
+  resizeHandler();
+  userLoggedIn();
 }
 
 window.addEventListener('DOMContentLoaded', loadContent(), false);
