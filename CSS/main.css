@@ -111,6 +111,19 @@ body {
   #GLOBAL
 \*------------------------------------*/
 
+.active {
+  display: flex;
+  visibility: visible;
+}
+
+.inactive {
+  display: none;
+  visibility: hidden;
+}
+
+.invisible {
+  visibility: hidden;
+}
 
 
 
@@ -125,29 +138,30 @@ body {
   flex-direction: column;
   justify-content: center;
   position: relative;
-  padding: 0 1.2rem;
   width: 100vw;
   height: auto;
-
-  border: 1px solid salmon;
-  background-color: aqua;
+  background-color: var(--primary-background);
 }
 
 .navbar__logo {
   display: flex;
   justify-content: center;
-  height: 4rem;
+  border-bottom: 2px solid var(--border);
+  padding: 0.25rem 1.2rem 0 1.2rem;
+  height: auto;
 }
 
 .yardsale-logo {
   margin: auto 0;
+}
 
-  border: 1px solid salmon;
-  background-color: var(--primary-background);
+.logo--large {
+  height: 5rem;
 }
 
 .menu {
-  display: flex;
+  border-bottom: 1px solid var(--border);
+  padding: 0 1.2rem;
   height: 3rem;
 }
 
@@ -156,14 +170,13 @@ body {
   justify-content: flex-start;
   gap: 3%;
   margin: auto 0;
-  width: 60vw;
+  width: 65vw;
 }
 .menu--right {
   display: flex;
   justify-content: flex-end;
-  gap: 3%;
   margin: auto 0;
-  width: 40vw;
+  width: 35vw;
 }
 
 .icons {
@@ -173,8 +186,16 @@ body {
   justify-content: space-between;
   padding: 0 1.2rem;
   width: 100%;
-  height: 5rem;
-  border: 1px solid salmon;
+}
+
+.icons--mobile {
+  bottom: 0;
+  height: 6rem;
+}
+
+.icons--desktop {
+  top: 0;
+  height: 4rem;
 }
 
 .hambuguer-icon {
@@ -183,18 +204,14 @@ body {
   align-items: center;
   margin: auto 0;
   border-radius: 22.5rem;
-  width: 4.5rem;
-  height: 4.5rem;
-
-  border: 1px solid salmon;
   background-color: var(--primary-background);
 }
 
 .hambuguer-icon__line {
   position: absolute;
   border-radius: 4px;
-  width: 24px;
-  height: 3px;
+  width: 2.8rem;
+  height: 0.4rem;
   background-color: var(--primary-text);
   transition: all .3s ease-in-out;
 }
@@ -212,15 +229,23 @@ body {
   place-content: center;
   margin: auto 0;
   border-radius: 22.5rem;
-  width: 4.5rem;
-  height: 4.5rem;
-
-  border: 1px solid salmon;
   background-color: var(--primary-background);
 }
 
 .cart-icon__svg {
   margin: auto 0;
-  width: 3rem;
+}
+
+.icon--medium {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.icon--large {
+  width: 4.5rem;
+  height: 4.5rem;
+}
+
+.icon__svg--large {
   height: 3rem;
 }
