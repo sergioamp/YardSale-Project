@@ -29,7 +29,7 @@
         </ul> 
         <ul class="menu--right">
           <li>
-            <a class="login-link user">Log in</a>
+            <a class="login-link user" onclick="openLoginSection()">Log in</a>
           </li>
           <li>
             <a class="user__email user inactive" href="javascript:void(0)">sergio.m.papagayo@gmail.com</a>
@@ -53,7 +53,7 @@
       </button>
     </aside>
 
-    <section class="login">
+    <section class="login-section inactive">
       <form action="/" class="login-form">
         <div>
           <input id="email" type="email" class="form__input input__email" placeholder=" ">
@@ -70,6 +70,7 @@
         <a href="/" class="forgot-password">Forgot my password</a>
       </form>
       <button class="secondary-button">Sing up</button>
+      <button class="secondary-button" onclick="goToHome()">Ir a Home</button>
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

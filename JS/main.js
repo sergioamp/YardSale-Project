@@ -1,11 +1,13 @@
+let isInHome = true;
 const logo = document.querySelector('.yardsale-logo');
 const menu = document.querySelector('.menu');
+const categories = document.querySelector('.menu--left');
 const icons = document.querySelector('.icons');
 const hamburguerIcon = document.querySelector('.hambuguer-icon');
 const cartIcon = document.querySelector('.cart-icon');
 const cartIconSvg = document.querySelector('.cart-icon__svg');
+const loginSection = document.querySelector('.login-section');
 
-const categories = document.querySelector('.menu--left');
 
 const api = axios.create({
   baseURL: 'https://fakestoreapi.com/products',
@@ -64,35 +66,36 @@ function hamburguerIconVisible() {
 }
 
 function resizeHandler() {
- 
-  if (window.matchMedia("(max-width: 460px)").matches) {
-    logo.classList.add('logo--large');
-
-    menuInactive();
-
-    icons.classList.add('icons--mobile');
-    icons.classList.remove('icons--desktop');
-
-    hamburguerIconVisible()
-
-    hamburguerIcon.classList.remove('icon--medium');
-    hamburguerIcon.classList.add('icon--large');
-    cartIcon.classList.remove('icon--medium');
-    cartIcon.classList.add('icon--large');
-    cartIconSvg.classList.add('icon__svg--large');
-  } 
-  else if (window.matchMedia("(max-width: 760px)").matches) {
-    menuInactive();
-    mediumAndLargeScreens();
-    hamburguerIconVisible()
-  }
-  else {
-    mediumAndLargeScreens();
-
-    menu.classList.remove('inactive');
-    menu.classList.add('active');
-     
-    hamburguerIcon.classList.add('invisible');
+  if(isInHome) {
+    if (window.matchMedia("(max-width: 460px)").matches) {
+      logo.classList.add('logo--large');
+  
+      menuInactive();
+  
+      icons.classList.add('icons--mobile');
+      icons.classList.remove('icons--desktop');
+  
+      hamburguerIconVisible()
+  
+      hamburguerIcon.classList.remove('icon--medium');
+      hamburguerIcon.classList.add('icon--large');
+      cartIcon.classList.remove('icon--medium');
+      cartIcon.classList.add('icon--large');
+      cartIconSvg.classList.add('icon__svg--large');
+    } 
+    else if (window.matchMedia("(max-width: 760px)").matches) {
+      menuInactive();
+      mediumAndLargeScreens();
+      hamburguerIconVisible()
+    }
+    else {
+      mediumAndLargeScreens();
+  
+      menu.classList.remove('inactive');
+      menu.classList.add('active');
+       
+      hamburguerIcon.classList.add('invisible');
+    }
   } 
 }
 
@@ -101,10 +104,26 @@ function loadContent() {
   resizeHandler();
 }
 
+function openLoginSection() {
+  isInHome = false;
+  menuInactive();
+  cartIcon.classList.add('invisible');
+  loginSection.classList.remove('inactive');
+}
+
+function closeLoginSection() {
+  isInHome = true;
+  resizeHandler();
+  cartIcon.classList.remove('invisible');
+  loginSection.classList.add('inactive');
+}
+
+function goToHome() {
+  closeLoginSection();
+}
+
 window.addEventListener('DOMContentLoaded', loadContent(), false);
 
 window.addEventListener('resize', resizeHandler);
-
-
 
 
