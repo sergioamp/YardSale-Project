@@ -54,65 +54,99 @@ const getCategories = async() => {
   }
 }
 
-function menuInactive() {
-  menu.classList.add('inactive');
-  menu.classList.remove('active');
+function toggleMenu(state) {
+  if(state == 'inactive') {
+    menu.classList.add('inactive');
+    menu.classList.remove('active');
+  } else if(state == 'active'){
+    menu.classList.remove('inactive');
+    menu.classList.add('active');
+  }
+}
+
+function toggleHamburguerIcon(state) {
+  if(state == 'visible') {
+    hamburguerIcon.classList.remove('invisible');
+  } else if(state == 'invisible'){
+    hamburguerIcon.classList.add('invisible');
+  }
+  
+}
+
+function toggleHamburguerIconSize(size) {
+  if(size == 'medium') {
+    hamburguerIcon.classList.remove('icon--large');
+    hamburguerIcon.classList.add('icon--medium');
+  } else if(size == 'large'){
+    hamburguerIcon.classList.add('icon--large');
+    hamburguerIcon.classList.remove('icon--medium');
+  }
+  
+}
+
+function toggleIcons(device) {
+  if(device == 'mobile') {
+    icons.classList.add('icons--mobile');
+    icons.classList.remove('icons--desktop');
+  } else if(device == 'desktop'){
+    icons.classList.add('icons--desktop');
+    icons.classList.remove('icons--mobile');
+  }
+}
+
+function toggleLogoSize(size) {
+  if(size == 'medium') {
+    logo.classList.remove('logo--large');
+  } else if(size == 'large'){
+    logo.classList.add('logo--large');
+  }
+}
+
+function toggleCartIconSize(size) {
+  if(size == 'medium') {
+    cartIcon.classList.remove('icon--large');
+    cartIcon.classList.add('icon--medium');
+    cartIconSvg.classList.remove('icon__svg--large');
+  } else if(size == 'large'){
+    cartIcon.classList.remove('icon--medium');
+    cartIcon.classList.add('icon--large');
+    cartIconSvg.classList.add('icon__svg--large');
+  }
 }
 
 function mediumAndLargeScreens() {
-  logo.classList.remove('logo--large');
-
-  icons.classList.add('icons--desktop');
-  icons.classList.remove('icons--mobile');
-
-  hamburguerIcon.classList.remove('icon--large');
-  hamburguerIcon.classList.add('icon--medium');
-  cartIcon.classList.remove('icon--large');
-  cartIcon.classList.add('icon--medium');
-  cartIconSvg.classList.remove('icon__svg--large');
-}
-
-function hamburguerIconVisible() {
-  hamburguerIcon.classList.remove('invisible');
+  toggleLogoSize('medium');
+  toggleIcons('desktop');
+  toggleHamburguerIconSize('medium');
+  toggleCartIconSize('medium');
 }
 
 function resizeHandler() {
   if(isInHome) {
     if (window.matchMedia("(max-width: 460px)").matches) {
-      logo.classList.add('logo--large');
-  
-      menuInactive();
-  
-      icons.classList.add('icons--mobile');
-      icons.classList.remove('icons--desktop');
-  
-      hamburguerIconVisible()
-  
-      hamburguerIcon.classList.remove('icon--medium');
-      hamburguerIcon.classList.add('icon--large');
-      cartIcon.classList.remove('icon--medium');
-      cartIcon.classList.add('icon--large');
-      cartIconSvg.classList.add('icon__svg--large');
+      toggleLogoSize('large');
+      toggleMenu('inactive');
+      toggleIcons('mobile');
+      toggleHamburguerIcon('visible');
+      toggleHamburguerIconSize('large');
+      toggleCartIconSize('large');
     } 
     else if (window.matchMedia("(max-width: 760px)").matches) {
-      menuInactive();
+      toggleMenu('inactive');
       mediumAndLargeScreens();
-      hamburguerIconVisible()
+      toggleHamburguerIcon('visible');
     }
     else {
+      toggleMenu('active');
       mediumAndLargeScreens();
-  
-      menu.classList.remove('inactive');
-      menu.classList.add('active');
-       
-      hamburguerIcon.classList.add('invisible');
+      toggleHamburguerIcon('invisible');
     }
   } 
 }
 
 function openLoginSection() {
   isInHome = false;
-  menuInactive();
+  toggleMenu('inactive');
   closeSignupSection()
   cartIcon.classList.add('invisible');
   loginSection.classList.remove('inactive');
@@ -127,7 +161,7 @@ function closeLoginSection() {
 
 function openSignupSection() {
   isInHome = false;
-  menuInactive();
+  toggleMenu('inactive');
   closeLoginSection();
   cartIcon.classList.add('invisible');
   signupSection.classList.remove('inactive');
