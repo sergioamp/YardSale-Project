@@ -19,6 +19,7 @@ const newName = document.getElementById('new-name');
 const newEmail = document.getElementById('new-email');
 const newPassword = document.getElementById('new-password1');
 const confirmNewPassword = document.getElementById('new-password2');
+const desktopMenu = document.querySelector('.desktop-menu');
 
 const api = axios.create({
   baseURL: 'https://fakestoreapi.com/products',
@@ -197,6 +198,23 @@ function userLoggedIn() {
       signupLink.classList.remove('inactive');
       isUserLoggedIn = false;
     }
+}
+
+function play() {
+  desktopMenu.classList.add('changing');
+}
+
+function toggleDesktopMenu() {
+  const isDesktopMenuOpen = !desktopMenu.classList.contains('close');
+  if (isDesktopMenuOpen){
+    desktopMenu.classList.add('close');
+    desktopMenu.classList.remove('open-menu');
+    desktopMenu.classList.add('close-menu');
+  } else {
+    desktopMenu.classList.remove('close');
+    desktopMenu.classList.add('open-menu');
+    desktopMenu.classList.remove('close-menu');
+  }
 }
 
 function goToHome() {

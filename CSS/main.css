@@ -407,22 +407,27 @@ body {
   #MENUS
 \*------------------------------------*/
 
-.desktop-menu__container {
+.desktop-menu {
   position: absolute;
+  top: -13.5rem;
+  right: 1.2rem;
+  display: grid;
+  place-items: center;
   margin: 0;
   border: 0.2rem solid var(--primary-background);
   border-top: transparent;
   border-radius: 0 0 1.6rem 1.6rem;
   padding: 2rem 0;
-  width: auto;
+  width: 20rem;
   height: auto;
   background-color: var(--tertiary--backgorund);
-  z-index: 4;
+  transition: transform 1s ease-in-out;
 }
-.desktop-menu__container {
-  top: 6.95rem;
-  right: 1.2rem;
-  width: 200px;
-  display: grid;
-  place-items: center;
+
+.open-menu {
+  transform: translateY(20rem);
+}
+
+.close-menu {
+  transform: translateY(-20rem);
 }
