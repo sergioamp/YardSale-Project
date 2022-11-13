@@ -16,6 +16,7 @@
   --secondary-text: #6B6B6B;
   --primary-background: #E8EFEE;
   --secondary-background: #FFFFFF;
+  --tertiary--backgorund: #FAFAFA;
 
   --primary-font: 'Quicksand', sans-serif;
 }
@@ -180,7 +181,7 @@ body {
   margin-right: 1.2rem;
 }
 
-.category:hover {
+.option:hover {
   border-bottom: 0.15rem solid var(--primary-text);
   font-weight: 400;
   color: var(--primary-text);
@@ -396,4 +397,32 @@ body {
 .secondary-button:hover {
   background-color: var(--secondary-color);
   letter-spacing: 0.05rem;
+}
+
+
+
+
+
+/*------------------------------------*\
+  #MENUS
+\*------------------------------------*/
+
+.desktop-menu__container {
+  position: absolute;
+  margin: 0;
+  border: 0.2rem solid var(--primary-background);
+  border-top: transparent;
+  border-radius: 0 0 1.6rem 1.6rem;
+  padding: 2rem 0;
+  width: auto;
+  height: auto;
+  background-color: var(--tertiary--backgorund);
+  z-index: 4;
+}
+.desktop-menu__container {
+  top: 6.95rem;
+  right: 1.2rem;
+  width: 200px;
+  display: grid;
+  place-items: center;
 }
