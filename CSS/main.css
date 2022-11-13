@@ -141,6 +141,7 @@ body {
   width: 100vw;
   height: auto;
   background-color: var(--primary-background);
+  z-index: 10;
 }
 
 .navbar__logo {
@@ -206,6 +207,7 @@ body {
   justify-content: space-between;
   padding: 0 1.2rem;
   width: 100%;
+  z-index: 12;
 }
 
 .icons--mobile {
@@ -230,7 +232,7 @@ body {
 
 .hambuguer-icon__line {
   position: absolute;
-  border-radius: 4px;
+  border-radius: 0.4rem;
   width: 2.8rem;
   height: 0.4rem;
   background-color: var(--primary-text);
@@ -270,4 +272,127 @@ body {
 
 .icon__svg--large {
   height: 3rem;
+}
+
+
+
+
+
+/*------------------------------------*\
+  #LOGIN
+\*------------------------------------*/
+
+.login {
+  position: absolute;
+  top: 0;
+  display: grid;
+  place-items: center;
+  place-content: center;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--secondary-background);
+  overflow: hidden;
+}
+
+.login-form {
+  display: grid;
+  justify-content: center;
+}
+
+.login-form div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 2rem;
+}
+
+.form__input {
+  border: transparent;
+  border-bottom: 0.1rem solid var(--border);
+  height: 3rem;
+  width: 28rem;
+  font-size: var(--md);
+  color: var(--primary-text);
+  background-color: inherit;
+  z-index: 2;
+  outline: transparent;
+  transition: border-bottom 0.5s;
+}
+
+.form__label {
+  position: absolute;
+  top: 0.4rem;
+  left: 0;
+  font-size: var(--md);
+  font-weight: bold;
+  cursor: text;
+  transition: transform 0.5s, color 0.3s;
+  z-index: 1;
+}
+
+.form__input:focus, 
+.form__input:not(:placeholder-shown) {
+  border-bottom: 0.15rem solid var(--primary-color);
+}
+
+.form__input:focus + .form__label,
+.form__input:not(:placeholder-shown) + .form__label {
+  transform: translateY(-2.4rem) scale(.95);
+  transform-origin: left top;
+  color: var(--tertiary-color);
+  letter-spacing: 0.05rem;
+} 
+
+.forgot-password {
+  justify-self: center;
+  margin: 1.6rem 0;
+  font-size: var(--sm);
+  color: var(--primary-color);
+}
+
+.forgot-password:hover {
+  border-bottom: 0.1rem solid var(--primary-color);
+  color: var(--primary-color);
+  font-weight: bold;
+  letter-spacing: 0.05rem;
+}
+
+.primary-button {
+  place-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.8rem;
+  border: 0.1rem solid var(--primary-color);
+  width: 12rem;
+  height: 4rem;
+  font-size: var(--md);
+  font-weight: bold;
+  color: var(--secondary-background);
+  background-color: var(--primary-color);
+  cursor: pointer;
+}
+
+.primary-button:hover {
+  background-color: var(--tertiary-color);
+  letter-spacing: 0.05rem;
+}
+
+.secondary-button {
+  justify-self: center;
+  margin: 2rem 0;
+  border-radius: 0.8rem;
+  border: 0.2rem solid var(--tertiary-color);
+  width: 12rem;
+  height: 4rem;
+  font-size: var(--md);
+  font-weight: bold;
+  color: var(--tertiary-color);
+  cursor: pointer;
+}
+
+.secondary-button:hover {
+  color: var(--secondary-background);
+  background-color: var(--secondary-color);
+  letter-spacing: 0.05rem;
 }

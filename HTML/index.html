@@ -29,7 +29,7 @@
         </ul> 
         <ul class="menu--right">
           <li>
-            <a class="login user">Log in</a>
+            <a class="login-link user">Log in</a>
           </li>
           <li>
             <a class="user__email user inactive" href="javascript:void(0)">sergio.m.papagayo@gmail.com</a>
@@ -52,6 +52,25 @@
         </svg>
       </button>
     </aside>
+
+    <section class="login">
+      <form action="/" class="login-form">
+        <div>
+          <input id="email" type="email" class="form__input input__email" placeholder=" ">
+          <label for="email" class="form__label">Email address</label>
+          <span class="form__line"></span>
+        </div>
+        <div>
+          <input type="password" class="form__input input__password" placeholder=" ">
+          <label for="password" class="form__label">Password</label>
+        </div>
+        <button type="button" class="primary-button" id="login-button">
+        Log in
+        </button>
+        <a href="/" class="forgot-password">Forgot my password</a>
+      </form>
+      <button class="secondary-button">Sing up</button>
+    </section>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../JS/main.js"></script>
