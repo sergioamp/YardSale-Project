@@ -7,7 +7,13 @@ const hamburguerIcon = document.querySelector('.hambuguer-icon');
 const cartIcon = document.querySelector('.cart-icon');
 const cartIconSvg = document.querySelector('.cart-icon__svg');
 const loginSection = document.querySelector('.login-section');
-
+const email = document.getElementById('email');
+const password = document.getElementById('password');
+const signupSection = document.querySelector('.signup-section');
+const newName = document.getElementById('new-name');
+const newEmail = document.getElementById('new-email');
+const newPassword = document.getElementById('new-password1');
+const confirmNewPassword = document.getElementById('new-password2');
 
 const api = axios.create({
   baseURL: 'https://fakestoreapi.com/products',
@@ -107,19 +113,40 @@ function loadContent() {
 function openLoginSection() {
   isInHome = false;
   menuInactive();
+  closeSignupSection()
   cartIcon.classList.add('invisible');
   loginSection.classList.remove('inactive');
 }
 
 function closeLoginSection() {
-  isInHome = true;
-  resizeHandler();
   cartIcon.classList.remove('invisible');
+  email.value = '';
+  password.value = '';
   loginSection.classList.add('inactive');
 }
 
-function goToHome() {
+function openSignupSection() {
+  isInHome = false;
+  menuInactive();
   closeLoginSection();
+  cartIcon.classList.add('invisible');
+  signupSection.classList.remove('inactive');
+}
+
+function closeSignupSection() {
+  cartIcon.classList.remove('invisible');
+  newName.value = '';
+  newEmail.value = '';
+  newPassword.value = '';
+  confirmNewPassword.value = '';
+  signupSection.classList.add('inactive');
+}
+
+function goToHome() {
+  isInHome = true;
+  resizeHandler();
+  closeLoginSection();
+  closeSignupSection()
 }
 
 window.addEventListener('DOMContentLoaded', loadContent(), false);

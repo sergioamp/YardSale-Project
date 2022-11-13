@@ -29,7 +29,10 @@
         </ul> 
         <ul class="menu--right">
           <li>
-            <a class="login-link user" onclick="openLoginSection()">Log in</a>
+            <a class="login-link user" onclick="openLoginSection()">Iniciar Sesión</a>
+          </li>
+          <li>
+            <a class="login-link user" onclick="openSignupSection()">Regístrate</a>
           </li>
           <li>
             <a class="user__email user inactive" href="javascript:void(0)">sergio.m.papagayo@gmail.com</a>
@@ -53,24 +56,45 @@
       </button>
     </aside>
 
-    <section class="login-section inactive">
-      <form action="/" class="login-form">
-        <div>
+    <section class="login-section user-section inactive">
+      <form action="/" class="form login-form">
+        <div class="form__info">
           <input id="email" type="email" class="form__input input__email" placeholder=" ">
-          <label for="email" class="form__label">Email address</label>
-          <span class="form__line"></span>
+          <label for="email" class="form__label">Escribe tu Email</label>
         </div>
-        <div>
-          <input type="password" class="form__input input__password" placeholder=" ">
-          <label for="password" class="form__label">Password</label>
+        <div class="form__info">
+          <input id="password" type="password" class="form__input input__password" placeholder=" ">
+          <label for="password" class="form__label">Escribe tu contraseña</label>
         </div>
-        <button type="button" class="primary-button" id="login-button">
-        Log in
-        </button>
-        <a href="/" class="forgot-password">Forgot my password</a>
+        <button type="button" class="primary-button" onclick="userLoggedIn()">Iniciar Sesión</button>
       </form>
-      <button class="secondary-button">Sing up</button>
-      <button class="secondary-button" onclick="goToHome()">Ir a Home</button>
+      <a class="forgot-password">¿Olvidaste tu contraseña?</a>
+      <button class="secondary-button" onclick="openSignupSection()">Regístrate</button>
+      <button class="secondary-button" onclick="goToHome()">Ir al Inicio</button>
+    </section>
+
+    <section class="signup-section user-section inactive">
+      <form action="/" class="form login-form">
+        <div class="form__info">
+          <input id="new-name" type="text" class="form__input input__name" placeholder=" ">
+          <label for="new-name" class="form__label">Escribe tu Nombre</label>
+        </div>
+        <div class="form__info">
+          <input id="new-email" type="email" class="form__input input__email" placeholder=" ">
+          <label for="new-email" class="form__label">Escribe tu Email</label>
+        </div>
+        <div class="form__info">
+          <input id="new-password1" type="password" class="form__input input__password" placeholder=" ">
+          <label for="new-password1" class="form__label">Escribe tu Contraseña</label>
+        </div>
+        <div class="form__info">
+          <input id="new-password2" type="password" class="form__input input__password" placeholder=" ">
+          <label for="new-password2" class="form__label">Escribe tu Contraseña de nuevo</label>
+        </div>
+        <button type="button" class="primary-button">Registrarme</button>
+      </form>
+      <a class="forgot-password" onclick="openLoginSection()">Ya tengo una cuenta</a>
+      <button class="secondary-button" onclick="goToHome()">Ir al Inicio</button>
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
