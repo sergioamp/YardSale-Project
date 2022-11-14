@@ -20,6 +20,8 @@ const newName = document.getElementById('new-name');
 const newEmail = document.getElementById('new-email');
 const newPassword = document.getElementById('new-password1');
 const confirmNewPassword = document.getElementById('new-password2');
+const recoveryPasswordSection = document.querySelector('.recover-password-section');
+const sendEmail = document.getElementById('send-email');
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const mobileMenuCategories = document.querySelector('.mobile-menu__categories');
@@ -223,6 +225,7 @@ function openLoginSection() {
   isInHome = false;
   toggleNavbarNav('inactive');
   closeSignupSection();
+  closeRecoveryPasswordSection()
   closeMobileMenu();
   closeDesktopMenu();
   toggleHamburguerIcon('invisible');
@@ -241,6 +244,7 @@ function openSignupSection() {
   isInHome = false;
   toggleNavbarNav('inactive');
   closeLoginSection();
+  closeRecoveryPasswordSection()
   closeMobileMenu();
   closeDesktopMenu();
   toggleHamburguerIcon('invisible');
@@ -255,6 +259,24 @@ function closeSignupSection() {
   newPassword.value = '';
   confirmNewPassword.value = '';
   signupSection.classList.add('inactive');
+}
+
+function openRecoveryPasswordSection() {
+  isInHome = false;
+  toggleNavbarNav('inactive');
+  closeLoginSection();
+  closeSignupSection();
+  closeMobileMenu();
+  closeDesktopMenu();
+  toggleHamburguerIcon('invisible');
+  cartIcon.classList.add('invisible');
+  recoveryPasswordSection.classList.remove('inactive');
+}
+
+function closeRecoveryPasswordSection() {
+  cartIcon.classList.remove('invisible');
+  sendEmail.value = '';
+  recoveryPasswordSection.classList.add('inactive');
 }
 
 function resizeHandler() {
@@ -289,6 +311,7 @@ function goToHome() {
   resizeHandler();
   closeLoginSection();
   closeSignupSection();
+  closeRecoveryPasswordSection()
   userLoggedIn();
 }
 

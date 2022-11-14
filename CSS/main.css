@@ -97,7 +97,6 @@ table, tr, td {
 svg {
   /* width: 100%; */
   display: block;
-  fill: currentColor;
 }
 
 /* Configuramos la tipografía para toda la web */
@@ -146,6 +145,23 @@ body {
 .margin--top0_8 {
   margin-top: 0.8rem;
 }
+
+
+.margin--bottom1_8 {
+  margin-bottom: 1.8rem;
+}
+
+.title {
+  font-size: var(--lg);
+  color: var(--primary-text);
+}
+
+.text {
+  width: 35rem;
+}
+
+
+
 
 
 /*------------------------------------*\
@@ -286,6 +302,11 @@ body {
   background-color: var(--primary-background);
 }
 
+.cart-icon:hover .cart-icon__svg{
+  fill: var(--primary-color);
+}
+
+
 .cart-icon__svg {
   margin: auto 0;
 }
@@ -309,7 +330,7 @@ body {
 
 
 /*------------------------------------*\
-  #LOGIN
+  #LOGIN - SIGNUP - RECOVERY PASSWORD
 \*------------------------------------*/
 
 .user-section {
@@ -508,5 +529,4 @@ body {
 .mobile-menu--close {
   opacity: 0;
 }
-
 
