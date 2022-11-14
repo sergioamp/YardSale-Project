@@ -151,7 +151,8 @@ function toggleMobileMenuSize(size) {
 function openLoginSection() {
   isInHome = false;
   toggleMenu('inactive');
-  closeSignupSection()
+  closeSignupSection();
+  toggleHamburguerIcon('invisible');
   cartIcon.classList.add('invisible');
   loginSection.classList.remove('inactive');
 }
@@ -167,6 +168,7 @@ function openSignupSection() {
   isInHome = false;
   toggleMenu('inactive');
   closeLoginSection();
+  toggleHamburguerIcon('invisible');
   cartIcon.classList.add('invisible');
   signupSection.classList.remove('inactive');
 }
@@ -206,6 +208,11 @@ function userLoggedIn() {
       mobileMenuLogin.classList.remove('inactive');
       isUserLoggedIn = false;
     }
+}
+
+function userLoggedOut() {
+  isUserLoggedIn = false;
+  window.location.href="./index.html";
 }
 
 function toggleDesktopMenu() {
@@ -275,6 +282,7 @@ function goToHome() {
   closeLoginSection();
   closeSignupSection();
   userLoggedIn();
+  closeMenus();
 }
 
 function loadContent() {
