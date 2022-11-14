@@ -21,8 +21,10 @@ const newEmail = document.getElementById('new-email');
 const newPassword = document.getElementById('new-password1');
 const confirmNewPassword = document.getElementById('new-password2');
 const desktopMenu = document.querySelector('.desktop-menu');
+const mobileMenu = document.querySelector('.mobile-menu');
 const mobileMenuCategories = document.querySelector('.mobile-menu__categories');
 const mobileMenuUser = document.querySelector('.mobile-menu__user');
+const mobileMenuLogin = document.querySelector('.mobile-menu__login');
 
 const api = axios.create({
   baseURL: 'https://fakestoreapi.com/products',
@@ -205,6 +207,7 @@ function userLoggedIn() {
     mobileMenuUser.classList.remove('inactive');
     loginLink.classList.add('inactive');
     signupLink.classList.add('inactive');
+    mobileMenuLogin.classList.add('inactive');
     userNameDesktop.text = userEmail;
     userNameMobile.text = userEmail;
     isUserLoggedIn = true;
@@ -213,6 +216,7 @@ function userLoggedIn() {
       mobileMenuUser.classList.add('inactive');
       loginLink.classList.remove('inactive');
       signupLink.classList.remove('inactive');
+      mobileMenuLogin.classList.remove('inactive');
       isUserLoggedIn = false;
     }
 }
@@ -221,12 +225,27 @@ function toggleDesktopMenu() {
   const isDesktopMenuOpen = !desktopMenu.classList.contains('close');
   if (isDesktopMenuOpen){
     desktopMenu.classList.add('close');
-    desktopMenu.classList.remove('open-menu');
-    desktopMenu.classList.add('close-menu');
+    desktopMenu.classList.remove('desktop-menu--open');
+    desktopMenu.classList.add('desktop-menu--close');
   } else {
     desktopMenu.classList.remove('close');
-    desktopMenu.classList.add('open-menu');
-    desktopMenu.classList.remove('close-menu');
+    desktopMenu.classList.add('desktop-menu--open');
+    desktopMenu.classList.remove('desktop-menu--close');
+  }
+}
+
+function toggleMobileMenu() {
+  const isMobileMenuOpen = !mobileMenu.classList.contains('close');
+  if (isMobileMenuOpen) {
+    hamburguerIcon.classList.remove('hambuguer-icon--open');
+    mobileMenu.classList.add('close');
+    mobileMenu.classList.remove('mobile-menu--open');
+    mobileMenu.classList.add('mobile-menu--close');
+  } else {
+    hamburguerIcon.classList.add('hambuguer-icon--open');
+    mobileMenu.classList.remove('close');
+    mobileMenu.classList.add('mobile-menu--open');
+    mobileMenu.classList.remove('mobile-menu--close');
   }
 }
 
