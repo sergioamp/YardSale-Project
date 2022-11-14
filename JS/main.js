@@ -22,6 +22,7 @@ const newPassword = document.getElementById('new-password1');
 const confirmNewPassword = document.getElementById('new-password2');
 const recoveryPasswordSection = document.querySelector('.recover-password-section');
 const sendEmail = document.getElementById('send-email');
+const emailConfirmationSection = document.querySelector('.email-confirmation-section');
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const mobileMenuCategories = document.querySelector('.mobile-menu__categories');
@@ -225,7 +226,8 @@ function openLoginSection() {
   isInHome = false;
   toggleNavbarNav('inactive');
   closeSignupSection();
-  closeRecoveryPasswordSection()
+  closeRecoveryPasswordSection();
+  closeEmailConfirmationSection();
   closeMobileMenu();
   closeDesktopMenu();
   toggleHamburguerIcon('invisible');
@@ -244,7 +246,8 @@ function openSignupSection() {
   isInHome = false;
   toggleNavbarNav('inactive');
   closeLoginSection();
-  closeRecoveryPasswordSection()
+  closeRecoveryPasswordSection();
+  closeEmailConfirmationSection();
   closeMobileMenu();
   closeDesktopMenu();
   toggleHamburguerIcon('invisible');
@@ -266,6 +269,7 @@ function openRecoveryPasswordSection() {
   toggleNavbarNav('inactive');
   closeLoginSection();
   closeSignupSection();
+  closeEmailConfirmationSection();
   closeMobileMenu();
   closeDesktopMenu();
   toggleHamburguerIcon('invisible');
@@ -277,6 +281,24 @@ function closeRecoveryPasswordSection() {
   cartIcon.classList.remove('invisible');
   sendEmail.value = '';
   recoveryPasswordSection.classList.add('inactive');
+}
+
+function openEmailConfirmationdSection() {
+  isInHome = false;
+  toggleNavbarNav('inactive');
+  closeLoginSection();
+  closeSignupSection();
+  closeRecoveryPasswordSection();
+  closeMobileMenu();
+  closeDesktopMenu();
+  toggleHamburguerIcon('invisible');
+  cartIcon.classList.add('invisible');
+  emailConfirmationSection.classList.remove('inactive');
+}
+
+function closeEmailConfirmationSection() {
+  cartIcon.classList.remove('invisible');
+  emailConfirmationSection.classList.add('inactive');
 }
 
 function resizeHandler() {
@@ -311,7 +333,8 @@ function goToHome() {
   resizeHandler();
   closeLoginSection();
   closeSignupSection();
-  closeRecoveryPasswordSection()
+  closeRecoveryPasswordSection();
+  closeEmailConfirmationSection();
   userLoggedIn();
 }
 

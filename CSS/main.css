@@ -151,13 +151,29 @@ body {
   margin-bottom: 1.8rem;
 }
 
-.title {
+.text--title {
   font-size: var(--lg);
   color: var(--primary-text);
+  text-align: center;
 }
 
 .text {
   width: 35rem;
+  text-align: center;
+}
+
+.text--small {
+  justify-self: center;
+  margin: 1.6rem 0;
+  font-size: var(--sm);
+  color: var(--primary-color);
+}
+
+.text--small:hover {
+  border-bottom: 0.1rem solid var(--primary-color);
+  color: var(--primary-color);
+  font-weight: bold;
+  letter-spacing: 0.05rem;
 }
 
 
@@ -395,20 +411,6 @@ body {
   letter-spacing: 0.05rem;
 } 
 
-.forgot-password {
-  justify-self: center;
-  margin: 1.6rem 0;
-  font-size: var(--sm);
-  color: var(--primary-color);
-}
-
-.forgot-password:hover {
-  border-bottom: 0.1rem solid var(--primary-color);
-  color: var(--primary-color);
-  font-weight: bold;
-  letter-spacing: 0.05rem;
-}
-
 .primary-button {
   place-self: center;
   display: flex;
@@ -444,6 +446,15 @@ body {
 .secondary-button:hover {
   background-color: var(--secondary-color);
   letter-spacing: 0.05rem;
+}
+
+.email-icon {
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  width: 13.2rem;
+  height: 13.2rem;
+  background-color: var(--secondary-color);
 }
 
 
