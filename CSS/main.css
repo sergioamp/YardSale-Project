@@ -319,7 +319,8 @@ body {
   place-items: center;
   place-content: center;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
+  min-height: 60rem;
   background-color: var(--secondary-background);
   overflow: hidden;
 }

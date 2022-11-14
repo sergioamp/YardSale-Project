@@ -2,7 +2,7 @@ let isInHome = true;
 let isUserLoggedIn = false;
 
 const logo = document.querySelector('.yardsale-logo');
-const menu = document.querySelector('.navbar-nav');
+const navbarNav = document.querySelector('.navbar-nav');
 const categories = document.querySelector('.navbar-nav--left');
 const loginLink = document.querySelector('.login-link');
 const signupLink = document.querySelector('.signup-link');
@@ -43,7 +43,7 @@ function renderCategories(items) {
 
     const aItem1 = document.createElement('a');
     aItem1.setAttribute('href', 'javascript:void(0)');
-    aItem1.classList.add('margin--right', 'primary-text');
+    aItem1.classList.add('margin--right', 'main-text');
     aItem1.innerText = upperCase(item);
 
     categories.appendChild(liItem1);
@@ -54,7 +54,7 @@ function renderCategories(items) {
 
     const aItem2 = document.createElement('a');
     aItem2.setAttribute('href', 'javascript:void(0)');
-    aItem2.classList.add('primary-text');
+    aItem2.classList.add('main-text');
     aItem2.innerText = upperCase(item);
     
     mobileMenuCategories.appendChild(liItem2);
@@ -71,13 +71,13 @@ const getCategories = async() => {
   }
 }
 
-function toggleMenu(state) {
+function toggleNavbarNav(state) {
   if(state == 'inactive') {
-    menu.classList.add('inactive');
-    menu.classList.remove('active');
+    navbarNav.classList.add('inactive');
+    navbarNav.classList.remove('active');
   } else if(state == 'active'){
-    menu.classList.remove('inactive');
-    menu.classList.add('active');
+    navbarNav.classList.remove('inactive');
+    navbarNav.classList.add('active');
   }
 }
 
@@ -148,40 +148,6 @@ function toggleMobileMenuSize(size) {
   }
 }
 
-function openLoginSection() {
-  isInHome = false;
-  toggleMenu('inactive');
-  closeSignupSection();
-  toggleHamburguerIcon('invisible');
-  cartIcon.classList.add('invisible');
-  loginSection.classList.remove('inactive');
-}
-
-function closeLoginSection() {
-  cartIcon.classList.remove('invisible');
-  email.value = '';
-  password.value = '';
-  loginSection.classList.add('inactive');
-}
-
-function openSignupSection() {
-  isInHome = false;
-  toggleMenu('inactive');
-  closeLoginSection();
-  toggleHamburguerIcon('invisible');
-  cartIcon.classList.add('invisible');
-  signupSection.classList.remove('inactive');
-}
-
-function closeSignupSection() {
-  cartIcon.classList.remove('invisible');
-  newName.value = '';
-  newEmail.value = '';
-  newPassword.value = '';
-  confirmNewPassword.value = '';
-  signupSection.classList.add('inactive');
-}
-
 function userLoggingIn() {
   window.location.href="./index.html?email="+email.value;
   goToHome();
@@ -243,19 +209,61 @@ function toggleMobileMenu() {
   }
 }
 
-function closeMenus() {
+function closeMobileMenu() {
   mobileMenu.classList.remove('close');
   toggleMobileMenu();
+}
+
+function closeDesktopMenu() {
   desktopMenu.classList.remove('close');
   toggleDesktopMenu();
 }
 
+function openLoginSection() {
+  isInHome = false;
+  toggleNavbarNav('inactive');
+  closeSignupSection();
+  closeMobileMenu();
+  closeDesktopMenu();
+  toggleHamburguerIcon('invisible');
+  cartIcon.classList.add('invisible');
+  loginSection.classList.remove('inactive');
+}
+
+function closeLoginSection() {
+  cartIcon.classList.remove('invisible');
+  email.value = '';
+  password.value = '';
+  loginSection.classList.add('inactive');
+}
+
+function openSignupSection() {
+  isInHome = false;
+  toggleNavbarNav('inactive');
+  closeLoginSection();
+  closeMobileMenu();
+  closeDesktopMenu();
+  toggleHamburguerIcon('invisible');
+  cartIcon.classList.add('invisible');
+  signupSection.classList.remove('inactive');
+}
+
+function closeSignupSection() {
+  cartIcon.classList.remove('invisible');
+  newName.value = '';
+  newEmail.value = '';
+  newPassword.value = '';
+  confirmNewPassword.value = '';
+  signupSection.classList.add('inactive');
+}
+
 function resizeHandler() {
-  closeMenus();
+  closeMobileMenu();
+  closeDesktopMenu();
   if(isInHome) {
     if (window.matchMedia("(max-width: 460px)").matches) {
       toggleLogoSize('large');
-      toggleMenu('inactive');
+      toggleNavbarNav('inactive');
       toggleIcons('mobile');
       toggleHamburguerIcon('visible');
       toggleHamburguerIconSize('large');
@@ -263,13 +271,13 @@ function resizeHandler() {
       toggleMobileMenuSize('small');
     } 
     else if (window.matchMedia("(max-width: 760px)").matches) {
-      toggleMenu('inactive');
+      toggleNavbarNav('inactive');
       mediumAndLargeScreens();
       toggleHamburguerIcon('visible');
       toggleMobileMenuSize('medium');
     }
     else {
-      toggleMenu('active');
+      toggleNavbarNav('active');
       mediumAndLargeScreens();
       toggleHamburguerIcon('invisible');
     }
@@ -282,7 +290,6 @@ function goToHome() {
   closeLoginSection();
   closeSignupSection();
   userLoggedIn();
-  closeMenus();
 }
 
 function loadContent() {
