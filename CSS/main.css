@@ -7,6 +7,7 @@
   --sm: 1.4rem;
   --md: 1.6rem;
   --lg: 1.8rem;
+  --xlg: 2.4rem;
 
   --primary-color: #187D33;
   --secondary-color: #94C56C;
@@ -103,7 +104,6 @@ svg {
 body {
   position: relative;
   min-height: 100vh;
-  font-size: 100%;
   font-family: var(--primary-font);
   color: var(--secondary-text)
   /* background-color: var(--color-secundario); */
@@ -466,18 +466,35 @@ body {
 
 .mobile-menu {
   position: absolute;
-  top: -36.05rem;
-  margin: 0;
   border: 0.2rem solid var(--primary-background);
-  border-top: transparent;
+  background-color: var(--tertiary--backgorund);
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.mobile-menu--small {
+  bottom: 0;
+  border-radius: 1.6rem 1.6rem 0 0;
+  padding-top: 2rem;
+  padding-left: 1.2rem;
+  padding-bottom: 6rem;
+  width: 100vw;
+  height: auto;
+}
+
+.mobile-menu--small p, 
+.mobile-menu--small a {
+  font-size: var(--xlg);
+}
+
+.mobile-menu--medium {
+  top: 3.75rem;
+  margin: 0;
   border-radius: 0 0 1.6rem 1.6rem;
   padding: 2rem 0;
   padding-left: 1.2rem;
   width: auto;
   height: auto;
-  background-color: var(--white);
-  background-color: var(--tertiary--backgorund);
-  transition: transform 1s ease-in-out;
 }
 
 .mobile-menu__categories {
@@ -486,10 +503,11 @@ body {
 }
 
 .mobile-menu--open {
-  transform: translateY(40rem);
+  opacity: 1;
 }
 
 .mobile-menu--close {
-  transform: translateY(-40rem);
+  opacity: 0;
 }
+
 

@@ -138,27 +138,14 @@ function mediumAndLargeScreens() {
   toggleCartIconSize('medium');
 }
 
-function resizeHandler() {
-  if(isInHome) {
-    if (window.matchMedia("(max-width: 460px)").matches) {
-      toggleLogoSize('large');
-      toggleMenu('inactive');
-      toggleIcons('mobile');
-      toggleHamburguerIcon('visible');
-      toggleHamburguerIconSize('large');
-      toggleCartIconSize('large');
-    } 
-    else if (window.matchMedia("(max-width: 760px)").matches) {
-      toggleMenu('inactive');
-      mediumAndLargeScreens();
-      toggleHamburguerIcon('visible');
-    }
-    else {
-      toggleMenu('active');
-      mediumAndLargeScreens();
-      toggleHamburguerIcon('invisible');
-    }
-  } 
+function toggleMobileMenuSize(size) {
+  if(size == 'small') {
+    mobileMenu.classList.add('mobile-menu--small');
+    mobileMenu.classList.remove('mobile-menu--medium');
+  } else if(size == 'medium'){
+    mobileMenu.classList.add('mobile-menu--medium');
+    mobileMenu.classList.remove('mobile-menu--small');
+  }
 }
 
 function openLoginSection() {
@@ -247,6 +234,39 @@ function toggleMobileMenu() {
     mobileMenu.classList.add('mobile-menu--open');
     mobileMenu.classList.remove('mobile-menu--close');
   }
+}
+
+function closeMenus() {
+  mobileMenu.classList.remove('close');
+  toggleMobileMenu();
+  desktopMenu.classList.remove('close');
+  toggleDesktopMenu();
+}
+
+function resizeHandler() {
+  closeMenus();
+  if(isInHome) {
+    if (window.matchMedia("(max-width: 460px)").matches) {
+      toggleLogoSize('large');
+      toggleMenu('inactive');
+      toggleIcons('mobile');
+      toggleHamburguerIcon('visible');
+      toggleHamburguerIconSize('large');
+      toggleCartIconSize('large');
+      toggleMobileMenuSize('small');
+    } 
+    else if (window.matchMedia("(max-width: 760px)").matches) {
+      toggleMenu('inactive');
+      mediumAndLargeScreens();
+      toggleHamburguerIcon('visible');
+      toggleMobileMenuSize('medium');
+    }
+    else {
+      toggleMenu('active');
+      mediumAndLargeScreens();
+      toggleHamburguerIcon('invisible');
+    }
+  } 
 }
 
 function goToHome() {
