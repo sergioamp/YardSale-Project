@@ -6,7 +6,8 @@ const menu = document.querySelector('.menu');
 const categories = document.querySelector('.menu--left');
 const loginLink = document.querySelector('.login-link');
 const signupLink = document.querySelector('.signup-link');
-const userName = document.querySelector('.username');
+const userNameDesktop = document.querySelector('.username-desktop');
+const userNameMobile = document.querySelector('.username-mobile');
 const icons = document.querySelector('.icons');
 const hamburguerIcon = document.querySelector('.hambuguer-icon');
 const cartIcon = document.querySelector('.cart-icon');
@@ -20,6 +21,8 @@ const newEmail = document.getElementById('new-email');
 const newPassword = document.getElementById('new-password1');
 const confirmNewPassword = document.getElementById('new-password2');
 const desktopMenu = document.querySelector('.desktop-menu');
+const mobileMenuCategories = document.querySelector('.mobile-menu__categories');
+const mobileMenuUser = document.querySelector('.mobile-menu__user');
 
 const api = axios.create({
   baseURL: 'https://fakestoreapi.com/products',
@@ -34,15 +37,26 @@ function upperCase(word) {
 
 function renderCategories(items) {
   items.forEach((item) => {
-    const liItem = document.createElement('li');
+    const liItem1 = document.createElement('li');
 
-    const aItem = document.createElement('a');
-    aItem.setAttribute('href', 'javascript:void(0)');
-    aItem.classList.add('category');
-    aItem.innerText = upperCase(item);
+    const aItem1 = document.createElement('a');
+    aItem1.setAttribute('href', 'javascript:void(0)');
+    aItem1.classList.add('margin--right', 'primary-text');
+    aItem1.innerText = upperCase(item);
 
-    categories.appendChild(liItem);
-    liItem.appendChild(aItem);
+    categories.appendChild(liItem1);
+    liItem1.appendChild(aItem1);
+
+    const liItem2 = document.createElement('li');
+    liItem2.classList.add('margin--top0_8', 'margin--left', 'margin--right');
+
+    const aItem2 = document.createElement('a');
+    aItem2.setAttribute('href', 'javascript:void(0)');
+    aItem2.classList.add('primary-text');
+    aItem2.innerText = upperCase(item);
+    
+    mobileMenuCategories.appendChild(liItem2);
+    liItem2.appendChild(aItem2);
   });
 }
 
@@ -187,21 +201,20 @@ function userLoggedIn() {
   const urlParams = new URLSearchParams(queryString);
   const userEmail = urlParams.get("email");
   if(userEmail !== null) {
-    userName.classList.remove('inactive');
+    userNameDesktop.classList.remove('inactive');
+    mobileMenuUser.classList.remove('inactive');
     loginLink.classList.add('inactive');
     signupLink.classList.add('inactive');
-    userName.text = userEmail;
+    userNameDesktop.text = userEmail;
+    userNameMobile.text = userEmail;
     isUserLoggedIn = true;
     } else {
-      userName.classList.add('inactive');
+      userNameDesktop.classList.add('inactive');
+      mobileMenuUser.classList.add('inactive');
       loginLink.classList.remove('inactive');
       signupLink.classList.remove('inactive');
       isUserLoggedIn = false;
     }
-}
-
-function play() {
-  desktopMenu.classList.add('changing');
 }
 
 function toggleDesktopMenu() {

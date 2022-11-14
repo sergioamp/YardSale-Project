@@ -24,18 +24,18 @@
       <section class="menu">
         <ul class="menu--left">
           <li>
-            <a class="category option" href="javascript:void(0)">All</a>
+            <a href="javascript:void(0)" class="primary-text margin--right">All</a>
           </li>
         </ul> 
         <ul class="menu--right">
           <li>
-            <a class="login-link user" onclick="openLoginSection()">Iniciar Sesión</a>
+            <a class="login-link secondary-text margin--left" onclick="openLoginSection()">Iniciar Sesión</a>
           </li>
           <li>
-            <a class="signup-link user" onclick="openSignupSection()">Regístrate</a>
+            <a class="signup-link secondary-text margin--left" onclick="openSignupSection()">Regístrate</a>
           </li>
           <li>
-            <a class="username user" href="javascript:void(0)" onclick="toggleDesktopMenu()"></a>
+            <a class="username-desktop secondary-text" href="javascript:void(0)" onclick="toggleDesktopMenu()"></a>
           </li>
         </ul>  
       </section>
@@ -57,17 +57,50 @@
     </aside>
 
     <aside class="desktop-menu close">
-      <ul>
+      <ul class="desktop-menu__container">
         <li>
-          <a href="javascript:void(0)" class="option">My orders</a>
+          <a href="javascript:void(0) primary-text">Mis Órdenes</a>
         </li>
-        <li>
-          <a href="javascript:void(0)" class="option" onclick="openMyAccount()">My account</a>
+        <li class="margin--top0_8">
+          <a href="javascript:void(0) primary-text" onclick="openMyAccount()">Mi Cuenta</a>
         </li>
-        <li>
-          <a href="javascript:void(0)" class="signout-link user" onclick="signOut()">Cerrar Sesión</a>
+        <li class="margin--top0_8">
+          <a href="javascript:void(0)" class="logout-link secondary-text">Cerrar Sesión</a>
         </li>
       </ul>
+    </aside>
+
+    <aside class="mobile-menu">
+      <p>Categories</p>
+      <ul class="mobile-menu__categories">
+        <li class="margin--left margin--top0_8">
+          <a href="javascript:void(0)" class="primary-text">All</a>
+        </li>
+      </ul>
+      <ul class="mobile-menu__user inactive">
+        <li class="margin--top1_2">
+          <a href="javascript:void(0)" class="username-mobile secondary-text margin--right"></a>
+        </li>
+        <li class="margin--top0_8 margin--left">
+          <a href="javascript:void(0)" class="primary-text">Mis Órdenes</a>
+        </li>
+        <li class="margin--top0_8 margin--left">
+          <a href="javascript:void(0)" class=" primary-text" onclick="openMyAccount()">Mi Cuenta</a>
+        </li class="margin--top0_8">
+        <li class="margin--top0_8 margin--left">
+          <a href="javascript:void(0)" class="logout-link secondary-text">Cerrar Sesión</a>
+        </li>
+      </ul>
+      <div class="mobile-menu__login">
+        <ul>
+          <li class="margin--top1_2">
+            <a href="javascript:void(0)" class="login-link secondary-text">Iniciar Sesión</a>
+          </li>
+          <li class="margin--top1_2">
+            <a href="javascript:void(0)" class="signup-link secondary-text">Regístrate</a>
+          </li>
+        </ul>
+      </div>
     </aside>
 
     <section class="login-section user-section inactive">
@@ -87,7 +120,7 @@
       <button class="secondary-button" onclick="goToHome()">Ir al Inicio</button>
     </section>
 
-    <section class="signup-section user-section inactive">
+    <section class="signup-section user-text-section inactive">
       <form action="/" class="form login-form">
         <div class="form__info">
           <input id="new-name" type="text" class="form__input input__name" placeholder=" ">
