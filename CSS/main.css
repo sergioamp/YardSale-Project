@@ -163,7 +163,7 @@ body {
   z-index: 10;
 }
 
-.navbar__logo {
+.navbar-brand {
   display: flex;
   justify-content: center;
   border-bottom: 2px solid var(--border);
@@ -179,37 +179,37 @@ body {
   height: 5rem;
 }
 
-.menu {
+.navbar-nav {
   padding: 0 1.2rem;
   height: 3rem;
 }
 
-.menu--left {
+.navbar-nav--left {
   display: flex;
   justify-content: flex-start;
   margin: auto 0;
   width: 65vw;
 }
 
-.primary-text:hover {
+.main-text:hover {
   border-bottom: 0.15rem solid var(--primary-text);
   font-weight: 400;
   color: var(--primary-text);
   letter-spacing: 0.05rem;
 }
 
-.menu--right {
+.navbar-nav--right {
   display: flex;
   justify-content: flex-end;
   margin: auto 0;
   width: 35vw;
 }
 
-.secondary-text {
+.highlight-text {
   color: var(--primary-color);
 }
 
-.secondary-text:hover {
+.highlight-text:hover {
   border-bottom: 0.15rem solid var(--tertiary-color);
   font-weight: 400;
   color: var(--tertiary-color);
@@ -266,15 +266,15 @@ body {
   transform: translateY(0.8rem);
 }
 
-.hambuguer-icon--open .hambuguer-icon__line:nth-child(1) {
+.icon—pressed .hambuguer-icon__line:nth-child(1) {
   transform: rotate(45deg);
 }
 
-.hambuguer-icon--open .hambuguer-icon__line:nth-child(2) {
+.icon—pressed .hambuguer-icon__line:nth-child(2) {
   background: transparent;
 }
 
-.hambuguer-icon--open .hambuguer-icon__line:nth-child(3) {
+.icon—pressed .hambuguer-icon__line:nth-child(3) {
   transform: rotate(-45deg);
 }
 
@@ -300,7 +300,7 @@ body {
   height: 4.5rem;
 }
 
-.icon__svg--large {
+.icon-svg--large {
   height: 3rem;
 }
 
@@ -457,7 +457,7 @@ body {
   transform: translateY(-20rem);
 }
 
-.desktop-menu__container {
+.desktop-menu__items {
   display: grid;
   place-items: center;
 }

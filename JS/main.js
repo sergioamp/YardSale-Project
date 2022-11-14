@@ -2,8 +2,8 @@ let isInHome = true;
 let isUserLoggedIn = false;
 
 const logo = document.querySelector('.yardsale-logo');
-const menu = document.querySelector('.menu');
-const categories = document.querySelector('.menu--left');
+const menu = document.querySelector('.navbar-nav');
+const categories = document.querySelector('.navbar-nav--left');
 const loginLink = document.querySelector('.login-link');
 const signupLink = document.querySelector('.signup-link');
 const userNameDesktop = document.querySelector('.username-desktop');
@@ -123,7 +123,7 @@ function toggleCartIconSize(size) {
   if(size == 'medium') {
     cartIcon.classList.remove('icon--large');
     cartIcon.classList.add('icon--medium');
-    cartIconSvg.classList.remove('icon__svg--large');
+    cartIconSvg.classList.remove('icon-svg--large');
   } else if(size == 'large'){
     cartIcon.classList.remove('icon--medium');
     cartIcon.classList.add('icon--large');
@@ -231,12 +231,12 @@ function toggleDesktopMenu() {
 function toggleMobileMenu() {
   const isMobileMenuOpen = !mobileMenu.classList.contains('close');
   if (isMobileMenuOpen) {
-    hamburguerIcon.classList.remove('hambuguer-icon--open');
+    hamburguerIcon.classList.remove('icon—pressed');
     mobileMenu.classList.add('close');
     mobileMenu.classList.remove('mobile-menu--open');
     mobileMenu.classList.add('mobile-menu--close');
   } else {
-    hamburguerIcon.classList.add('hambuguer-icon--open');
+    hamburguerIcon.classList.add('icon—pressed');
     mobileMenu.classList.remove('close');
     mobileMenu.classList.add('mobile-menu--open');
     mobileMenu.classList.remove('mobile-menu--close');
