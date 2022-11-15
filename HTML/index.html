@@ -59,10 +59,10 @@
     <aside class="desktop-menu close">
       <ul class="desktop-menu__items">
         <li>
-          <a href="javascript:void(0) main-text">Mis Órdenes</a>
+          <a href="javascript:void(0)" class="main-text">Mis Órdenes</a>
         </li>
         <li class="margin--top0_8">
-          <a href="javascript:void(0) main-text" onclick="openMyAccount()">Mi Cuenta</a>
+          <a href="javascript:void(0)" class="main-text" onclick="openMyAccount()">Mi Cuenta</a>
         </li>
         <li class="margin--top0_8">
           <a href="javascript:void(0)" class="highlight-text" onclick="userLoggedOut()">Cerrar Sesión</a>
@@ -123,20 +123,20 @@
     <section class="signup-section user-section inactive">
       <form action="/" class="form">
         <div class="form__info">
-          <input id="new-name" type="text" class="form__input input__name" placeholder=" ">
+          <input id="new-user-name" type="text" class="form__input input__name" placeholder=" ">
           <label for="new-name" class="form__label">Escribe tu Nombre</label>
         </div>
         <div class="form__info">
-          <input id="new-email" type="email" class="form__input input__email" placeholder=" ">
-          <label for="new-email" class="form__label">Escribe tu Email</label>
+          <input id="new-user-email" type="email" class="form__input input__email" placeholder=" ">
+          <label for="new-user-email" class="form__label">Escribe tu Email</label>
         </div>
         <div class="form__info">
-          <input id="new-password1" type="password" class="form__input input__password" placeholder=" ">
-          <label for="new-password1" class="form__label">Escribe tu Contraseña</label>
+          <input id="new-user-password1" type="password" class="form__input input__password" placeholder=" ">
+          <label for="new-user-password1" class="form__label">Escribe tu Contraseña</label>
         </div>
         <div class="form__info">
-          <input id="new-password2" type="password" class="form__input input__password" placeholder=" ">
-          <label for="new-password2" class="form__label">Escribe tu Contraseña de nuevo</label>
+          <input id="new-user-password2" type="password" class="form__input input__password" placeholder=" ">
+          <label for="new-user-password2" class="form__label">Escribe tu Contraseña de nuevo</label>
         </div>
         <button type="button" class="primary-button">Registrarme</button>
       </form>
@@ -174,22 +174,41 @@
       <button class="secondary-button" onclick="goToHome()">Ir al Inicio</button>
     </section>
 
-    <section class="my-account-section">
-      <div class="info-container">
-        <h1 class="text--title margin--bottom1_8">Mi Cuenta</h1>
-        <div class="info-form">
-          <label for="info-name" class="info-form__label">Nombre</label>
-          <p id="info-name" class="info-form__value value__name">Sergio Medina Papagayo</p>
+    <section class="my-account-section user-section inactive">
+      <div class="form">
+        <p class="text--title margin--bottom1_8">Mi Cuenta</p>
+        <div class="form__info">
+          <label for="info-name" class="text--subtitle">Nombre</label>
+          <p id="info-name">Sergio Medina Papagayo</p>
 
-          <label for="info-email" class="info-form__label">Email</label>
-          <p id="info-email" class="info-form__value value__email">sergio.m.papagayo@gmail.com</p>
+          <label for="info-email" class="text--subtitle margin--top0_8">Email</label>
+          <p id="info-email">sergio.m.papagayo@gmail.com</p>
 
-          <label for="info-password" class="info-form__label">Contraseña</label>
-          <p id="info-password" class="info-form__value value__password">********</p>
+          <label for="info-password" class="text--subtitle margin--top0_8">Contraseña</label>
+          <p id="info-password" >********</p>
         </div>
-        <button class="primary-button" onclick="openEditWindow()">Editar Info</button>
+        <button class="primary-button" onclick="openEditMyAccount()">Editar Info</button>
         <button class="secondary-button" onclick="goToHome()">Ir al Inicio </button>
       </div>
+    </section>
+
+    <section class="edit-account-section user-section inactive">
+      <form action="/" class="form">
+        <p class="text--title margin--bottom1_8">Editar Mi Cuenta</p>
+        <div class="form__info">
+          <input id="new-email" type="email" class="form__input input__email" placeholder=" ">
+          <label for="new-email" class="form__label">Escribe tu Email</label>
+        </div>
+        <div class="form__info">
+          <input id="new-password1" type="password" class="form__input input__password" placeholder=" ">
+          <label for="new-password1" class="form__label">Escribe Contraseña</label>
+        </div>
+        <div class="form__info">
+          <input id="new-password2" type="password" class="form__input input__password" placeholder=" ">
+          <label for="new-password2" class="form__label">Escribe Contraseña de nuevo</label>
+        </div>
+        <button type="button" class="primary-button" onclick="closeEditMyAccount()">Guardar</button>
+      </form>
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

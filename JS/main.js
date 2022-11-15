@@ -16,10 +16,10 @@ const loginSection = document.querySelector('.login-section');
 const email = document.getElementById('email');
 const password = document.getElementById('password');
 const signupSection = document.querySelector('.signup-section');
-const newName = document.getElementById('new-name');
-const newEmail = document.getElementById('new-email');
-const newPassword = document.getElementById('new-password1');
-const confirmNewPassword = document.getElementById('new-password2');
+const newUserName = document.getElementById('new-user-name');
+const newUserEmail = document.getElementById('new-user-email');
+const newUserPassword = document.getElementById('new-user-password1');
+const confirmNewUserPassword = document.getElementById('new-user-password2');
 const recoveryPasswordSection = document.querySelector('.recover-password-section');
 const sendEmail = document.getElementById('send-email');
 const emailConfirmationSection = document.querySelector('.email-confirmation-section');
@@ -28,6 +28,11 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const mobileMenuCategories = document.querySelector('.mobile-menu__categories');
 const mobileMenuUser = document.querySelector('.mobile-menu__user');
 const mobileMenuLogin = document.querySelector('.mobile-menu__login');
+const myAccountSection = document.querySelector('.my-account-section');
+const editAccountSection = document.querySelector('.edit-account-section');
+const newEmail = document.getElementById('new-email');
+const newPassword = document.getElementById('new-password1');
+const confirmNewPassword = document.getElementById('new-password2');
 
 const api = axios.create({
   baseURL: 'https://fakestoreapi.com/products',
@@ -257,10 +262,10 @@ function openSignupSection() {
 
 function closeSignupSection() {
   cartIcon.classList.remove('invisible');
-  newName.value = '';
-  newEmail.value = '';
-  newPassword.value = '';
-  confirmNewPassword.value = '';
+  newUserName.value = '';
+  newUserEmail.value = '';
+  newUserPassword.value = '';
+  confirmNewUserPassword.value = '';
   signupSection.classList.add('inactive');
 }
 
@@ -301,6 +306,31 @@ function closeEmailConfirmationSection() {
   emailConfirmationSection.classList.add('inactive');
 }
 
+function openMyAccount() {
+  closeMobileMenu();
+  closeDesktopMenu();
+  toggleNavbarNav('inactive');
+  toggleHamburguerIcon('invisible');
+  cartIcon.classList.add('invisible');
+  myAccountSection.classList.remove('inactive');
+}
+
+function closeMyAccount() {
+  cartIcon.classList.remove('invisible');
+  myAccountSection.classList.add('inactive');
+}
+
+function openEditMyAccount() {
+  editAccountSection.classList.remove('inactive');
+}
+
+function closeEditMyAccount() {
+  editAccountSection.classList.add('inactive');
+  newEmail.value = '';
+  newPassword.value = '';
+  confirmNewPassword.value = '';
+}
+
 function resizeHandler() {
   closeMobileMenu();
   closeDesktopMenu();
@@ -335,6 +365,7 @@ function goToHome() {
   closeSignupSection();
   closeRecoveryPasswordSection();
   closeEmailConfirmationSection();
+  closeMyAccount();
   userLoggedIn();
 }
 

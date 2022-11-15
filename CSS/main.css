@@ -158,6 +158,12 @@ body {
   text-align: center;
 }
 
+.text--subtitle {
+  font-size: var(--md);
+  font-weight: bold;
+  color: var(--primary-text);
+}
+
 .text {
   width: 35rem;
   text-align: center;
@@ -347,7 +353,7 @@ body {
 
 
 /*------------------------------------*\
-  #LOGIN - SIGNUP - RECOVERY PASSWORD
+  #LOGIN - SIGNUP - RECOVERY PASSWORD - MY ACCOUNT
 \*------------------------------------*/
 
 .user-section {
@@ -540,69 +546,4 @@ body {
 
 .mobile-menu--close {
   opacity: 0;
-}
-
-
-
-
-
-/*------------------------------------*\
-  #MY ACCOUNT
-\*------------------------------------*/
-
-.my-account-section {
-  position: absolute;
-  padding-bottom: 24px;
-  width: 100%;
-  height: 100vh;
-  background-color: var(--white);
-}
-.info-container {
-  display: grid;
-  place-content: center;
-  margin-top: 60px;
-  grid-template-rows: auto 1fr auto;
-  width: 100%;
-}
-.info-title {
-  margin: 4px 4px 32px 4px;
-  font-size: var(--lg);
-  color: var(--dark-grey);
-  text-align: start;
-}
-.info-form {
-  display: grid;
-  padding-left: 12px;
-}
-.info-form__label {
-  margin-bottom: 4px;
-  font-size: var(--md);
-  font-weight: bold;
-  color: var(--dark-grey);
-}
-.info-form__value,
-.info-form__input {
-  height: 30px;
-  width: 300px;
-  font-size: var(--md);
-  color: var(--grey);
-}
-.info-form__value {
-  margin-bottom: 4px;
-}
-.info-form__input {
-  margin-bottom: 12px;
-  border: none;
-  border-radius: 8px;
-  padding: 6px;
-  outline: none;
-  background-color: var(--background);
-}
-.info-form__input:focus {
-  background-color: var(--light-green);
-  box-shadow:0 1px 6px rgba(32,33,36,.28);
-}
-#edit-button {
-  justify-self: center;
-  width: 120px;
 }
