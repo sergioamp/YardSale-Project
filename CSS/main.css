@@ -494,73 +494,78 @@ body {
 /*------------------------------------*\
   #PRODUCT LIST
 \*------------------------------------*/
+
 .cards-container {
   position: absolute;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 25vw));
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 25vw));
   place-content: center;
-  padding: 24px 8px;
-  gap: 26px;
+  padding: 2rem 1.2rem;
+  gap: 2.6rem;
   width: 100vw;
 }
 
-.product-info {
-  display: grid;
-  grid-template:
-  "image image" auto
-  "price cart" 25px
-  "name cart" 25px
-  / minmax(112px, 20vw) minmax(28px, 5vw);
-  place-content: center;
+.card-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
-.product-info__img {
+.card-images:hover .card-icon {
+  opacity: 1;
+}
+
+.card-img {
   grid-area: image;
-  border-radius: 20px;
-  min-width: 140px;
-  min-height: 140px;
+  border-radius: 1.6rem;
+  min-width: 22rem;
+  min-height: 22rem;
   width: 25vw;
   height: 25vw;
   object-fit: cover;
   cursor: pointer;
 }
 
-.product-info__img:hover {
-  border: thick solid var(--light-green);
+.card-icon {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  grid-area: cart;
+  display: grid;
+  place-items: center;
+  border-radius: 2rem;
+  width: 4rem;
+  height: 4rem;
+  background-color: rgba(255, 255, 255, 0.85);
+  opacity: 0;
+  cursor: pointer;
 }
 
-.product-info__price,
-.product-info__name {
-  align-self: center;
-  padding-left: 8px;
+.card-icon:hover .card-icon__svg {
+  fill: var(--primary-color)
 }
 
-.product-info__price {
+.card-price {
   grid-area: price;
   font-size: var(--lg);
-  color: var(--dark-grey);
   font-weight: bold;
+  color: var(--tertiary-color);
 }
 
-.product-info__name {
+.card-name {
   grid-area: name;
-  font-size: var(--md);
-  color: var(--grey);
 }
 
-.add-to-cart {
-  grid-area: cart;
-  place-self: center;
-  border-radius: 20px;
-  width: 40px;
-  height: 40px;
-  background-image: url('../Assets/icons/bt_add_to_cart.svg');
-  object-fit: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-}
 
-.add-to-cart:hover {
-  background-image: url('../Assets/icons/bt_add_to_cart_hover.svg');
-  background-color: var(--light-green);
+
+
+
+/*------------------------------------*\
+  #MEDIA QUERIES
+\*------------------------------------*/
+
+@media (max-width: 460px) {
+  .card-icon {
+    opacity: 1;
+  }
 }
