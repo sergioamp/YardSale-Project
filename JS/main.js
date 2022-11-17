@@ -33,9 +33,10 @@ const $editAccountSection = document.querySelector('.edit-account-section--js');
 const $newEmail = document.getElementById('new-email');
 const $newPassword = document.getElementById('new-password1');
 const $confirmNewPassword = document.getElementById('new-password2');
+const $cardsContainer = document.querySelector('.cards-container');
 
 const api = axios.create({
-  baseURL: 'https://fakestoreapi.com/products',
+  baseURL: 'http://api.escuelajs.co/api/v1',
   headers: {
     'Content-Type': 'application/json;charset=utf-8',
   }
@@ -52,7 +53,7 @@ function renderCategories(items) {
     const aItem1 = document.createElement('a');
     aItem1.setAttribute('href', 'javascript:void(0)');
     aItem1.classList.add('margin--right', 'main-text');
-    aItem1.innerText = upperCase(item);
+    aItem1.innerText = upperCase(item.name);
 
     $categoriesDesktop.appendChild(liItem1);
     liItem1.appendChild(aItem1);
@@ -63,7 +64,7 @@ function renderCategories(items) {
     const aItem2 = document.createElement('a');
     aItem2.setAttribute('href', 'javascript:void(0)');
     aItem2.classList.add('main-text');
-    aItem2.innerText = upperCase(item);
+    aItem2.innerText = upperCase(item.name);
     
     $mobileMenuCategories.appendChild(liItem2);
     liItem2.appendChild(aItem2);
@@ -74,6 +75,52 @@ const getCategories = async() => {
   try {
     const response = await api.get('/categories');
     renderCategories(response.data);
+  } catch(error) {
+    alert(error);
+  }
+}
+
+function renderProducts(products) {
+  products.forEach((product) => {
+    const productCard = document.createElement('div');
+    productCard.classList.add('product-card');
+
+    const productInfo = document.createElement('div');
+    productInfo.classList.add('product-info');
+    productInfo.setAttribute('id','product_'+product.id);
+
+    const productImg = document.createElement('img');
+    productImg.classList.add('product-info__img');
+    productImg.setAttribute('src', product.images[0]);
+    productImg.setAttribute('id', product.id);
+
+    const productPrice = document.createElement('p');
+    productPrice.classList.add('product-info__price');
+    productPrice.innerText = '$ ' + product.price;
+
+    const productName = document.createElement('p');
+    productName.classList.add('product-info__name');
+    productName.innerText = product.title;
+
+    const addToCartIcon = document.createElement('div');
+    addToCartIcon.classList.add('add-to-cart');
+
+    $cardsContainer.appendChild(productCard);
+    productCard.appendChild(productInfo);
+    productInfo.appendChild(productImg);
+    productInfo.appendChild(productPrice);
+    productInfo.appendChild(productName);
+    productInfo.appendChild(addToCartIcon);
+  });
+
+  userLoggedIn();
+}
+
+const getAllProducts = async() => {
+  try {
+    const response = await api.get('/products');
+    console.log(response.data);
+    renderProducts(response.data);
   } catch(error) {
     alert(error);
   }
@@ -371,6 +418,7 @@ function goToHome() {
 
 function loadContent() {
   getCategories();
+  getAllProducts();
   resizeHandler();
   userLoggedIn();
 }
