@@ -33,7 +33,7 @@ const $editAccountSection = document.querySelector('.edit-account-section--js');
 const $newEmail = document.getElementById('new-email');
 const $newPassword = document.getElementById('new-password1');
 const $confirmNewPassword = document.getElementById('new-password2');
-const $cardsContainer = document.querySelector('.cards-container');
+const $cardsContainer = document.querySelector('.cards-container--js');
 
 const api = axios.create({
   baseURL: 'http://api.escuelajs.co/api/v1',
@@ -141,6 +141,15 @@ const getAllProducts = async() => {
   }
 }
 
+function toggleCardsContanier(state) {
+  if(state == 'visible') {
+    $cardsContainer.classList.remove('invisible');
+  } else if(state == 'invisible'){
+    $cardsContainer.classList.add('invisible');
+  }
+}
+
+
 function toggleNavbarNav(state) {
   if(state == 'inactive') {
     $navbarNav.classList.add('inactive');
@@ -157,7 +166,6 @@ function toggleHamburguerIcon(state) {
   } else if(state == 'invisible'){
     $hamburguerIcon.classList.add('invisible');
   }
-  
 }
 
 function toggleHamburguerIconSize(size) {
@@ -220,7 +228,7 @@ function toggleMobileMenuSize(size) {
 
 function userLoggingIn() {
   window.location.href="./index.html?email="+$email.value;
-  goToHome();
+  // goToHome();
 }
 
 function userLoggedIn() {
@@ -291,6 +299,7 @@ function closeDesktopMenu() {
 
 function openLoginSection() {
   isInHome = false;
+  toggleCardsContanier('invisible');
   toggleNavbarNav('inactive');
   closeSignupSection();
   closeRecoveryPasswordSection();
@@ -311,6 +320,7 @@ function closeLoginSection() {
 
 function openSignupSection() {
   isInHome = false;
+  toggleCardsContanier('invisible');
   toggleNavbarNav('inactive');
   closeLoginSection();
   closeRecoveryPasswordSection();
@@ -369,6 +379,7 @@ function closeEmailConfirmationSection() {
 }
 
 function openMyAccount() {
+  toggleCardsContanier('invisible');
   closeMobileMenu();
   closeDesktopMenu();
   toggleNavbarNav('inactive');
@@ -394,6 +405,7 @@ function closeEditMyAccount() {
 }
 
 function resizeHandler() {
+  toggleCardsContanier('visible');
   closeMobileMenu();
   closeDesktopMenu();
   if(isInHome) {
@@ -441,9 +453,5 @@ function loadContent() {
 window.addEventListener('DOMContentLoaded', loadContent(), false);
 
 window.addEventListener('resize', resizeHandler);
-
-document.addEventListener('mouseover', (e) => {
-  // console.log(e.target);
-});
 
 
