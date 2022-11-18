@@ -40,6 +40,7 @@
         </ul>  
       </section>
     </nav>
+    
     <aside class="icons icons--js">
       <button class="hambuguer-icon hambuguer-icon--js" onclick="toggleMobileMenu()">
         <div class="hambuguer-icon__line"></div>
@@ -69,34 +70,36 @@
         </li>
       </ul>
     </aside>
-
+    
     <aside class="mobile-menu close mobile-menu--js">
-      <p class="text--subtitle">Categories</p>
+      <p class="categories--title">Categories</p>
       <ul class="mobile-menu__categories--js">
-        <li class="margin--left margin--top0_8">
+        <li class="categories--item">
           <a href="javascript:void(0)" class="main-text">All</a>
         </li>
       </ul>
-      <ul class="mobile-menu__user--js inactive">
-        <li class="margin--top1_8">
-          <p class="text--subtitle username-mobile--js"></p>
-        </li>
-        <li class="margin--top0_8 margin--left">
-          <a href="javascript:void(0)" class="main-text">Mis Órdenes</a>
-        </li>
-        <li class="margin--top0_8 margin--left">
-          <a href="javascript:void(0)" class=" main-text" onclick="openMyAccount()">Mi Cuenta</a>
-        </li class="margin--top0_8">
-        <li class="margin--top0_8 margin--left">
-          <a href="javascript:void(0)" class="text--highlighted" onclick="userLoggedOut()">Cerrar Sesión</a>
-        </li>
-      </ul>
+      <div class="mobile-menu__user--js inactive">
+        <ul>
+          <li class="username-mobile">
+            <p class="username-mobile--text username-mobile--js"></p>
+          </li>
+          <li class="my-orders">
+            <a href="javascript:void(0)" class="main-text">Mis Órdenes</a>
+          </li>
+          <li class="my-account">
+            <a href="javascript:void(0)" class=" main-text" onclick="openMyAccount()">Mi Cuenta</a>
+          </li>
+          <li class="log-out">
+            <a href="javascript:void(0)" class="text--highlighted" onclick="userLoggedOut()">Cerrar Sesión</a>
+          </li>
+        </ul>
+      </div>
       <div class="mobile-menu__login--js">
         <ul>
-          <li class="margin--top1_8">
+          <li class="log-in margin--top1_8">
             <a href="javascript:void(0)" class="text--highlighted" onclick="openLoginSection()">Iniciar Sesión</a>
           </li>
-          <li class="margin--top1_8">
+          <li class="sign-up margin--top1_8">
             <a href="javascript:void(0)" class="text--highlighted" onclick="openSignupSection()">Regístrate</a>
           </li>
         </ul>

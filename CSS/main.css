@@ -455,38 +455,14 @@ body {
 
 .mobile-menu {
   position: absolute;
+  display: grid;
+  place-content: center;
+  place-self: center;
   border: 0.2rem solid var(--primary-background);
+  padding: 2rem 1.2rem;
   background-color: var(--tertiary--backgorund);
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
   z-index: 8;
-}
-
-.mobile-menu--small {
-  bottom: 0;
-  border-radius: 1.6rem 1.6rem 0 0;
-  padding: 2rem 1.2rem;
-  padding-bottom: 6rem;
-  width: 100vw;
-}
-
-.mobile-menu--small p, 
-.mobile-menu--small a {
-  font-size: var(--xlg);
-}
-
-.mobile-menu--medium {
-  top: 3.75rem;
-  border-radius: 0 0 1.6rem 1.6rem;
-  padding: 2rem 1.2rem;
-}
-
-.mobile-menu--open {
-  opacity: 1;
-}
-
-.mobile-menu--close {
-  opacity: 0;
+  overflow: hidden;
 }
 
 
@@ -569,5 +545,112 @@ body {
 @media (max-width: 460px) {
   .card-icon {
     opacity: 1;
+  }
+
+  .mobile-menu {
+    place-items: center;
+    padding-bottom: 6rem;
+    width: 100%;
+    height: 100%;
+    font-size: var(--xlg);
+  }
+
+  .mobile-menu__categories--js,
+  .mobile-menu__user--js ul,
+  .mobile-menu__login--js ul {
+    display: grid;
+  }
+
+  .categories--item, 
+  .username-mobile,
+  .my-orders,
+  .my-account,
+  .log-out, 
+  .log-in, 
+  .sign-up {
+    justify-self: center;
+  }
+
+  .categories--item, 
+  .my-orders,
+  .my-account,
+  .log-out,  
+  .sign-up {
+    margin-top: 1.2rem;
+  }
+
+  .username-mobile, 
+  .log-in {
+    margin-top: 4rem;
+  }
+
+  .categories--title, 
+  .username-mobile--text {
+    font-weight: bold;
+    color: var(--primary-text);
+  }
+
+  .mobile-menu--open {
+    animation: open 0.4s linear;
+  }
+  
+  .mobile-menu--close {
+    top: -100vh;
+    animation: close 0.4s linear;
+  }
+  
+  @keyframes open {
+    from {top: -100vh;}
+    to {top: 0}
+  }
+  
+  @keyframes close {
+    from {top: 0;}
+    to {top: -100vh}
+  }
+}
+
+@media (min-width: 460px) {
+  .mobile-menu {
+    border-radius: 0 0 1.6rem 1.6rem;
+  }
+
+  .categories--title, 
+  .username-mobile--text {
+    font-weight: bold;
+    color: var(--primary-text);
+  }
+
+  .categories--item, 
+  .my-orders, 
+  .my-account, 
+  .log-out {
+    margin-left: 1.2rem;
+    margin-top: 0.8rem;
+  }
+  
+  .username-mobile, 
+  .log-in,
+  .sign-up {
+    margin-top: 1.8rem;
+  }
+
+  .mobile-menu--open {
+    animation: open 0.4s linear;
+  }
+  
+  .mobile-menu--close {
+    top: -350px;
+    animation: close 0.4s linear;
+  }
+  
+  @keyframes open {
+    from {top: -350px;}
+    to {top: 0}
+  }
+  
+  @keyframes close {
+    from {top: 0;}
+    to {top: -350px}
   }
 }

@@ -59,7 +59,7 @@ function renderCategories(items) {
     liItem1.appendChild(aItem1);
 
     const liItem2 = document.createElement('li');
-    liItem2.classList.add('margin--top0_8', 'margin--left');
+    liItem2.classList.add('categories--item');
 
     const aItem2 = document.createElement('a');
     aItem2.setAttribute('href', 'javascript:void(0)');
@@ -216,19 +216,8 @@ function mediumAndLargeScreens() {
   toggleCartIconSize('medium');
 }
 
-function toggleMobileMenuSize(size) {
-  if(size == 'small') {
-    $mobileMenu.classList.add('mobile-menu--small');
-    $mobileMenu.classList.remove('mobile-menu--medium');
-  } else if(size == 'medium'){
-    $mobileMenu.classList.add('mobile-menu--medium');
-    $mobileMenu.classList.remove('mobile-menu--small');
-  }
-}
-
 function userLoggingIn() {
   window.location.href="./index.html?email="+$email.value;
-  // goToHome();
 }
 
 function userLoggedIn() {
@@ -279,11 +268,13 @@ function toggleMobileMenu() {
     $mobileMenu.classList.add('close');
     $mobileMenu.classList.remove('mobile-menu--open');
     $mobileMenu.classList.add('mobile-menu--close');
+    $cartIcon.classList.remove('invisible');
   } else {
     $hamburguerIcon.classList.add('icon—pressed');
     $mobileMenu.classList.remove('close');
     $mobileMenu.classList.add('mobile-menu--open');
     $mobileMenu.classList.remove('mobile-menu--close');
+    $cartIcon.classList.add('invisible');
   }
 }
 
@@ -416,13 +407,11 @@ function resizeHandler() {
       toggleHamburguerIcon('visible');
       toggleHamburguerIconSize('large');
       toggleCartIconSize('large');
-      toggleMobileMenuSize('small');
     } 
     else if (window.matchMedia("(max-width: 760px)").matches) {
       toggleNavbarNav('inactive');
       mediumAndLargeScreens();
       toggleHamburguerIcon('visible');
-      toggleMobileMenuSize('medium');
     }
     else {
       toggleNavbarNav('active');
