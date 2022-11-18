@@ -238,6 +238,15 @@ function toggleCartIconSize(size) {
   }
 }
 
+function toggleScrollY(state) {
+  if(state == 'inactive') {
+    document.body.classList.add('scroll--inactive')
+  } else if(state == 'active'){
+    document.body.classList.remove('scroll--inactive')
+  }
+}
+
+
 function mediumAndLargeScreens() {
   toggleLogoSize('medium');
   toggleIcons('desktop');
@@ -290,6 +299,11 @@ function toggleDesktopMenu() {
   }
 }
 
+function closeDesktopMenu() {
+  $desktopMenu.classList.remove('close');
+  toggleDesktopMenu();
+}
+
 function toggleMobileMenu() {
   const isMobileMenuOpen = !$mobileMenu.classList.contains('close');
   if (isMobileMenuOpen) {
@@ -304,6 +318,9 @@ function toggleMobileMenu() {
     $mobileMenu.classList.add('mobile-menu--open');
     $mobileMenu.classList.remove('mobile-menu--close');
     $cartIcon.classList.add('invisible');
+    if (window.matchMedia("(max-width: 460px)").matches) {
+      toggleScrollY('inactive');
+    }
   }
 }
 
@@ -312,13 +329,9 @@ function closeMobileMenu() {
   toggleMobileMenu();
 }
 
-function closeDesktopMenu() {
-  $desktopMenu.classList.remove('close');
-  toggleDesktopMenu();
-}
-
 function openLoginSection() {
   isInHome = false;
+  toggleScrollY('inactive');
   toggleCardsContanier('invisible');
   toggleNavbarNav('inactive');
   closeSignupSection();
@@ -340,6 +353,7 @@ function closeLoginSection() {
 
 function openSignupSection() {
   isInHome = false;
+  toggleScrollY('inactive');
   toggleCardsContanier('invisible');
   toggleNavbarNav('inactive');
   closeLoginSection();
@@ -399,6 +413,7 @@ function closeEmailConfirmationSection() {
 }
 
 function openMyAccount() {
+  toggleScrollY('inactive');
   toggleCardsContanier('invisible');
   closeMobileMenu();
   closeDesktopMenu();
@@ -425,6 +440,7 @@ function closeEditMyAccount() {
 }
 
 function resizeHandler() {
+  toggleScrollY('active');
   toggleCardsContanier('visible');
   closeMobileMenu();
   closeDesktopMenu();
@@ -475,10 +491,12 @@ window.addEventListener('resize', resizeHandler);
 document.addEventListener('click', (e) => {
   if(e.target.matches('.card-img')) {
     productId = e.target.id;
+    toggleScrollY('inactive');
     getProduct(productId);
   }
   if(e.target.matches('.close-product')) {
     $productDetail.classList.add('invisible');
+    toggleScrollY('active');
   }
 });
 

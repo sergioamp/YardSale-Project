@@ -103,7 +103,7 @@ body {
   min-height: 100vh;
   font-family: var(--primary-font);
   font-size: var(--md);
-  color: var(--secondary-text)
+  color: var(--secondary-text);
 }
 
 
@@ -113,6 +113,10 @@ body {
 /*------------------------------------*\
   #GLOBAL
 \*------------------------------------*/
+
+main {
+  position: relative;
+}
 
 .active {
   display: flex;
@@ -126,6 +130,10 @@ body {
 
 .invisible {
   visibility: hidden;
+}
+
+.scroll--inactive {
+  overflow-y: hidden;
 }
 
 .margin--right {
@@ -187,10 +195,10 @@ body {
 \*------------------------------------*/
 
 .navbar {
-  position: relative;
+  position: fixed;
   display: flex;
   flex-direction: column;
-  /* width: 100vw; */
+  width: 100vw;
   height: auto;
   background-color: var(--primary-background);
   z-index: 10;
@@ -200,7 +208,7 @@ body {
   display: flex;
   justify-content: center;
   border-bottom: 2px solid var(--border);
-  padding: 0.25rem 1.2rem 0 1.2rem;
+  padding-top: 0.25rem;
   height: auto;
 }
 
@@ -209,6 +217,7 @@ body {
 }
 
 .navbar-nav {
+  padding: 0.24rem 2.4rem;
   height: 3rem;
 }
 
@@ -227,11 +236,11 @@ body {
 }
 
 .icons {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   display: flex;
   justify-content: space-between;
-  padding: 0 1.2rem;
+  padding: 0 1.2rem 0 2.4rem;
   width: 100%;
   z-index: 12;
 }
@@ -322,7 +331,7 @@ body {
 \*------------------------------------*/
 
 .user-section {
-  position: absolute;
+  position: fixed;
   top: 0;
   display: grid;
   place-content: center;
@@ -427,7 +436,7 @@ body {
 \*------------------------------------*/
 
 .desktop-menu {
-  position: absolute;
+  position: fixed;
   top: -13.5rem;
   right: 1.2rem;
   border: 0.2rem solid var(--primary-background);
@@ -454,7 +463,7 @@ body {
 }
 
 .mobile-menu {
-  position: absolute;
+  position: fixed;
   display: grid;
   place-content: center;
   place-self: center;
@@ -539,17 +548,16 @@ body {
 
 
 /*------------------------------------*\
-  #PRODUCT DEETAIL
+  #PRODUCT DETAIL
 \*------------------------------------*/
 
 .product-detail {
-  position: absolute;
+  position: fixed;
   top: 0;
   display: grid;
   place-content: center;
   width: 100%;
   height: 100vh;
-  padding-top: 4rem;
   background-color: rgba(255, 255, 255, 0.95);
 }
 
@@ -633,6 +641,10 @@ body {
 \*------------------------------------*/
 
 @media (max-width: 460px) {
+  .icons {
+    background-color: var(--primary-background);
+  }
+
   .card-icon {
     opacity: 1;
   }
@@ -688,6 +700,10 @@ body {
     top: -100vh;
     animation: close 0.4s linear;
   }
+
+  .cards-container {
+    top: 7.45rem;
+  }
   
   @keyframes open {
     from {top: -100vh;}
@@ -726,21 +742,33 @@ body {
   }
 
   .mobile-menu--open {
+    top: 3.95rem;
     animation: open 0.4s linear;
   }
   
   .mobile-menu--close {
-    top: -350px;
+    top: -35rem;
     animation: close 0.4s linear;
+  }
+
+  .cards-container {
+    top: 5.95rem;
   }
   
   @keyframes open {
-    from {top: -350px;}
-    to {top: 0}
+    from {top: -35rem;}
+    to {top: 3.95rem;}
   }
   
   @keyframes close {
-    from {top: 0;}
-    to {top: -350px}
+    from {top: 3.95rem;}
+    to {top: -35rem;}
   }
 }
+
+@media (min-width: 760px) {
+  .cards-container {
+    top: 8.95rem;
+  }
+}
+
