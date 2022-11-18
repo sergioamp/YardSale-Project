@@ -539,6 +539,113 @@ body {
 
 
 /*------------------------------------*\
+  #PRODUCT DEETAIL
+\*------------------------------------*/
+
+.product-detail {
+  position: absolute;
+  top: -0.15rem;
+  right: 0;
+  border: 0.1rem solid var(--border);
+  border-radius: 0 0 1.6rem 1.6rem;
+  padding-bottom: 2.4rem;
+  width: 30vw;
+  background-color: var(--secondary-background);
+}
+
+.product-detail-info {
+  display: grid;
+  grid-template-rows: repeat(4, auto);
+}
+
+.product-detail__img {
+  position: relative;
+  place-self: center;
+}
+
+.product-detail__image {
+  border-radius: 0 0 2rem 2rem;
+  width: 30vw;
+  height: 30vw;
+  max-width: 34rem;
+  max-height: 30rem;
+  object-fit: cover;
+  object-position: center;
+}
+
+.product-detail_close {
+  position: absolute;
+  top: 0.8rem;
+  left: 0.8rem;
+  display: grid;
+  place-content: center;
+  border-radius: 50%;
+  width: 3.2rem;
+  height: 3.2rem;
+  fill: var(--tertiary-color);
+  background-color: var(--secondary-background);
+  cursor: pointer;
+}
+
+.product-detail_close:hover {
+  fill: var(--secondary-background);
+  background-color: var(--secondary-color);
+}
+
+.product-detail__price,
+.product-detail__name {
+  margin: 0.8rem 0 0.4rem 4rem;
+}
+
+.product-detail__price {
+  font-weight: bold;
+  color: var(--primary-text);
+  font-size: var(--lg);
+}
+
+.product-detail__name {
+  color: var(--secondary-text);
+  font-size: var(--md);
+}
+
+.product-detail__description {
+  margin: 0.8rem 4rem 2rem 4rem;
+  color: var(--secondary-text);
+  font-size: var(--sm);
+  text-align: justify;
+}
+
+.primary-button {
+  place-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.8rem;
+  border: none;
+  width: auto;
+  height: 4rem;
+  font-size: var(--md);
+  font-weight: bold;
+  color: var(--secondary-background);
+  background-color: var(--primary-color);
+  cursor: pointer;
+}
+
+.primary-button:hover {
+  background-color: var(--tertiary-color);
+}
+
+.add-to-cart-button {
+  justify-content: space-evenly;
+  padding: 0 0.8rem;
+  width: 16rem;
+}
+
+
+
+
+
+/*------------------------------------*\
   #MEDIA QUERIES
 \*------------------------------------*/
 

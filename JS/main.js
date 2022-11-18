@@ -34,6 +34,7 @@ const $newEmail = document.getElementById('new-email');
 const $newPassword = document.getElementById('new-password1');
 const $confirmNewPassword = document.getElementById('new-password2');
 const $cardsContainer = document.querySelector('.cards-container--js');
+const $productDetail = document.querySelector('.product-detail');
 
 const api = axios.create({
   baseURL: 'http://api.escuelajs.co/api/v1',
@@ -134,8 +135,36 @@ function renderProducts(products) {
 const getAllProducts = async() => {
   try {
     const response = await api.get('/products');
-    console.log(response.data);
     renderProducts(response.data);
+  } catch(error) {
+    alert(error);
+  }
+}
+
+function renderProductDetail(product) {
+  const productImg = document.querySelector('.product-detail__image');
+  productImg.setAttribute('src', product.images[0]);
+
+  const productPrice = document.querySelector('.product-detail__price');
+  productPrice.innerText = '$ ' + product.price;
+
+  const productName = document.querySelector('.product-detail__name');
+  productName.innerText = product.title;
+
+  const productDescription = document.querySelector('.product-detail__description');
+  productDescription.innerText = product.description;
+
+}
+
+function openProductDetail(product) {
+  renderProductDetail(product);
+  $productDetail.classList.remove('invisible');
+}
+
+const getProduct = async(id) => {
+  try {
+    const response = await api.get(`/products/${id}`);
+    openProductDetail(response.data);
   } catch(error) {
     alert(error);
   }
@@ -442,5 +471,16 @@ function loadContent() {
 window.addEventListener('DOMContentLoaded', loadContent(), false);
 
 window.addEventListener('resize', resizeHandler);
+
+document.addEventListener('click', (e) => {
+  console.log(e.target);
+  if(e.target.matches('.card-img')) {
+    productId = e.target.id;
+    getProduct(productId);
+  }
+  if(e.target.matches('.close-product')) {
+    $productDetail.classList.add('close');
+  }
+});
 
 
