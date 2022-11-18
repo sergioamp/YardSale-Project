@@ -34,7 +34,7 @@ const $newEmail = document.getElementById('new-email');
 const $newPassword = document.getElementById('new-password1');
 const $confirmNewPassword = document.getElementById('new-password2');
 const $cardsContainer = document.querySelector('.cards-container--js');
-const $productDetail = document.querySelector('.product-detail');
+const $productDetail = document.querySelector('.product-detail--js');
 
 const api = axios.create({
   baseURL: 'http://api.escuelajs.co/api/v1',
@@ -473,13 +473,12 @@ window.addEventListener('DOMContentLoaded', loadContent(), false);
 window.addEventListener('resize', resizeHandler);
 
 document.addEventListener('click', (e) => {
-  console.log(e.target);
   if(e.target.matches('.card-img')) {
     productId = e.target.id;
     getProduct(productId);
   }
   if(e.target.matches('.close-product')) {
-    $productDetail.classList.add('close');
+    $productDetail.classList.add('invisible');
   }
 });
 
