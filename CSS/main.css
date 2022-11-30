@@ -482,6 +482,14 @@ main {
   #PRODUCT LIST
 \*------------------------------------*/
 
+.product-card:hover {
+  border-radius: 1.6rem;
+  min-width: 22rem;
+  width: 25vw;
+  background-color: var(--primary-background);
+  cursor: pointer;
+}
+
 .cards-container {
   position: absolute;
   display: grid;
@@ -489,13 +497,14 @@ main {
   place-content: center;
   width: 100%;
   padding: 2rem 1.2rem;
-  gap: 2.6rem;
+  gap: 1.2rem;
 }
 
 .card-container {
   position: relative;
   display: flex;
   flex-direction: column;
+  padding: 1.2rem;
 }
 
 .card-images:hover .card-icon {
@@ -505,18 +514,18 @@ main {
 .card-img {
   grid-area: image;
   border-radius: 1.6rem;
-  min-width: 22rem;
-  min-height: 22rem;
-  width: 25vw;
-  height: 25vw;
+  min-width: 20rem;
+  min-height: 20rem;
+  width: 24vw;
+  height: 24vw;
   object-fit: cover;
   cursor: pointer;
 }
 
 .card-icon {
   position: absolute;
-  top: 0.6rem;
-  right: 0.6rem;
+  top: 2rem;
+  right: 2rem;
   grid-area: cart;
   display: grid;
   place-items: center;

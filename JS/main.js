@@ -49,12 +49,15 @@ function upperCase(word) {
 
 function renderCategories(items) {
   items.forEach((item) => {
+    console.log(item);
     const liItem1 = document.createElement('li');
 
     const aItem1 = document.createElement('a');
     aItem1.setAttribute('href', 'javascript:void(0)');
     aItem1.classList.add('margin--right', 'main-text');
+    aItem1.classList.add('categories');
     aItem1.innerText = upperCase(item.name);
+    aItem1.setAttribute('id', item.id);
 
     $categoriesDesktop.appendChild(liItem1);
     liItem1.appendChild(aItem1);
@@ -64,8 +67,9 @@ function renderCategories(items) {
 
     const aItem2 = document.createElement('a');
     aItem2.setAttribute('href', 'javascript:void(0)');
-    aItem2.classList.add('main-text');
+    aItem2.classList.add('main-text', 'categories');
     aItem2.innerText = upperCase(item.name);
+    aItem2.setAttribute('id', item.id);
     
     $mobileMenuCategories.appendChild(liItem2);
     liItem2.appendChild(aItem2);
@@ -75,6 +79,8 @@ function renderCategories(items) {
 const getCategories = async() => {
   try {
     const response = await api.get('/categories');
+    // const response = await api.get('https://api.escuelajs.co/api/v1/categories');
+    console.log(response.data);
     renderCategories(response.data);
   } catch(error) {
     alert(error);
@@ -82,6 +88,7 @@ const getCategories = async() => {
 }
 
 function renderProducts(products) {
+  $cardsContainer.innerHTML = '';
   products.forEach((product) => {
     if(product.images[0] !== '') {
       const productCard = document.createElement('div');
@@ -135,6 +142,19 @@ function renderProducts(products) {
 const getAllProducts = async() => {
   try {
     const response = await api.get('/products');
+    // const response = await api.get('https://api.escuelajs.co/api/v1/products');
+    renderProducts(response.data);
+
+    
+  } catch(error) {
+    alert(error);
+  }
+}
+
+const getProductByCategory = async(categoryId) => {
+  try {
+    const response = await api.get(`/categories/${categoryId}/products`);
+    console.log(response.data)
     renderProducts(response.data);
   } catch(error) {
     alert(error);
@@ -489,8 +509,13 @@ window.addEventListener('DOMContentLoaded', loadContent(), false);
 window.addEventListener('resize', resizeHandler);
 
 document.addEventListener('click', (e) => {
+  if(e.target.matches('.categories')) {
+    const categoryId = e.target.id;
+    console.log(categoryId);
+    getProductByCategory(categoryId);
+  }
   if(e.target.matches('.card-img')) {
-    productId = e.target.id;
+    const productId = e.target.id;
     toggleScrollY('inactive');
     getProduct(productId);
   }
