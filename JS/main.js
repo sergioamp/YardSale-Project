@@ -49,11 +49,10 @@ function upperCase(word) {
 
 function renderCategories(items) {
   items.forEach((item) => {
-    console.log(item);
     const liItem1 = document.createElement('li');
 
     const aItem1 = document.createElement('a');
-    aItem1.setAttribute('href', 'javascript:void(0)');
+    aItem1.setAttribute('href', '#body');
     aItem1.classList.add('margin--right', 'main-text');
     aItem1.classList.add('categories');
     aItem1.innerText = upperCase(item.name);
@@ -66,7 +65,8 @@ function renderCategories(items) {
     liItem2.classList.add('categories--item');
 
     const aItem2 = document.createElement('a');
-    aItem2.setAttribute('href', 'javascript:void(0)');
+    // aItem2.setAttribute('href', 'javascript:void(0)');
+    aItem2.setAttribute('href', '#body');
     aItem2.classList.add('main-text', 'categories');
     aItem2.innerText = upperCase(item.name);
     aItem2.setAttribute('id', item.id);
@@ -80,7 +80,6 @@ const getCategories = async() => {
   try {
     const response = await api.get('/categories');
     // const response = await api.get('https://api.escuelajs.co/api/v1/categories');
-    console.log(response.data);
     renderCategories(response.data);
   } catch(error) {
     alert(error);
@@ -89,6 +88,7 @@ const getCategories = async() => {
 
 function renderProducts(products) {
   $cardsContainer.innerHTML = '';
+  console.log(products);
   products.forEach((product) => {
     if(product.images[0] !== '') {
       const productCard = document.createElement('div');
@@ -144,8 +144,6 @@ const getAllProducts = async() => {
     const response = await api.get('/products');
     // const response = await api.get('https://api.escuelajs.co/api/v1/products');
     renderProducts(response.data);
-
-    
   } catch(error) {
     alert(error);
   }
@@ -153,9 +151,13 @@ const getAllProducts = async() => {
 
 const getProductByCategory = async(categoryId) => {
   try {
-    const response = await api.get(`/categories/${categoryId}/products`);
-    console.log(response.data)
-    renderProducts(response.data);
+    if (categoryId === '0') {
+      getAllProducts();
+    }
+    else {
+      const response = await api.get(`/categories/${categoryId}/products`);
+      renderProducts(response.data);
+    }
   } catch(error) {
     alert(error);
   }
@@ -497,11 +499,20 @@ function goToHome() {
   userLoggedIn();
 }
 
+// const deletProduct = async() => {
+//   try {
+//     const response = await api.delete('https://api.escuelajs.co/api/v1/products/201')
+//   } catch(error) {
+//     alert(error);
+//   }
+// }
+
 function loadContent() {
   getCategories();
   getAllProducts();
   resizeHandler();
   userLoggedIn();
+  // deletProduct();
 }
 
 window.addEventListener('DOMContentLoaded', loadContent(), false);
@@ -511,7 +522,6 @@ window.addEventListener('resize', resizeHandler);
 document.addEventListener('click', (e) => {
   if(e.target.matches('.categories')) {
     const categoryId = e.target.id;
-    console.log(categoryId);
     getProductByCategory(categoryId);
   }
   if(e.target.matches('.card-img')) {
@@ -524,5 +534,3 @@ document.addEventListener('click', (e) => {
     toggleScrollY('active');
   }
 });
-
-
