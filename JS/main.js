@@ -1,5 +1,6 @@
 let isInHome = true;
 let isUserLoggedIn = false;
+let itemsInShoppingCart = 0;
 
 const $logo = document.querySelector('.logo--js');
 const $navbarNav = document.querySelector('.navbar-nav--js');
@@ -35,6 +36,7 @@ const $newPassword = document.getElementById('new-password1');
 const $confirmNewPassword = document.getElementById('new-password2');
 const $cardsContainer = document.querySelector('.cards-container--js');
 const $productDetail = document.querySelector('.product-detail--js');
+const $cartIconNumber = document.querySelector('.cart-icon__number--js');
 
 const api = axios.create({
   baseURL: 'http://api.escuelajs.co/api/v1',
@@ -88,7 +90,6 @@ const getCategories = async() => {
 
 function renderProducts(products) {
   $cardsContainer.innerHTML = '';
-  console.log(products);
   products.forEach((product) => {
     if(product.images[0] !== '') {
       const productCard = document.createElement('div');
@@ -107,7 +108,7 @@ function renderProducts(products) {
       cardImg.setAttribute('id', product.id);
   
       const cardIcon = document.createElement('div');
-      cardIcon.classList.add('card-icon');
+      cardIcon.classList.add('card-icon', 'add-to-cart');
       cardIcon.innerHTML =
         `
         <svg xmlns="http://www.w3.org/2000/svg" height="25" width="25" viewBox="0 0 30 30" fill="#474747" class="card-icon__svg">
@@ -520,6 +521,7 @@ window.addEventListener('DOMContentLoaded', loadContent(), false);
 window.addEventListener('resize', resizeHandler);
 
 document.addEventListener('click', (e) => {
+  // console.log(e.target)
   if(e.target.matches('.categories')) {
     const categoryId = e.target.id;
     getProductByCategory(categoryId);
@@ -528,6 +530,11 @@ document.addEventListener('click', (e) => {
     const productId = e.target.id;
     toggleScrollY('inactive');
     getProduct(productId);
+  }
+  if(e.target.matches('.add-to-cart, .add-to-cart *')) {
+    itemsInShoppingCart += 1;
+    $cartIconNumber.innerText = itemsInShoppingCart;
+    console.log(itemsInShoppingCart) 
   }
   if(e.target.matches('.close-product')) {
     $productDetail.classList.add('invisible');

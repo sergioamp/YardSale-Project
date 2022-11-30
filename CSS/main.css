@@ -296,6 +296,7 @@ main {
 }
 
 .cart-icon {
+  position: relative;
   display: grid;
   place-content: center;
   place-items: center;
@@ -306,6 +307,16 @@ main {
 
 .cart-icon:hover .cart-icon__svg{
   fill: var(--primary-color);
+}
+
+.cart-icon__count {
+  position: absolute;
+  left: -1.5rem;
+  border-radius: 1rem;
+  width: 2rem;
+  height: 2rem;
+  /* background-color: var(--secondary-color); */
+  background-color: var(--secondary-background);
 }
 
 .icon--medium {
