@@ -40,6 +40,9 @@ const $productDetail = document.querySelector('.product-detail--js');
 const $cartIconCount = document.querySelector('.cart-icon__count--js');
 const $cartIconNumber = document.querySelector('.cart-icon__number--js');
 const $shoppingCart = document.querySelector('.shopping-cart--js');
+const $cartContainer = document.querySelector('.cart-container--js');
+
+
 
 const api = axios.create({
   baseURL: 'http://api.escuelajs.co/api/v1',
@@ -113,15 +116,17 @@ function renderProducts(products) {
   
       const cardIcon = document.createElement('div');
       cardIcon.classList.add('card-icon', 'add-to-cart');
-      cardIcon.innerHTML =
-        `
-        <svg xmlns="http://www.w3.org/2000/svg" height="25" width="25" viewBox="0 0 30 30" fill="#474747" class="card-icon__svg">
-          <path d="M29.11,21.11c0,.76-.56,1.32-1.37,1.39-.11,0-.23,0-.34,0H9.4c-1.13,0-1.54-.37-1.75-1.5-1.09-5.96-2.18-11.92-3.27-17.89-.04-.23-.13-.31-.37-.3-.86,.02-1.72,.02-2.58,0-.58-.01-1.05-.24-1.31-.82C-.11,1.45,0,.98,.31,.53,.59,.14,1.01,.02,1.45,.01,2.76,0,4.08,0,5.39,.01c.8,0,1.28,.45,1.44,1.26,.04,.2,.09,.4,.14,.6,.23,1.31,.46,2.63,.7,3.94,.68,3.73,1.36,7.47,2.04,11.2,0,.04,.04,.07,.05,.1,.14,.78,.29,1.56,.41,2.34,.05,.3,.25,.23,.42,.23,5.41,0,10.81,0,16.22,0,.3,0,.61-.02,.91,0,.82,.05,1.38,.64,1.38,1.41Z"/>
-          <path d="M12.73,27.18c0,1.52-1.23,2.81-2.71,2.82-1.47,.02-2.73-1.27-2.74-2.79-.01-1.52,1.23-2.81,2.71-2.82,1.47-.02,2.73,1.27,2.74,2.8Z"/>
-          <path d="M29.11,27.2c0,1.52-1.26,2.81-2.73,2.8-1.48,0-2.73-1.3-2.72-2.81,0-1.52,1.26-2.81,2.73-2.8,1.48,0,2.73,1.3,2.72,2.82Z"/>
-          <path d="M29.94,4.34c-.23-.83-.78-1.26-1.63-1.26H10.09c-.64,0-1.15,.53-1.15,1.19v.12s.01,.09,.02,.13c.12,.68,.23,1.35,.34,2.03,.49,2.89,.99,5.77,1.49,8.66,.01,.05,.01,.09,.03,.13,.11,.54,.57,.94,1.11,.94h13.87c.86,0,1.43-.45,1.65-1.29,.83-3.22,1.65-6.44,2.49-9.67,.08-.32,.09-.65,0-.98Zm-5.59,5.87c0,.38-.31,.69-.69,.69h-2.98v2.98c0,.39-.32,.7-.71,.7h-1.04c-.38,0-.7-.31-.7-.7v-2.98h-2.98c-.38,0-.69-.31-.69-.69v-1.05c0-.39,.31-.7,.69-.7h2.98v-2.98c0-.38,.32-.7,.7-.7h1.04c.39,0,.71,.32,.71,.7v2.98h2.98c.38,0,.69,.31,.69,.7v1.05Z"/>
-        </svg>
-        `;
+      cardIcon.setAttribute('id', product.id);
+      cardIcon.innerHTML = 
+      `
+      <svg xmlns="http://www.w3.org/2000/svg" height="25" width="25" viewBox="0 0 30 30" fill="#474747" class="card-icon__svg" id="${product.id}">
+        <path id="${product.id}" d="M29.11,21.11c0,.76-.56,1.32-1.37,1.39-.11,0-.23,0-.34,0H9.4c-1.13,0-1.54-.37-1.75-1.5-1.09-5.96-2.18-11.92-3.27-17.89-.04-.23-.13-.31-.37-.3-.86,.02-1.72,.02-2.58,0-.58-.01-1.05-.24-1.31-.82C-.11,1.45,0,.98,.31,.53,.59,.14,1.01,.02,1.45,.01,2.76,0,4.08,0,5.39,.01c.8,0,1.28,.45,1.44,1.26,.04,.2,.09,.4,.14,.6,.23,1.31,.46,2.63,.7,3.94,.68,3.73,1.36,7.47,2.04,11.2,0,.04,.04,.07,.05,.1,.14,.78,.29,1.56,.41,2.34,.05,.3,.25,.23,.42,.23,5.41,0,10.81,0,16.22,0,.3,0,.61-.02,.91,0,.82,.05,1.38,.64,1.38,1.41Z"/>
+        <path id="${product.id}" d="M12.73,27.18c0,1.52-1.23,2.81-2.71,2.82-1.47,.02-2.73-1.27-2.74-2.79-.01-1.52,1.23-2.81,2.71-2.82,1.47-.02,2.73,1.27,2.74,2.8Z"/>
+        <path id="${product.id}" d="M29.11,27.2c0,1.52-1.26,2.81-2.73,2.8-1.48,0-2.73-1.3-2.72-2.81,0-1.52,1.26-2.81,2.73-2.8,1.48,0,2.73,1.3,2.72,2.82Z"/>
+        <path id="${product.id}" d="M29.94,4.34c-.23-.83-.78-1.26-1.63-1.26H10.09c-.64,0-1.15,.53-1.15,1.19v.12s.01,.09,.02,.13c.12,.68,.23,1.35,.34,2.03,.49,2.89,.99,5.77,1.49,8.66,.01,.05,.01,.09,.03,.13,.11,.54,.57,.94,1.11,.94h13.87c.86,0,1.43-.45,1.65-1.29,.83-3.22,1.65-6.44,2.49-9.67,.08-.32,.09-.65,0-.98Zm-5.59,5.87c0,.38-.31,.69-.69,.69h-2.98v2.98c0,.39-.32,.7-.71,.7h-1.04c-.38,0-.7-.31-.7-.7v-2.98h-2.98c-.38,0-.69-.31-.69-.69v-1.05c0-.39,.31-.7,.69-.7h2.98v-2.98c0-.38,.32-.7,.7-.7h1.04c.39,0,.71,.32,.71,.7v2.98h2.98c.38,0,.69,.31,.69,.7v1.05Z"/>
+      </svg>
+      `;
+
   
       const cardPrice = document.createElement('p');
       cardPrice.classList.add('card-price');
@@ -193,6 +198,29 @@ const getProduct = async(id) => {
   try {
     const response = await api.get(`/products/${id}`);
     openProductDetail(response.data);
+  } catch(error) {
+    alert(error);
+  }
+}
+
+const addItemToCart = async(id) => {
+  try {
+    const response = await api.get(`/products/${id}`);
+    const product = response.data;
+    const shoppingCartProduct = document.createElement('div');
+    shoppingCartProduct.classList.add('shopping-cart__product');
+    shoppingCartProduct.innerHTML = 
+    `
+    <figure>
+        <img src="${product.images[0]}" alt="Esencia">
+    </figure>
+    <p>${product.title}</p>
+    <p>$ ${product.price}</p>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox='0 0 24 24' width='32' height='32' class="close-product">
+      <path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z" class="close-product"></path>
+    </svg>
+    `;
+    $cartContainer.appendChild(shoppingCartProduct);
   } catch(error) {
     alert(error);
   }
@@ -537,7 +565,7 @@ window.addEventListener('DOMContentLoaded', loadContent(), false);
 window.addEventListener('resize', resizeHandler);
 
 document.addEventListener('click', (e) => {
-  console.log(e.target)
+  // console.log(e.target)
   if(e.target.matches('.categories')) {
     const categoryId = e.target.id;
     getProductByCategory(categoryId);
@@ -558,6 +586,8 @@ document.addEventListener('click', (e) => {
       $cartIconCount.classList.remove('invisible');
     }
     $cartIconNumber.innerText = itemsInShoppingCart;
+    const productId = e.target.id;
+    addItemToCart(productId);
   }
   if(e.target.matches('.cart-icon, .cart-icon *')) {
     toggleShoppingCart();
