@@ -54,7 +54,7 @@
           <path d="M12.73,27.18c0,1.52-1.23,2.81-2.71,2.82-1.47,.02-2.73-1.27-2.74-2.79-.01-1.52,1.23-2.81,2.71-2.82,1.47-.02,2.73,1.27,2.74,2.8Z"/>
           <path d="M29.11,27.2c0,1.52-1.26,2.81-2.73,2.8-1.48,0-2.73-1.3-2.72-2.81,0-1.52,1.26-2.81,2.73-2.8,1.48,0,2.73,1.3,2.72,2.82Z"/>
         </svg>
-        <div class="cart-icon__count">
+        <div class="cart-icon__count cart-icon__count--js invisible">
           <p class="cart-icon__number--js"></p>
         </div>
       </button>
@@ -225,7 +225,7 @@
       <section class="cards-container cards-container--js">
       </section>
   
-      <aside class="product-detail product-detail--js invisible">
+      <aside class="aside product-detail--js invisible">
         <div class="product-detail-info">
           <div class="product-detail__img">
             <img alt="" class="product-detail__image">
@@ -244,6 +244,25 @@
               <path d="M29.11,27.2c0,1.52-1.26,2.81-2.73,2.8-1.48,0-2.73-1.3-2.72-2.81,0-1.52,1.26-2.81,2.73-2.8,1.48,0,2.73,1.3,2.72,2.82Z"/>
             </svg> Add to cart
           </button>
+        </div>
+      </aside>
+      
+      <aside class="aside shopping-cart--js close invisible">
+        <div class="shopping-cart">
+          <p class="text--title">Carro de Compras</p>
+          <div class="shopping-cart__product">
+            <figure>
+                <img src="https://images.pexels.com/photos/4041391/pexels-photo-4041391.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Esencia">
+            </figure>
+            <p>Aceite de Lavanda</p>
+            <p>$15.00</p>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox='0 0 24 24' width='32' height='32' class="close-product"><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z" class="close-product"></path></svg>
+          </div>
+          <div class="shopping-cart__footer">
+            <p>Total</p>
+            <p>$precio</p>
+          </div>
+          <button class="primary-button">Ir a Pagar</button>
         </div>
       </aside>  
     </main>

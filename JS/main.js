@@ -1,3 +1,4 @@
+
 let isInHome = true;
 let isUserLoggedIn = false;
 let itemsInShoppingCart = 0;
@@ -36,7 +37,9 @@ const $newPassword = document.getElementById('new-password1');
 const $confirmNewPassword = document.getElementById('new-password2');
 const $cardsContainer = document.querySelector('.cards-container--js');
 const $productDetail = document.querySelector('.product-detail--js');
+const $cartIconCount = document.querySelector('.cart-icon__count--js');
 const $cartIconNumber = document.querySelector('.cart-icon__number--js');
+const $shoppingCart = document.querySelector('.shopping-cart--js');
 
 const api = axios.create({
   baseURL: 'http://api.escuelajs.co/api/v1',
@@ -44,6 +47,7 @@ const api = axios.create({
     'Content-Type': 'application/json;charset=utf-8',
   }
 });
+
 
 function upperCase(word) {
   return word[0].toUpperCase() + word.substring(1);
@@ -81,7 +85,7 @@ function renderCategories(items) {
 const getCategories = async() => {
   try {
     const response = await api.get('/categories');
-    // const response = await api.get('https://api.escuelajs.co/api/v1/categories');
+    console.log(response.data)
     renderCategories(response.data);
   } catch(error) {
     alert(error);
@@ -143,7 +147,7 @@ function renderProducts(products) {
 const getAllProducts = async() => {
   try {
     const response = await api.get('/products');
-    // const response = await api.get('https://api.escuelajs.co/api/v1/products');
+    console.log()
     renderProducts(response.data);
   } catch(error) {
     alert(error);
@@ -182,6 +186,7 @@ function renderProductDetail(product) {
 function openProductDetail(product) {
   renderProductDetail(product);
   $productDetail.classList.remove('invisible');
+  toggleNavbarNav('inactive');
 }
 
 const getProduct = async(id) => {
@@ -462,6 +467,17 @@ function closeEditMyAccount() {
   $confirmNewPassword.value = '';
 }
 
+function toggleShoppingCart() {
+  const isShoppingCartOpen = !$shoppingCart.classList.contains('close');
+  if (isShoppingCartOpen) {
+    $shoppingCart.classList.add('close');
+    $shoppingCart.classList.add('invisible');
+  } else {
+    $shoppingCart.classList.remove('close');
+    $shoppingCart.classList.remove('invisible');
+  }
+}
+
 function resizeHandler() {
   toggleScrollY('active');
   toggleCardsContanier('visible');
@@ -500,20 +516,20 @@ function goToHome() {
   userLoggedIn();
 }
 
-// const deletProduct = async() => {
-//   try {
-//     const response = await api.delete('https://api.escuelajs.co/api/v1/products/201')
-//   } catch(error) {
-//     alert(error);
-//   }
-// }
+const deletProduct = async() => {
+  try {
+    // const response = await api.delete('https://api.escuelajs.co/api/v1/products/201');
+  } catch(error) {
+    alert(error);
+  }
+}
 
 function loadContent() {
   getCategories();
   getAllProducts();
   resizeHandler();
   userLoggedIn();
-  // deletProduct();
+  deletProduct();
 }
 
 window.addEventListener('DOMContentLoaded', loadContent(), false);
@@ -521,7 +537,7 @@ window.addEventListener('DOMContentLoaded', loadContent(), false);
 window.addEventListener('resize', resizeHandler);
 
 document.addEventListener('click', (e) => {
-  // console.log(e.target)
+  console.log(e.target)
   if(e.target.matches('.categories')) {
     const categoryId = e.target.id;
     getProductByCategory(categoryId);
@@ -531,13 +547,19 @@ document.addEventListener('click', (e) => {
     toggleScrollY('inactive');
     getProduct(productId);
   }
-  if(e.target.matches('.add-to-cart, .add-to-cart *')) {
-    itemsInShoppingCart += 1;
-    $cartIconNumber.innerText = itemsInShoppingCart;
-    console.log(itemsInShoppingCart) 
-  }
   if(e.target.matches('.close-product')) {
     $productDetail.classList.add('invisible');
     toggleScrollY('active');
+    toggleNavbarNav('active');
+  }
+  if(e.target.matches('.add-to-cart, .add-to-cart *')) {
+    itemsInShoppingCart += 1;
+    if(itemsInShoppingCart === 1) {
+      $cartIconCount.classList.remove('invisible');
+    }
+    $cartIconNumber.innerText = itemsInShoppingCart;
+  }
+  if(e.target.matches('.cart-icon, .cart-icon *')) {
+    toggleShoppingCart();
   }
 });
