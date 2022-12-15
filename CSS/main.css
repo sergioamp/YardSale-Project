@@ -142,11 +142,11 @@ main {
 }
 
 .margin--right {
-  margin-right: 0.75em;
+  margin-right: 1em;
 }
 
 .margin--left {
-  margin-left: 0.75em;
+  margin-left: 1em;
 }
 
 .margin--top0_8 {
@@ -224,7 +224,8 @@ main {
 }
 
 .navbar-nav {
-  padding: 0.15em 1.5em;
+  padding-left: 1em;
+  padding-right: 2em;
   height: 1.875em;
 }
 
@@ -484,7 +485,7 @@ main {
   place-content: center;
   place-self: center;
   border: 0.125em solid var(--primary-background);
-  padding: 1.25em 0.75em;
+  padding: 1.25em 1em;
   background-color: var(--tertiary--backgorund);
   z-index: 8;
   overflow: hidden;
@@ -850,8 +851,7 @@ main {
   }
   
   .mobile-menu--close {
-    /* top: -35rem; */
-    top: 21.875em;
+    top: -22em;
     animation: close 0.4s linear;
   }
 
