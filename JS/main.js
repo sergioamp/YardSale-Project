@@ -58,37 +58,39 @@ function upperCase(word) {
 
 function renderCategories(items) {
   items.forEach((item) => {
-    const liItem1 = document.createElement('li');
+    if(item.id <= 5) {
+      const liItem1 = document.createElement('li');
 
-    const aItem1 = document.createElement('a');
-    aItem1.setAttribute('href', '#body');
-    aItem1.classList.add('margin--right', 'main-text');
-    aItem1.classList.add('categories');
-    aItem1.innerText = upperCase(item.name);
-    aItem1.setAttribute('id', item.id);
+      const aItem1 = document.createElement('a');
+      aItem1.setAttribute('href', '#body');
+      aItem1.classList.add('margin--right', 'main-text');
+      aItem1.classList.add('categories');
+      aItem1.innerText = upperCase(item.name);
+      aItem1.setAttribute('id', item.id);
+  
+      $categoriesDesktop.appendChild(liItem1);
+      liItem1.appendChild(aItem1);
+  
+      const liItem2 = document.createElement('li');
+      liItem2.classList.add('categories--item');
+  
+      const aItem2 = document.createElement('a');
+      // aItem2.setAttribute('href', 'javascript:void(0)');
+      aItem2.setAttribute('href', '#body');
+      aItem2.classList.add('main-text', 'categories');
+      aItem2.innerText = upperCase(item.name);
+      aItem2.setAttribute('id', item.id);
+      
+      $mobileMenuCategories.appendChild(liItem2);
+      liItem2.appendChild(aItem2);
+    }
 
-    $categoriesDesktop.appendChild(liItem1);
-    liItem1.appendChild(aItem1);
-
-    const liItem2 = document.createElement('li');
-    liItem2.classList.add('categories--item');
-
-    const aItem2 = document.createElement('a');
-    // aItem2.setAttribute('href', 'javascript:void(0)');
-    aItem2.setAttribute('href', '#body');
-    aItem2.classList.add('main-text', 'categories');
-    aItem2.innerText = upperCase(item.name);
-    aItem2.setAttribute('id', item.id);
-    
-    $mobileMenuCategories.appendChild(liItem2);
-    liItem2.appendChild(aItem2);
   });
 }
 
 const getCategories = async() => {
   try {
     const response = await api.get('/categories');
-    console.log(response.data)
     renderCategories(response.data);
   } catch(error) {
     alert(error);
