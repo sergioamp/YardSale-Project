@@ -37,6 +37,7 @@ const $newPassword = document.getElementById('new-password1');
 const $confirmNewPassword = document.getElementById('new-password2');
 const $cardsContainer = document.querySelector('.cards-container--js');
 const $productDetail = document.querySelector('.product-detail--js');
+const $addToCart = document.querySelector('.add-to-cart--js');
 const $cartIconCount = document.querySelector('.cart-icon__count--js');
 const $cartIconNumber = document.querySelector('.cart-icon__number--js');
 const $shoppingCart = document.querySelector('.shopping-cart--js');
@@ -139,10 +140,9 @@ function renderProducts(products) {
       cardName.innerText = product.title;
   
       $cardsContainer.appendChild(productCard);
+      productCard.appendChild(cardIcon);
       productCard.appendChild(cardContainer);
-      cardContainer.appendChild(cardImages);
-      cardImages.appendChild(cardImg);
-      cardImages.appendChild(cardIcon);
+      cardContainer.appendChild(cardImg);
       cardContainer.appendChild(cardPrice);
       cardContainer.appendChild(cardName);
     }
@@ -187,6 +187,8 @@ function renderProductDetail(product) {
 
   const productDescription = document.querySelector('.product-detail__description');
   productDescription.innerText = product.description;
+
+  $addToCart.setAttribute('id', product.id);
 
 }
 
@@ -235,7 +237,6 @@ function toggleCardsContanier(state) {
     $cardsContainer.classList.add('invisible');
   }
 }
-
 
 function toggleNavbarNav(state) {
   if(state == 'inactive') {
@@ -303,7 +304,6 @@ function toggleScrollY(state) {
     document.body.classList.remove('scroll--inactive')
   }
 }
-
 
 function mediumAndLargeScreens() {
   toggleLogoSize('medium');
@@ -502,9 +502,11 @@ function toggleShoppingCart() {
   if (isShoppingCartOpen) {
     $shoppingCart.classList.add('close');
     $shoppingCart.classList.add('invisible');
+    toggleNavbarNav('active');
   } else {
     $shoppingCart.classList.remove('close');
     $shoppingCart.classList.remove('invisible');
+    toggleNavbarNav('inactive');
   }
 }
 
@@ -567,7 +569,7 @@ window.addEventListener('DOMContentLoaded', loadContent(), false);
 window.addEventListener('resize', resizeHandler);
 
 document.addEventListener('click', (e) => {
-  // console.log(e.target)
+  console.log(e.target)
   if(e.target.matches('.categories')) {
     const categoryId = e.target.id;
     getProductByCategory(categoryId);
@@ -589,6 +591,7 @@ document.addEventListener('click', (e) => {
     }
     $cartIconNumber.innerText = itemsInShoppingCart;
     const productId = e.target.id;
+    console.log(productId)
     addItemToCart(productId);
   }
   if(e.target.matches('.cart-icon, .cart-icon *')) {
