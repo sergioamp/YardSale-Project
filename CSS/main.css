@@ -620,21 +620,12 @@ main {
   background-color: rgba(255, 255, 255, 0.95);
 }
 
-/* .product-detail-info {
+.product-detail-info {
   display: grid;
   grid-template-rows: repeat(4, auto);
   border-radius: 1em;
   width: 20em;
   background-color: var(--primary-background);
-} */
-
-.product-detail-info {
-  position: relative;
-  border-radius: 1.5em;
-  min-width: 14em;
-  width: 25vw;
-  background-color: var(--primary-background);
-  cursor: pointer;
 }
 
 .product-detail__img {
