@@ -112,3 +112,51 @@ body {
 }
 
 
+
+
+
+/*------------------------------------*\
+  #NAVBAR
+\*------------------------------------*/
+
+.navbar {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: auto;
+  background-color: var(--primary-background);
+  z-index: 10;
+}
+
+.navbar__brand {
+  display: flex;
+  justify-content: center;
+  border-bottom: 0.125em solid var(--border);
+  padding: 0.5em 0;
+  padding-left: 1em;
+  padding-right: 2em;
+  height: auto;
+}
+
+
+
+
+
+/*------------------------------------*\
+  #MEDIA QUERIES
+\*------------------------------------*/
+
+@media (max-width: 460px) {
+  .logo--size {
+    height: 3.125em;
+  }
+}
+
+@media (min-width: 460px) {
+  .logo--size {
+    height: 2.5em;
+  }
+}
+
+
