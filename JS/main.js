@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 let isInHome = true;
 
 // const $menu = document.querySelector('.menu--js');
@@ -63,7 +61,7 @@ const getCategories = async() => {
 //     if (window.matchMedia("(max-width: 460px)").matches) {
 //       setMenuSize('mobile');
 //       console.log('mobile')
-//     } 
+//     }
 //     else if (window.matchMedia("(max-width: 760px)").matches) {
 //       setMenuSize('tablet');
 //       console.log('tablet')
@@ -72,7 +70,7 @@ const getCategories = async() => {
 //       setMenuSize('desktop');
 //       console.log('desktop')
 //     }
-//   } 
+//   }
 // }
 
 function loadContent() {
@@ -83,4 +81,3 @@ function loadContent() {
 window.addEventListener('DOMContentLoaded', loadContent(), false);
 
 // window.addEventListener('resize', resizeHandler);
->>>>>>> d2d3f414228807367d737b65ffddbaebc49950f0
