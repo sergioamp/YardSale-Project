@@ -110,3 +110,32 @@ body {
   font-size: 100%;
   color: var(--secondary-text);
 }
+
+
+
+
+
+/*------------------------------------*\
+  #NAVBAR
+\*------------------------------------*/
+
+.navbar {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100hw;
+}
+
+.navbar__brand {
+  border-bottom: 0.125em solid var(--border);
+  padding: 0.5em 0;
+  padding-left: 1em;
+  padding-right: 2em;
+  background-color: var(--primary-background);
+}
+
+.navbar__brand--size {
+  margin: 0 auto;
+  height: 3.125em;
+}
