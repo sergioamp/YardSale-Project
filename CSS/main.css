@@ -125,8 +125,6 @@ body {
   flex-direction: column;
   width: 100vw;
   height: auto;
-  background-color: var(--primary-background);
-  z-index: 10;
 }
 
 .navbar__brand {
@@ -137,6 +135,55 @@ body {
   padding-left: 1em;
   padding-right: 2em;
   height: auto;
+  background-color: var(--primary-background);
+  z-index: 1;
+}
+
+.logo--size {
+  height: 2.5em;
+}
+
+.menu {
+  display: flex;
+  padding-left: 1em;
+  padding-right: 2em;
+  width: 100vw;
+}
+
+/* .menu--mobile {
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  font-size: var(--xlg);
+  background-color: var(--tertiary--backgorund);
+}
+
+.menu--tablet {
+  flex-direction: column;
+  border: 0.125em solid var(--primary-background);
+  border-top: transparent;
+  border-radius: 0 0 1em 1em;
+  background-color: var(--tertiary--backgorund);
+}
+
+.menu--desktop {
+  padding-right: 2em;
+  height: 1.875em;
+  background-color: var(--primary-background);
+} */
+
+.categories {
+  display: flex;
+  justify-content: flex-start;
+  margin: auto 0;
+  width: 65vw;
+}
+
+.user-nav {
+  display: flex;
+  justify-content: flex-end;
+  margin: auto 0;
+  width: 35vw;
 }
 
 
@@ -151,12 +198,50 @@ body {
   .logo--size {
     height: 3.125em;
   }
-}
 
-@media (min-width: 460px) {
-  .logo--size {
-    height: 2.5em;
+  .menu {
+    position: fixed;
+    display: grid;
+    place-content: center;
+    place-self: center;
+    height: 100vh;
+    font-size: var(--xlg);
+    background-color: var(--tertiary--backgorund);
+  }
+  .categories, .user-nav {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    width: 100%;
+  }
+
+  .categories li, .user-nav li {
+    padding: 1em 0;
   }
 }
 
+@media (min-width: 460px) and (max-width: 760px) {
+  .menu {
+    flex-direction: column;
+    border: 0.125em solid var(--primary-background);
+    border-top: transparent;
+    border-radius: 0 0 1em 1em;
+    padding-right: 1em;
+    width: 15em;
+    background-color: var(--tertiary--backgorund);
+  }
+  .categories, .user-nav {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+}
 
+@media (min-width: 760px) {
+  .menu {
+    height: 1.875em;
+    background-color: var(--primary-background);
+  }
+}
