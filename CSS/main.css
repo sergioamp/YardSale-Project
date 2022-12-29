@@ -57,6 +57,7 @@ html {
 
 /* Desactivamos estilos por defecto de las principales etiquetas de texto */
 h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em {
+  border-bottom: none;
   font-size: 1em;
   font-weight: inherit;
   font-style: inherit;
@@ -111,6 +112,37 @@ body {
   color: var(--secondary-text);
 }
 
+.transition {
+  transition: all 0.3s ease-in-out;
+}
+
+
+
+
+
+/*------------------------------------*\
+  #GLOBAL
+\*------------------------------------*/
+
+.text--hover:hover {
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.text--primary-hover:hover {
+  border-bottom: 0.1em solid var(--primary-text);
+}
+
+.text--secondary-hover:hover {
+  border-bottom: 0.1em solid var(--primary-color);
+}
+
+.grid--centered {
+  display: grid;
+  place-items: center;
+  gap: 0.5em;
+}
+
 
 
 
@@ -124,7 +156,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 100vw;
-  height: 100hw;
+  height: 100vh;
 }
 
 .navbar__brand {
@@ -139,3 +171,21 @@ body {
   margin: 0 auto;
   height: 3.125em;
 }
+
+.menu {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  font-size: var(--xlg);
+}
+
+.menu--title {
+  font-weight: bold;
+}
+
+.menu--secondary-text {
+  color: var(--primary-color);
+}
+
+
+
