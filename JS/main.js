@@ -220,7 +220,7 @@ const addItemToCart = async(id) => {
     </figure>
     <p>${product.title}</p>
     <p>$ ${product.price}</p>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox='0 0 24 24' width='32' height='32' class="close-product">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox='0 0 24 24' width='32' height='32' class="remove-product">
       <path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z" class="close-product"></path>
     </svg>
     `;
@@ -503,10 +503,12 @@ function toggleShoppingCart() {
     $shoppingCart.classList.add('close');
     $shoppingCart.classList.add('invisible');
     toggleNavbarNav('active');
+    toggleScrollY('active');
   } else {
     $shoppingCart.classList.remove('close');
     $shoppingCart.classList.remove('invisible');
     toggleNavbarNav('inactive');
+    toggleScrollY('inactive');
   }
 }
 
@@ -591,7 +593,6 @@ document.addEventListener('click', (e) => {
     }
     $cartIconNumber.innerText = itemsInShoppingCart;
     const productId = e.target.id;
-    console.log(productId)
     addItemToCart(productId);
   }
   if(e.target.matches('.cart-icon, .cart-icon *')) {
