@@ -124,66 +124,75 @@ body {
   display: flex;
   flex-direction: column;
   width: 100vw;
-  height: auto;
+}
+
+.navbar--height {
+  height: 100vh;
 }
 
 .navbar__brand {
-  display: flex;
-  justify-content: center;
   border-bottom: 0.125em solid var(--border);
   padding: 0.5em 0;
   padding-left: 1em;
   padding-right: 2em;
   height: auto;
+  width: 100vw;
   background-color: var(--primary-background);
   z-index: 1;
 }
 
-.logo--size {
-  height: 2.5em;
+.navbar__brand--size {
+  margin: 0 auto;
+  height: 3.125em;
 }
 
 .menu {
   display: flex;
   padding-left: 1em;
-  padding-right: 2em;
+  padding-right: 1em;
   width: 100vw;
 }
 
-/* .menu--mobile {
+.menu--screen-size {
   flex-direction: column;
-  width: 100vw;
+  align-items: center;
   height: 100vh;
   font-size: var(--xlg);
   background-color: var(--tertiary--backgorund);
 }
 
-.menu--tablet {
+.menu__content {
+  display: flex;
   flex-direction: column;
-  border: 0.125em solid var(--primary-background);
-  border-top: transparent;
-  border-radius: 0 0 1em 1em;
-  background-color: var(--tertiary--backgorund);
+  align-items: center;
 }
 
-.menu--desktop {
-  padding-right: 2em;
-  height: 1.875em;
-  background-color: var(--primary-background);
-} */
-
-.categories {
-  display: flex;
-  justify-content: flex-start;
-  margin: auto 0;
-  width: 65vw;
+.categories--text {
+  border-bottom: 0 solid var(--primary-background);
+  transition: all 0.3s ease-in-out;
 }
 
-.user-nav {
-  display: flex;
-  justify-content: flex-end;
-  margin: auto 0;
-  width: 35vw;
+.categories--text:hover {
+  border-bottom: 0.1em solid var(--primary-text);
+  font-weight: 400;
+  color: var(--primary-text);
+  letter-spacing: 0.5px;
+}
+
+.user-nav--text {
+  border-bottom: 0 solid var(--primary-background);
+  color: var(--primary-color);
+  transition: all 0.3s ease-in-out;
+}
+
+.user-nav--text:hover {
+  border-bottom: 0.1em solid var(--primary-color);
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.titulo {
+  font-weight: bold;
 }
 
 
@@ -194,54 +203,10 @@ body {
   #MEDIA QUERIES
 \*------------------------------------*/
 
-@media (max-width: 460px) {
-  .logo--size {
-    height: 3.125em;
-  }
-
-  .menu {
-    position: fixed;
-    display: grid;
-    place-content: center;
-    place-self: center;
-    height: 100vh;
-    font-size: var(--xlg);
-    background-color: var(--tertiary--backgorund);
-  }
-  .categories, .user-nav {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    width: 100%;
-  }
-
-  .categories li, .user-nav li {
-    padding: 1em 0;
-  }
-}
-
 @media (min-width: 460px) and (max-width: 760px) {
-  .menu {
-    flex-direction: column;
-    border: 0.125em solid var(--primary-background);
-    border-top: transparent;
-    border-radius: 0 0 1em 1em;
-    padding-right: 1em;
-    width: 15em;
-    background-color: var(--tertiary--backgorund);
-  }
-  .categories, .user-nav {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-  }
+
 }
 
 @media (min-width: 760px) {
-  .menu {
-    height: 1.875em;
-    background-color: var(--primary-background);
-  }
+
 }

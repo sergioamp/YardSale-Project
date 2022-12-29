@@ -1,6 +1,6 @@
 let isInHome = true;
 
-const $menu = document.querySelector('.menu--js');
+// const $menu = document.querySelector('.menu--js');
 const $categories = document.querySelector('.categories--js');
 
 const api = axios.create({
@@ -16,15 +16,18 @@ function firstLetterToupperCase(word) {
 
 function renderCategories(items) {
   items.forEach((item) => {
-    const liItem = document.createElement('li');
+    if(item.id <= 5) {
+      const liItem = document.createElement('li');
 
-    const aItem = document.createElement('a');
-    aItem.setAttribute('href', '#body');
-    aItem.innerText = firstLetterToupperCase(item.name);
-    aItem.setAttribute('id', item.id);
+      const aItem = document.createElement('a');
+      aItem.setAttribute('href', '#body');
+      aItem.innerText = firstLetterToupperCase(item.name);
+      aItem.setAttribute('id', item.id);
+      aItem.classList.add('categories--text');
 
-    $categories.appendChild(liItem);
-    liItem.appendChild(aItem);
+      $categories.appendChild(liItem);
+      liItem.appendChild(aItem);
+    }
   });
 }
 
@@ -37,40 +40,44 @@ const getCategories = async() => {
   }
 }
 
-function setMenuSize(size) {
-  if(size == 'mobile') {
-    $menu.classList.add('menu--mobile');
-    $menu.classList.remove('menu--tablet');
-    $menu.classList.remove('menu--desktop');
-  } else if(size == 'tablet'){
-    $menu.classList.add('menu--tablet');
-    $menu.classList.remove('menu--mobile');
-    $menu.classList.remove('menu--desktop');
-  } else if(size == 'desktop'){
-    $menu.classList.add('menu--desktop');
-    $menu.classList.remove('menu--mobile');
-    $menu.classList.remove('menu--tablet');
-  }
-}
+// function setMenuSize(size) {
+//   if(size == 'mobile') {
+//     $menu.classList.add('menu--mobile');
+//     $menu.classList.remove('menu--tablet');
+//     $menu.classList.remove('menu--desktop');
+//   } else if(size == 'tablet'){
+//     $menu.classList.add('menu--tablet');
+//     $menu.classList.remove('menu--mobile');
+//     $menu.classList.remove('menu--desktop');
+//   } else if(size == 'desktop'){
+//     $menu.classList.add('menu--desktop');
+//     $menu.classList.remove('menu--mobile');
+//     $menu.classList.remove('menu--tablet');
+//   }
+// }
 
-function resizeHandler() {
-  if(isInHome) {
-    if (window.matchMedia("(max-width: 460px)").matches) {
-      setMenuSize('mobile');
-    } 
-    else if (window.matchMedia("(max-width: 760px)").matches) {
-      setMenuSize('tablet');
-    }
-    else {
-      setMenuSize('desktop');
-    }
-  } 
-}
+// function resizeHandler() {
+//   if(isInHome) {
+//     if (window.matchMedia("(max-width: 460px)").matches) {
+//       setMenuSize('mobile');
+//       console.log('mobile')
+//     } 
+//     else if (window.matchMedia("(max-width: 760px)").matches) {
+//       setMenuSize('tablet');
+//       console.log('tablet')
+//     }
+//     else {
+//       setMenuSize('desktop');
+//       console.log('desktop')
+//     }
+//   } 
+// }
 
 function loadContent() {
   getCategories();
+  resizeHandler();
 }
 
 window.addEventListener('DOMContentLoaded', loadContent(), false);
 
-window.addEventListener('resize', resizeHandler);
+// window.addEventListener('resize', resizeHandler);
