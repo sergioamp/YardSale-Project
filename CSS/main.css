@@ -112,10 +112,6 @@ body {
   color: var(--secondary-text);
 }
 
-.transition {
-  transition: all 0.3s ease-in-out;
-}
-
 
 
 
@@ -141,6 +137,10 @@ body {
   display: grid;
   place-items: center;
   gap: 0.5em;
+}
+
+.transition {
+  transition: all 0.3s ease-in-out;
 }
 
 
@@ -185,6 +185,86 @@ body {
 
 .menu--secondary-text {
   color: var(--primary-color);
+}
+
+.icons {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5em 1em;
+  width: 100vw;
+  background-color: var(--primary-background);
+  z-index: 1;
+}
+
+.icon--size {
+  font-size: 200%;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: none;
+}
+
+.hambuguer-icon {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.hambuguer-icon__line {
+  position: absolute;
+  border-radius: 0.25em;
+  width: 1.5em;
+  height: 0.25em;
+  background-color: var(--primary-text);
+}
+
+.hambuguer-icon:hover .hambuguer-icon__line {
+  background-color: var(--primary-color);
+}
+
+.hambuguer-icon__line:nth-child(1) {
+  transform: translateY(-0.5em);
+}
+
+.hambuguer-icon__line:nth-child(3) {
+  transform: translateY(0.5em);
+}
+
+.icon—pressed .hambuguer-icon__line:nth-child(1) {
+  transform: rotate(45deg);
+}
+
+.icon—pressed .hambuguer-icon__line:nth-child(2) {
+  background: transparent;
+}
+
+.icon—pressed .hambuguer-icon__line:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+.cart-icon__svg {
+  width: 1.5em;
+  height: 1.5em;
+  fill: var(--primary-text);
+}
+
+.cart-icon:hover .cart-icon__svg {
+  fill: var(--primary-color);
+}
+
+.cart-icon__count {
+  border-radius: 1em;
+  width: 1.5em;
+  height: 1.5em;
+  background-color: var(--secondary-background);
+}
+
+.cart-icon:hover .cart-icon__count {
+  background-color: var(--secondary-color);
+  color: var(--tertiary-color);
 }
 
 
